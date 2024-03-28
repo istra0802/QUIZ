@@ -1,0 +1,86 @@
+.play-container {
+    padding: 12px;
+    width: 428px;
+    min-height: 100vh;
+    min-height: 100vh !important;
+    margin: 0 auto;
+    position: relative;
+    background-color: #0e0a5f;
+    z-index: 2;
+    height: auto;
+}
+
+.play-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #fff;
+    position: relative;
+    border-radius: 16px;
+    background: #1f237e;
+    margin-top: 0;
+    padding: 16px 30px 8px;
+    min-height: 200px;
+    margin-bottom: 16px;
+}
+
+.play-heading {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.play-text {
+    text-align: center;
+    margin-bottom: 12px;
+    margin-top: 2px;
+    font-size: 15px;
+    color: #b6b3ff;
+    line-height: 22px;
+}
+
+.ani {
+    animation-duration: 1s;
+    animation-duration: var(--animate-duration);
+    animation-fill-mode: both;
+}
+
+.shine {
+    position: relative;
+    overflow: hidden;
+
+    &::before{
+        content: "";
+    position: absolute;
+    height: 100%;
+    width: 22px;
+    background-color: hsla(0, 0%, 100%, .2);
+    transform: skewX(-15deg);
+    opacity: .6;
+    filter: blur(5px);
+    left: -10%;
+    top: 1px;
+    animation: playNow_shine__4E_OE 1.8s ease infinite;
+    }
+}
+
+.btn {
+    background: #f27c2c;
+    padding: 0 16px;
+    height: 56px;
+    width: 100%;
+    line-height: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 16px;
+    margin-top: 8px;
+    line-height: 56px;
+    cursor: pointer;
+}
