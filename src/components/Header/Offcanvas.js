@@ -11,7 +11,6 @@ const CustomOffcanvas = () => {
       tabIndex="-1"
       id="offcanvasExample"
       aria-labelledby="offcanvasExampleLabel"
-      style={{ left: "722px" }}
     >
       <div className="offcanvas-header">
         <h5 className="offcanvas-title" id="offcanvasExampleLabel">

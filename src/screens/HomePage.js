@@ -25,7 +25,9 @@ export default function HomePage() {
           opacity: 0.2,
           zIndex: 1,
         }}
-      ></div>
+      >
+        
+      </div>
       <div className="home">
         <Header handleShow={handleShowValue} ></Header>
         <CustomOffcanvas />

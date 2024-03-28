@@ -24,12 +24,25 @@ export default function LoginPage() {
           <span className="login-signup"> Sign Up</span>
         </p>
       </div>
-      <div className="list-section">
-        <h2 className="list-heading" style={{ fontWeight: "500" }}>Play Quiz and Win Coins!</h2>
-        <span className="list-heading-underline "></span>
-        <div className="list-point">
-        Get coins on the completion of each quiz.
-        </div>
+      <div className="list-section list-container">
+        <h2 className="list-heading">Play Quiz and Win Coins!</h2>
+        <ul className="list-point">
+          <li className="list-line">
+          Get coins on the completion of each quiz.
+          </li>
+          <li className="list-line">
+          Upgrade your skills with our top quizzes.
+          </li>
+          <li className="list-line">
+          We have many top trending categories like Cricket, World, India, Business, loan, insurance & many more!
+          </li>
+          <li className="list-line">
+          Millions of quiz admirer like you showed trust on us.
+          </li>
+          <li className="list-line">
+          Challenge lakhs of players from across the world!
+          </li>
+        </ul>
       </div>
     </>
   );
