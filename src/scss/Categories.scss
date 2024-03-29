@@ -1,67 +1,114 @@
 .categories {
+  width: calc(100% - 40px);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  // white-space: nowrap;
+  transition: all 0.2s;
+  user-select: none;
+  cursor: pointer;
+  border-right: 1px solid #282d93;
+  position: relative;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border-radius: 0 8px 8px 0;
+  margin-left: -12px;
+}
 
-    width: calc(100% - 40px);
-    overflow-x: hidden;
-    overflow-y: hidden;
-    // white-space: nowrap;
-    transition: all .2s;
-    user-select: none;
-    cursor: pointer;
-    border-right: 1px solid #282d93;
-    position: relative;
-    margin-top: 8px;
-    margin-bottom: 16px;
-    border-radius: 0 8px 8px 0;
-    margin-left: -12px;
-  }
-  
-  .category-list {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    margin-top: 0;
-    margin-bottom: 0;
-    border-radius: 8px;
-    padding: 0;
-    border-right: 0 solid #282d93;
-    margin-left: 0;    
-  }
-  
-  .category-list li {
-    width: auto;
-    display: flex;
-    flex-wrap: nowrap;
-    min-width: auto;
-    white-space: nowrap;
-    margin-right: 6px;
-  }
-  
-  .category-list li:first-child{
-    margin-left: 12px;
-  }
+.category-list {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 8px;
+  padding: 0;
+  border-right: 0 solid #282d93;
+  margin-left: 0;
+}
 
+.category-list li {
+  width: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  min-width: auto;
+  white-space: nowrap;
+  margin-right: 6px;
+}
 
-.category-list li a.category-link{
-    border-bottom: 0 solid #f5f6ff;
-    color: #f5f6ff;
-    background: #f27c2c;
+.category-list li:first-child {
+  margin-left: 12px;
+}
+
+.category-list li a.category-link {
+  border-bottom: 0 solid #f5f6ff;
+  color: #f5f6ff;
+  background: #f27c2c;
 }
 
 .category-list li a {
-    display: flex;
-    flex-wrap: wrap;
-    flex-wrap: nowrap;
-    justify-content: center;
-    width: 100%;
-    color: #a6b7e5;
-    padding: 8px 15px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: .6s;
-    border-radius: 8px;
-    border: 1px solid #282d93;
-    text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+  color: #a6b7e5;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.6s;
+  border-radius: 8px;
+  border: 1px solid #282d93;
+  text-decoration: none;
 }
 
-  
-  
+.search {
+  background: #070255;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+// .search_wrapper{
+//   background: #1f237e;
+//   width: 100%;
+//   padding: 16px;
+//   position: relative;
+//   height: 100%;
+//   -webkit-font-smoothing: antialiased;
+//   transform-origin: 0 0;
+//   transform: translate(0);
+//   transition: transform .5s cubic-bezier(.77,.2,.05,1);
+// }
+// .search_searchHeader{
+//   margin-bottom: 16px;
+//   display: flex;
+//   align-items: center;
+// }
+// .search_back{
+//   margin-right: 12px;
+//     cursor: pointer;
+//     background: #070255a8;
+//     height: 42px;
+//     width: 42px;
+//     border-radius: 50px;
+//     padding: 6px;
+// }
+// .search_input{
+//   width:100%;
+//   position: relative;
+// }
+// .search_input_1{
+//   border-radius: 90px;
+//   border: 1px solid #e3e5e8;
+//   background: #fff url(https://images.atmequiz.com/img/searcg_gray.svg) no-repeat top 11px left 18px;
+//   box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
+//   height: 46px;
+//   padding: 0 50px;
+//   width: 100%;
+//   outline: none;
+// }

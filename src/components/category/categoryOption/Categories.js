@@ -1,47 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../../scss/Categories.scss";
-import Carousel from "react-multi-carousel";
-import { responsive } from "./responsive";
 import "react-multi-carousel/lib/styles.css";
-
+import { Link } from "react-router-dom";
 
 export default function Categories() {
- 
-    
+
+  const categories = [
+    { name: "CRICKET", href: "cricket-quiz" },
+    { name: "Contests", href: "/" },
+    { name: "10+2", href: "102-quiz" },
+    { name: "BANK PO EXAM", href: "bank-po-exam-quiz" },
+    { name: "BIRDS AND ANIMALS", href: "birds-and-animals-quiz" },
+    { name: "BOLLYWOOD", href: "bollywood-quiz" },
+    { name: "BRAIN TEASERS", href: "brain-teasers-quiz" },
+    { name: "BUSINESS", href: "business-quiz" },
+    { name: "ENGLISH GRAMMAR", href: "english-grammer-quiz" },
+    { name: "FILL IN THE BLANKS", href: "fill-in-the-blanks-quiz" },
+    { name: "FILM AND CELEBRITY", href: "film-and-celebrity-quiz" },
+    { name: "GEOGRAPHY", href: "geography-quiz" },
+    { name: "GK", href: "gk-quiz" },
+    { name: "HINDI & ENGLISH", href: "hindi-and-english-quiz" },
+    { name: "HISTORY", href: "history-quiz" },
+    { name: "INDIA", href: "india-quiz" },
+    { name: "IPL", href: "ipl-quiz" },
+    { name: "LITERATURE", href: "literature-quiz" },
+    { name: "MATH", href: "math-quiz" },
+    { name: "POLITICS", href: "politics-quiz" },
+    { name: "SCIENCE", href: "science-quiz" },
+    { name: "SPORTS", href: "sports-quiz" },
+    { name: "SSC", href: "ssc-quiz" },
+    { name: "TECH", href: "tech-quiz" },
+    { name: "WORLD", href: "world-quiz" },
+  ];
+
   return (
     <div>
-      <div className="categories">
      
-       <Carousel responsive={responsive}>
-        <ul className="category-list">
-          <li><a className="category-link" href="cricket-quiz">CRICKET</a></li>
-          <li><a  href="/">Contests</a></li>
-          <li><a  href="102-quiz">10+2</a></li>
-          <li><a  href="bank-po-exam-quiz">BANK PO EXAM</a></li>
-          <li><a  href="birds-and-animals-quiz">BIRDS AND ANIMALS</a></li>
-          <li><a  href="bollywood-quiz">BOLLYWOOD</a></li>
-          <li><a  href="brain-teasers-quiz">BRAIN TEASERS</a></li>
-          <li><a  href="business-quiz">BUSINESS</a></li>
-          <li><a  href="english-grammer-quiz">ENGLISH GRAMMAR</a></li>
-          <li><a  href="fill-in-the-blanks-quiz">FILL IN THE BLANKS</a></li>
-          <li><a  href="film-and-celebrity-quiz">FILM AND CELEBRITY</a></li>
-          <li><a  href="geography-quiz">GEOGRAPHY</a></li>
-          <li><a  href="gk-quiz">GK</a></li>
-          <li><a  href="hindi-and-english-quiz">HINDI & ENGLISH</a></li>
-          <li><a  href="history-quiz">HISTORY</a></li>
-          <li><a  href="india-quiz">INDIA</a></li>
-          <li><a  href="ipl-quiz">IPL</a></li>
-          <li><a  href="literature-quiz">LITERATURE</a></li>
-          <li><a  href="math-quiz">MATH</a></li>
-          <li><a  href="politics-quiz">POLITICS</a></li>
-          <li><a  href="science-quiz">SCIENCE</a></li>
-          <li><a  href="sports-quiz">SPORTS</a></li>
-          <li><a  href="ssc-quiz">SSC</a></li>
-          <li><a  href="tech-quiz">TECH</a></li>
-          <li><a  href="world-quiz">WORLD</a></li>
-        </ul>   
-       </Carousel>
+      <div className="categories">
+      <ul className="category-list">
+          {/* Map through the categories array and render each category */}
+          {categories.map((category, index) => (
+            <li key={index}>
+              <a className="category-link" href={category.href}>
+                {category.name}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
+     
+
+      <div
+        className="search"
+        style={{ color: "white", height: "20px", width: "20px" }}
+      >
+        <Link to="/search">
+        <img src="https://images.atmequiz.com/img/search.svg" style={{width:"20px",height:"20px"}}></img>
+        </Link>
+      </div>
+
     </div>
   );
 }

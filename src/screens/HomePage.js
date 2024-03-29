@@ -4,10 +4,11 @@ import "../scss/HomePage.scss";
 import CategoryCard from "../components/category/categoryCard/CategoriesCard";
 import Categories from "../components/category/categoryOption/Categories";
 
+
 export default function HomePage() {
   return (
-    <div>
-      <div
+    <div className="home-container">
+      <div  
         style={{
           position: "absolute",
           top: 0,

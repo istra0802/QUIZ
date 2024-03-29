@@ -2,6 +2,7 @@ import React from "react";
 import "../../../scss/CategoriesCard.scss";
 import cricket from "../../../images/cricket1.png";
 import coin from "../../../images/coin-icon1.png";
+import { Link } from "react-router-dom";
 
 const cardData = [
   {
@@ -37,7 +38,7 @@ const cardData = [
     usersPlaying: 5804,
   },
   {
-    id: 4,
+    id: 5,
     game: "BOLLYWOOD",
     prize: "22000",
     announcement: "Winner announcement @ 1:30 pm",
@@ -45,7 +46,7 @@ const cardData = [
     usersPlaying: 5581,
   },
   {
-    id: 4,
+    id: 6,
     game: "10+2",
     prize: "22000",
     announcement: "Winner announcement @ 1:30 pm",
@@ -105,7 +106,7 @@ export default function CategoryCard() {
                   Users Playing
                 </span>
               </p>
-              <a className="btn-style" href="#">Play</a>
+              <Link className="btn-style" to="playbtn" >Play</Link>
             </div>
           </div>
         ))}
