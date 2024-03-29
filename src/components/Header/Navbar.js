@@ -1,29 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import LottieAnimation from "./LottieAnimation";
 import logo from "../../images/logo.jpg";
 import "../../scss/Navbar.scss";
 import CoinAnimation from "./CoinAnimation";
-import Drawer from "./Drawer"; // Import your Drawer component
 import "bootstrap-icons/font/bootstrap-icons.css";
+import CustomOffcanvas from "./Offcanvas";
 
 const CustomNavbar = ({ handleShow }) => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
-
   return (
     <Navbar className="header">
       <Container>
-        <div className="icon-wrapper" onClick={toggleDrawer}>
+        <Nav.Link
+          onClick={handleShow}
+          style={{ color: "white" }}
+          className="text-white"
+        >
           <i
             className="bi bi-filter-left"
             aria-hidden="true"
-            style={{ fontSize: "35px", color: "white" }}
-          ></i>
-        </div>
+            data-bs-toggle="offcanvas"
+            href="#offcanvasExample"
+            role="button"
+            aria-controls="offcanvasExample"
+            style={{ fontSize: "35px" }}
+          >
+           
+          </i>
+        </Nav.Link>
 
         <Nav.Link className="me-auto">
           <a href="/" className="logo">
@@ -36,11 +40,17 @@ const CustomNavbar = ({ handleShow }) => {
         </Nav.Link>
 
         <Nav>
-          <div className="coin" style={{ display: "flex", alignItems: "center" }}>
+          <div
+            className="coin"
+            style={{ display: "flex", alignItems: "center" }}
+          >
             <div style={{ marginRight: "5px", marginLeft: "-4px" }}>
               <CoinAnimation />
             </div>
-            <div className="text-white d-flex flex-column" style={{ textAlign: "left" }}>
+            <div
+              className="text-white d-flex flex-column"
+              style={{ textAlign: "left" }}
+            >
               <div style={{ marginBottom: "-8px" }}>0</div>
               <div style={{ fontSize: "11px" }} className="text-white">
                 Coins
@@ -53,8 +63,6 @@ const CustomNavbar = ({ handleShow }) => {
           </div>
         </Nav>
       </Container>
-      {/* Render Drawer component if isDrawerOpen is true */}
-      {isDrawerOpen && <Drawer onClose={toggleDrawer} />}
     </Navbar>
   );
 };

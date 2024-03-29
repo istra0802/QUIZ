@@ -1,9 +1,12 @@
 import React from "react";
 import "../scss/LoginPage.scss";
+import CustomOffcanvas from "../components/Header/Offcanvas";
 
 export default function LoginPage() {
   return (
-    <>
+    <div>
+      <div>
+      </div>
       <div className="login-screen">
         <h3 className="login-text" style={{ fontWeight: "700" }}>
           Login now & Play Quiz
@@ -28,22 +31,23 @@ export default function LoginPage() {
         <h2 className="list-heading">Play Quiz and Win Coins!</h2>
         <ul className="list-point">
           <li className="list-line">
-          Get coins on the completion of each quiz.
+            Get coins on the completion of each quiz.
           </li>
           <li className="list-line">
-          Upgrade your skills with our top quizzes.
+            Upgrade your skills with our top quizzes.
           </li>
           <li className="list-line">
-          We have many top trending categories like Cricket, World, India, Business, loan, insurance & many more!
+            We have many top trending categories like Cricket, World, India,
+            Business, loan, insurance & many more!
           </li>
           <li className="list-line">
-          Millions of quiz admirer like you showed trust on us.
+            Millions of quiz admirer like you showed trust on us.
           </li>
           <li className="list-line">
-          Challenge lakhs of players from across the world!
+            Challenge lakhs of players from across the world!
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }

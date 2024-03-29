@@ -1,12 +1,14 @@
 .bg {
   background: #272c93 url(https://images.atmequiz.com/img/tiger.png) no-repeat
-  right 4px bottom 4px;
+    right 4px bottom 4px;
 }
 
 .offcanvas-Header {
   background: #272c93;
   margin-top: -8px;
-  padding: 20px 24px;
+  padding-top: 20px;
+  // padding-bottom: 20px;
+  // padding: 20px 24px;
   flex-direction: column;
   text-align: center;
 }
@@ -68,61 +70,58 @@
 }
 
 .menu_items {
-    display: flex;
-    flex-wrap: wrap;
-   
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .nav_items {
-    width: 100%;
-    padding: 10px 24px;
-    color: #ffffffba;
-    display: flex;
-    align-items: center;
-
-
+  width: 100%;
+  // padding: 10px 24px;
+  color: #ffffffba;
+  display: flex;
+  align-items: center;
 }
 .nav_icon {
-    margin-right: 16px;
-    display: inline-block;
-    background: #0e0a5f;
-    width: 40px;
-    height: 40px;
-    border-radius: 50px;
-    text-align: center;
-    vertical-align: middle;
-    padding-top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin-right: 16px;
+  display: inline-block;
+  background: #0e0a5f;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .offcanvas_connect {
-    display: flex;
-    flex-wrap: wrap;
-    // font-size: 14px;
-    margin: 24px 24px 0;
+  display: flex;
+  flex-wrap: wrap;
+  // font-size: 14px;
+  margin-top: 24px;
 }
 
 .contact_text {
-    font-size: 16px;
-    font-weight: 500;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .contact_wrap {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .contact_icon_cover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 44px;
-    height: 44px;
-    padding: 8px;
-    border: 1px solid #4248b2;
-    border-radius: 8px;
-    margin: 12px 16px 8px 0;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  border: 1px solid #4248b2;
+  border-radius: 8px;
+  margin: 12px 16px 8px 0;
+  text-align: center;
 }

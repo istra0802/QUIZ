@@ -10,11 +10,10 @@ const Header = ({ handleShow }) => {
   // const handleClose = () => setShowMenu(false);
   // const handleShow = () => setShowMenu(!showMenu);
 
-
-
   return (
     <>
       <CustomNavbar handleShow={handleShow} />
+      <CustomOffcanvas/>
     </>
   );
 };

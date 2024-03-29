@@ -7,10 +7,13 @@ import "@fortawesome/fontawesome-free/css/all.css";
 const CustomOffcanvas = () => {
   return (
     <div
-      className="offcanvas offcanvas-start  offcanvas-Header text-white"
+      className="offcanvas offcanvas-Header text-white "
       tabIndex="-1"
       id="offcanvasExample"
       aria-labelledby="offcanvasExampleLabel"
+      style={{ top: "0px", width: "370px"}}
+      data-bs-scroll="true" 
+      data-bs-backdrop="false"
     >
       <div className="offcanvas-header">
         <h5 className="offcanvas-title" id="offcanvasExampleLabel">
@@ -29,7 +32,7 @@ const CustomOffcanvas = () => {
         </div>
         <button
           type="button"
-          className="btn-close ms-auto"
+          className="btn-close ms-auto btn-close-white"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
           style={{ marginTop: "-80px" }}
@@ -38,7 +41,7 @@ const CustomOffcanvas = () => {
 
       <div
         className="offcanvas-body bg"
-        style={{ borderTop: "1px solid #4248b2" }}
+        style={{ borderTop: "1px solid #4248b2", margin:"0px" , paddingTop:"0px"}}
       >
         <div className="menu_items ">
           <div
@@ -51,11 +54,12 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div className="text-white" style={{ fontWeight: "500" }}>
+            <div  style={{ fontWeight: "500" , color: "#ffffffba" }}>
               {" "}
               Contest Rules
             </div>
           </div>
+          
         </div>
         <div className="menu_items ">
           <div
@@ -68,7 +72,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div className="text-white " style={{ fontWeight: "500" }}>
+            <div  style={{ fontWeight: "500" , color: "#ffffffba"  }}>
               {" "}
               Coin History
             </div>
@@ -85,7 +89,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div className="text-white" style={{ fontWeight: "500" }}>
+            <div  style={{ fontWeight: "500", color: "#ffffffba"  }}>
               Blogs
             </div>
           </div>
@@ -101,7 +105,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div className="text-white" style={{ fontWeight: "500" }}>
+            <div  style={{ fontWeight: "500", color: "#ffffffba"  }}>
               About Us
             </div>
           </div>
@@ -117,7 +121,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div className="text-white" style={{ fontWeight: "500" }}>
+            <div style={{ fontWeight: "500",  color: "#ffffffba"  }}>
               Contact Us
             </div>
           </div>
@@ -133,7 +137,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div className="text-white" style={{ fontWeight: "500" }}>
+            <div  style={{ fontWeight: "500", color: "#ffffffba" }}>
               {" "}
               Report an Issue{" "}
             </div>
@@ -149,7 +153,7 @@ const CustomOffcanvas = () => {
               <i class="fa-brands fa-facebook-f"></i>
             </div>
             <div className="contact_icon_cover">
-              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-twitter" style={{width:"12px", height:"23px"}}></i>
             </div>
             <div className="contact_icon_cover">
               <i class="fa-brands fa-instagram"></i>

@@ -4,14 +4,10 @@ import backgroundImage from "../images/bg_quiz.jpg";
 import "../scss/HomePage.scss";
 import Header from "../components/Header/Header";
 import CustomOffcanvas from "../components/Header/Offcanvas";
-import LoginPage from "./LoginPage";
+import LoginPage from "../components/Login/LoginPage";
+
 
 export default function HomePage() {
-  const handleShowValue = (show) => {
-    // Do something with the 'show' value
-    console.log("Show value:", show);
-  };
-
   return (
     <div>
       <div
@@ -22,15 +18,12 @@ export default function HomePage() {
           width: "100%",
           height: "100%",
           backgroundImage: `url(${backgroundImage})`,
-          opacity: 0.2,
+          opacity: 0.04,
           zIndex: 1,
         }}
-      >
-        
-      </div>
+      ></div>
       <div className="home">
-        <Header handleShow={handleShowValue} ></Header>
-        <CustomOffcanvas />
+        <Header></Header>
         <LoginPage />
       </div>
     </div>
