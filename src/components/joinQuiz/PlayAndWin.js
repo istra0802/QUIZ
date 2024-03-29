@@ -5,7 +5,9 @@ export default function PlayAndWin() {
     <div>
       <div className='box'>
           <div className='imagediv'>
-            
+            <div >
+
+            </div>
           </div>
       </div>
     </div>
