@@ -1,5 +1,6 @@
 import React from "react";
 import Answer from "./Answer";
+import "../../scss/QuickStartPage.scss"
 
 const AnswerList = ({ buttonColor, buttonTextColor, handleButtonClick }) => {
   const answers = ["New Zealand", "New Zealand", "New Zealand", "New Zealand"];

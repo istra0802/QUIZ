@@ -1,7 +1,7 @@
 import React from "react";
 import "../scss/QuizPage.scss";
 import coin from "../images/coin-icon.jpg";
-import AnswerList from "../components/QuickStartPage.js/AnswerList";
+import AnswerList from "../components/QuickStartPage/AnswerList";
 
 export default function QuizPage() {
   return (

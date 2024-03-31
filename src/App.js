@@ -7,19 +7,21 @@ import "./App.css";
 
 import PlayNow from "./screens/PlayNow";
 import LoginPage from "./components/Login/LoginPage";
-import QuickStartPage from "./components/QuickStartPage.js/QuickStartPage";
+import QuickStartPage from "./screens/QuickStartPage";
 import QuizPage from "./screens/QuizPage";
 import CustomOffcanvas from "./components/Header/Offcanvas";
-import Example from "./screens/Example";
+// import Example from "./screens/Example";
 
 function App() {
   return (
     <div>
-     {/* <Routes>
-          <Route exact path="/" element={<HomePage/>} />
-          
-        </Routes> */}
-        <HomePage/>
+     <Routes>
+          <Route exact path="/" element={<QuickStartPage/>} />
+          <Route exact path="/home" element={<HomePage/>} />
+          <Route exact path="/PlayNow" element={<PlayNow/>} />
+          <Route exact path="/Quiz" element={<QuizPage/>} />
+        </Routes>
+        {/* <HomePage/> */}
       {/* <QuickStartPage/> */}
       {/* <PlayNow /> */}
       {/* <LoginPage/> */}

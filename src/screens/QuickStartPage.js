@@ -1,61 +1,74 @@
 import React, { useState } from 'react';
 import "../scss/QuickStartPage.scss";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import Question from "../components/QuickStartPage/Question";
+import QuizHeader from "../components/QuickStartPage/QuickHeader";
+import GoogleAd from '../components/GoogleAd';
+import ListSection from '../components/Login/ListSection';
+
 
 export default function QuickStartPage() {
-    const [buttonColor, setButtonColor] = useState('#fff'); // Initial button color
-    const [buttonTextColor, setButtonTextColor] = useState('#282d93'); // Initial button text color
+    const [buttonStates, setButtonStates] = useState({
+        1: false,
+        2: false,
+        3: false,
+        4: false
+    }); // State to track the active state of each button
 
-    const handleButtonClick = () => {
-        // Toggle button color and text color
-        setButtonColor(buttonColor === '#fff' ? '#ff0000' : '#fff');
-        setButtonTextColor(buttonColor === '#fff' ? '#fff' : '#282d93');
+    const navigate = useNavigate(); 
 
-        // Toggle slide animation class
-        document.querySelector('.quiz-button').classList.toggle('slide');
+    const handleButtonClick = (buttonIndex) => {
+        setButtonStates(prevState => ({
+            ...prevState,
+            [buttonIndex]: true
+        }));
     };
 
+    navigate("/home")
+    
     return (
         <div className='page-container'>
-            <div className='google-ad'>
-                <span className='google-sponsored'></span>
-                <div style={{ width: "100%" }}></div>
-            </div>
-
-            <div className='quiz-card-header'>
-                <h2 className='quiz-heading'>Quick Start!</h2>
-                <p className='quiz-heading-text'>Answer 2 questions and win upto 200 coins.</p>
-            </div>
+            <GoogleAd />
+            <QuizHeader />
 
             <div>
                 <div className='quiz-card-body'>
-                    <div className='quiz-body-question'>
-                        <div className='quiz-q-heading'>
-                            <div><span>1</span><span>/</span><span><strong>2</strong></span></div>
-                            <div className='quiz-text'> Question </div>
-                        </div>
-                    </div>
-
+                    <Question />
                     <h3 className='quiz-que'>
                         ‘Ansett’ is the name of the domestic airline of which of the following countries?
                     </h3>
 
                     <ul className='quiz-answer-list'>
                         <li className='quiz-answers'>
-                            <button className='quiz-button' style={{ backgroundColor: buttonColor, color: buttonTextColor }} onClick={handleButtonClick}> New Zealand</button>
+                            <button className={`quiz-button ${buttonStates[1] ? 'slide quiz-answer-incorrect' : ''}`} onClick={() => handleButtonClick(1)}> New Zealand</button>
                         </li>
                         <li className='quiz-answers'>
-                            <button className='quiz-button'>New Zealand</button>
+                            <button className={`quiz-button ${buttonStates[2] ? 'slide quiz-answer-incorrect' : ''}`} onClick={() => handleButtonClick(2)}>New Zealand</button>
                         </li>
                         <li className='quiz-answers'>
-                            <button className='quiz-button'>New Zealand</button>
+                            <button className={`quiz-button ${buttonStates[3] ? 'slide quiz-answer-incorrect' : ''}`} onClick={() => handleButtonClick(3)}>New Zealand</button>
                         </li>
                         <li className='quiz-answers'>
-                            <button className='quiz-button'>New Zealand</button>
+                            <button className={`quiz-button ${buttonStates[4] ? 'slide quiz-answer-incorrect' : ''}`} onClick={() => handleButtonClick(4)}>New Zealand</button>
                         </li>
 
                     </ul>
                 </div>
             </div>
+
+            <div className="fun-fact">
+                <h4
+                    className="fact-heading"
+                    style={{ fontSize: "16px", fontFamily: "system-ui" }}
+                >
+                    #Fun Fact
+                </h4>
+                <p className="fact" style={{ paddingBottom: "0px" }}>
+                    The first match was played between Royal Challengers Bangalore (RCB)
+                    and KKR in 2008.
+                </p>
+            </div>
+            <ListSection />
         </div>
     );
 }

@@ -141,24 +141,70 @@
   background: #fff;
 }
 
-.quiz-button.slide {
-  animation: slideAnimation 0.5s ease; /* Adjust animation duration */
+.quiz-answer-correct {
+  box-shadow: 0 1px 3px #2a2f98;
+  background: #31d2a9 0 0 no-repeat padding-box;
+  border: 0 solid #31d2a9;
+  color: #fff;
+  width: 100%;
+  min-height: 50px;
+  height: 100%
 }
 
-@keyframes slideAnimation {
-  0% {
-    transform: translateX(0);
-  }
-  40% {
-    transform: translateX(20px);
-  } /* Slide to the right */
-  60% {
-    transform: translateX(-20px);
-  } /* Slide back to the left */
-  100% {
-    transform: translateX(0);
-  }
+.quiz-answer-incorrect {
+  box-shadow: 0 1px 3px #2a2f98;
+  background: #ef4242 0 0 no-repeat padding-box;
+  border: 0 solid #de5353;
+  color: #fff;
+  width: 100%;
+  min-height: 50px;
+  height: 100%
 }
+
+
+.slide {
+  // box-shadow: 0 1px 3px #2a2f98;
+  // background: #ef4242 0 0 no-repeat padding-box;
+  // border: 0 solid #de5353;
+  // color: #fff;
+  // width: 100%;
+  // min-height: 50px;
+  // height: 100%;
+  animation: quizCard_flip 1s
+}
+
+@keyframes quizCard_flip {
+  0%,to {
+    transform: translateZ(0)
+}
+
+10%,30%,50%,70%,90% {
+    transform: translate3d(-10px,0,0)
+}
+
+20%,40%,60%,80% {
+    transform: translate3d(10px,0,0)
+}
+}
+
+// .quiz-button .slide {
+//   animation: slideAnimation 0.5s ease; /* Adjust animation duration */
+// }
+
+// @keyframes slideAnimation {
+//   0% {
+//     transform: translateX(0);
+//   }
+//   40% {
+//     transform: translateX(20px);
+//   } /* Slide to the right */
+//   60% {
+//     transform: translateX(-20px);
+//   } /* Slide back to the left */
+//   100% {
+//     transform: translateX(0);
+//   }
+// }
 
 .fun-fact {
   font-weight: 400;
