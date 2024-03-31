@@ -10,6 +10,7 @@ import LoginPage from "./components/Login/LoginPage";
 import QuickStartPage from "./screens/QuickStartPage";
 import QuizPage from "./screens/QuizPage";
 import CustomOffcanvas from "./components/Header/Offcanvas";
+import ContestRulePage from "./screens/ContestRulePage";
 // import Example from "./screens/Example";
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
           <Route exact path="/" element={<QuickStartPage/>} />
           <Route exact path="/home" element={<HomePage/>} />
           <Route exact path="/PlayNow" element={<PlayNow/>} />
+          <Route exact path="/rules" element={<ContestRulePage/>} />
+         
           <Route exact path="/Quiz" element={<QuizPage/>} />
         </Routes>
         {/* <HomePage/> */}

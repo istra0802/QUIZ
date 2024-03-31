@@ -3,16 +3,24 @@ import "../../scss/HomePage.scss";
 import "../../scss/Offcanvas.scss";
 import male from "../../images/male-user-avatar.jpg";
 import "@fortawesome/fontawesome-free/css/all.css";
+import { useNavigate } from "react-router-dom";
 
 const CustomOffcanvas = () => {
+
+  const navigate = useNavigate(); // Get the navigate function
+
+  const handleContestRuleClick = () => {
+    navigate("/rules"); // Navigate to the Contest Rule page
+  };
+
   return (
     <div
-      className="offcanvas offcanvas-Header text-white "
+      className="offcanvas offcanvas-Header text-white"
       tabIndex="-1"
       id="offcanvasExample"
       aria-labelledby="offcanvasExampleLabel"
-      style={{ top: "0px", width: "370px"}}
-      data-bs-scroll="true" 
+      style={{ top: "0px", width: "370px" }}
+      data-bs-scroll="true"
       data-bs-backdrop="false"
     >
       <div className="offcanvas-header">
@@ -41,12 +49,13 @@ const CustomOffcanvas = () => {
 
       <div
         className="offcanvas-body bg"
-        style={{ borderTop: "1px solid #4248b2", margin:"0px" , paddingTop:"0px"}}
+        style={{ borderTop: "1px solid #4248b2", margin: "0px", paddingTop: "0px" }}
       >
         <div className="menu_items ">
           <div
             className="nav_item my-2 "
             style={{ display: "flex", alignItems: "center" }}
+            onClick={handleContestRuleClick}
           >
             <div className="nav_icon ">
               <i
@@ -54,12 +63,12 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div  style={{ fontWeight: "500" , color: "#ffffffba" }}>
+            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
               {" "}
               Contest Rules
             </div>
           </div>
-          
+
         </div>
         <div className="menu_items ">
           <div
@@ -72,7 +81,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div  style={{ fontWeight: "500" , color: "#ffffffba"  }}>
+            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
               {" "}
               Coin History
             </div>
@@ -89,7 +98,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div  style={{ fontWeight: "500", color: "#ffffffba"  }}>
+            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
               Blogs
             </div>
           </div>
@@ -105,7 +114,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div  style={{ fontWeight: "500", color: "#ffffffba"  }}>
+            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
               About Us
             </div>
           </div>
@@ -121,12 +130,12 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div style={{ fontWeight: "500",  color: "#ffffffba"  }}>
+            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
               Contact Us
             </div>
           </div>
         </div>
-        <div className="menu_items ">
+        <div className="menu_items " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
           <div
             className="nav_item my-2 "
             style={{ display: "flex", alignItems: "center" }}
@@ -137,7 +146,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div  style={{ fontWeight: "500", color: "#ffffffba" }}>
+            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
               {" "}
               Report an Issue{" "}
             </div>
@@ -153,7 +162,7 @@ const CustomOffcanvas = () => {
               <i class="fa-brands fa-facebook-f"></i>
             </div>
             <div className="contact_icon_cover">
-              <i class="fa-brands fa-twitter" style={{width:"12px", height:"23px"}}></i>
+              <i class="fa-brands fa-twitter" style={{ width: "12px", height: "23px" }}></i>
             </div>
             <div className="contact_icon_cover">
               <i class="fa-brands fa-instagram"></i>
@@ -162,6 +171,16 @@ const CustomOffcanvas = () => {
               <i class="fa-brands fa-pinterest-p"></i>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div  style={{backgroundColor:"black" }} class="offcanvas " tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          ...ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp
         </div>
       </div>
     </div>

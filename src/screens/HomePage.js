@@ -20,6 +20,7 @@ export default function HomePage() {
           backgroundImage: `url(${backgroundImage})`,
           opacity: 0.04,
           zIndex: 1,
+          
         }}
       ></div>
       <div className="home">
