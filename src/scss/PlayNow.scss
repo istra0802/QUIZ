@@ -129,12 +129,12 @@
   }
 
   .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
     right: 0;
-    z-index: 2002;
-    max-width: 100%;
+    // z-index: 2002;
+    // max-width: 100%;
     margin: 0 auto;
     display: flex;
     width: 428px;
@@ -147,18 +147,18 @@
   .modal-content {
     // width: calc(100% - 60px);
     height: auto;
-    padding: 30px;
+    // padding: 30px;
     // position: absolute;
     border-radius: 16px;
     min-height: 300px;
-    top: 25%;
+    // top: 25%;
     margin: 0 30px;
     text-align: center;
     background: #282d93 url(https://images.atmequiz.com/img/cardBG.svg) no-repeat top 0 left -6px;
   }
   
   .modal-header {
-    display: flex;
+    // display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
