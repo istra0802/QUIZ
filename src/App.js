@@ -7,7 +7,7 @@ import LoginPage from "../src/components/Login/LoginPage"
 import backgroundImage from "../src/images/bg_quiz.jpg"
 import PlayNow from "./screens/PlayNow";
 import QuickStartPage from "./screens/QuickStartPage";
-import QuizPage from "./screens/QuizPage";
+import QuizPage from "../src/components/QuizPage/QuizPage";
 import ContestRulePage from "./screens/ContestRulePage";
 import CoinHistory from "./screens/CoinHistory";
 import Header from "./components/Header/Header";
