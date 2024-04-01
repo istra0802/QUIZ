@@ -34,13 +34,12 @@ export default function Categories() {
   ];
 
   return (
-    <div>
-     
+    <div className="categories-container">
       <div className="categories">
       <ul className="category-list">
           {/* Map through the categories array and render each category */}
           {categories.map((category, index) => (
-            <li key={index}>
+            <li className="lilink"key={index}>
               <a className="category-link" href={category.href}>
                 {category.name}
               </a>
@@ -48,7 +47,6 @@ export default function Categories() {
           ))}
         </ul>
       </div>
-     
 
       <div
         className="search"

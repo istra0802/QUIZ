@@ -1,14 +1,10 @@
 
+
   .search_wrapper{
-    // background: #1f237e;
     width: 100%;
     padding: 16px;
     position: relative;
-    // height: 100%;
-    // -webkit-font-smoothing: antialiased;
-    // transform-origin: 0 0;
-    // transform: translate(0);
-    // transition: transform .5s cubic-bezier(.77,.2,.05,1);
+    
   }
   .search_searchHeader{
     margin-bottom: 16px;
@@ -55,13 +51,20 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-
     flex-wrap:nowrap;
+    overflow-x: auto;
   }
-  .search_category ul li:first-child{
+  .ull::-webkit-scrollbar{
+    width:0;
+    height:0;
+  }
+  .ull{
+    scrollbar-width: none;
+  }
+  .l:first-child{
     margin-left: 16px;
   }
-  .search_category ul li:not(:first-child) {
+  .l:not(:first-child) {
     margin-left: 12px;
   }
   .l{
@@ -110,12 +113,6 @@
     padding: 0;
     margin: 0;
 }
-// .search_gameList .search_listBody ul li{
-//     list-style-type: none;
-//     padding: 0;
-//     margin: 0;
-// }
-
 
 .aa {
     display: flex;

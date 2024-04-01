@@ -90,8 +90,9 @@ export default function SearchPage() {
     },
   ];
   return (
+
     <div className="box-c">
-        
+
       <div className="search_wrapper">
         <div className="search_searchHeader d-flex">
           <div className="search_back">
@@ -166,7 +167,8 @@ export default function SearchPage() {
           </ul>
         </div>
       </div>
+      </div>
+        
 
-    </div>
   );
 }

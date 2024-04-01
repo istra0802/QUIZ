@@ -3,17 +3,17 @@ import "./App.css";
 import HomePage from "./screens/HomePage";
 import JoinQuiz from "./screens/JoinQuiz";
 import SearchPage from "./screens/SearchPage";
+import YourScore from "./screens/YourScore";
 
 function App() {
   return (
     <div className="App">
-      
-        <Routes>
+      <YourScore/>
+        {/* <Routes>
           <Route exact path="/" element={<HomePage/>} />
           <Route path="/playbtn" element={<JoinQuiz/>} />
           <Route path="/search" element={<SearchPage/>}/>
-        </Routes>     
-    
+        </Routes>      */}
     </div>
   );
 }
