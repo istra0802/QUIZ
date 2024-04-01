@@ -1,8 +1,14 @@
 import React from "react";
 import "../scss/SearchPage.scss";
 import monkey from "../images/monkey.png";
+import { useNavigate, useNavigation } from "react-router";
 
 export default function SearchPage() {
+
+  const navigate=useNavigate()
+  const handleback=()=>{
+    navigate("/home")
+  }
   const searchCategories = [
     { name: "Contests", imageUrl: monkey, link: "/" },
     { name: "Contests", imageUrl: monkey, link: "/" },
@@ -95,8 +101,8 @@ export default function SearchPage() {
 
       <div className="search_wrapper">
         <div className="search_searchHeader d-flex">
-          <div className="search_back">
-            <img
+          <div className="search_back" onClick={handleback}>
+            <img 
               src="https://images.atmequiz.com/img/back_arrow.svg"
               alt=""
               style={{ height: "30px", width: "30px", color: "transparent" }}
