@@ -1,16 +1,15 @@
 import React from "react";
-
 import backgroundImage from "../images/bg_quiz.jpg";
 import "../scss/HomePage.scss";
-import Header from "../components/Header/Header";
-import CustomOffcanvas from "../components/Header/Offcanvas";
-import LoginPage from "../components/Login/LoginPage";
+import Categories from "../components/homeScreen/categoryOption/Categories";
+import CategoryCard from "../components/homeScreen/categoryCard/CatgoryCard";
+import ReportIssue from "../components/homeScreen/reportIssueOffCanva/ReportIssue";
 
 
 export default function HomePage() {
   return (
-    <div>
-      <div
+    <div className="home-container">
+      <div  
         style={{
           position: "absolute",
           top: 0,
@@ -20,12 +19,12 @@ export default function HomePage() {
           backgroundImage: `url(${backgroundImage})`,
           opacity: 0.04,
           zIndex: 1,
-          
         }}
       ></div>
       <div className="home">
-        <Header></Header>
-        <LoginPage />
+        <Categories />
+        <CategoryCard />
+          <ReportIssue />    
       </div>
     </div>
   );
