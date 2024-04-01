@@ -8,12 +8,12 @@ import YourScore from "./screens/YourScore";
 function App() {
   return (
     <div className="App">
-      <YourScore/>
-        {/* <Routes>
+      {/* <YourScore/> */}
+        <Routes>
           <Route exact path="/" element={<HomePage/>} />
           <Route path="/playbtn" element={<JoinQuiz/>} />
           <Route path="/search" element={<SearchPage/>}/>
-        </Routes>      */}
+        </Routes>     
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import React from "react";
 import backgroundImage from "../images/bg_quiz.jpg";
 import "../scss/HomePage.scss";
-import CategoryCard from "../components/category/categoryCard/CategoriesCard";
-import Categories from "../components/category/categoryOption/Categories";
+import Categories from "../components/homeScreen/categoryOption/Categories";
+import CategoryCard from "../components/homeScreen/categoryCard/CatgoryCard";
+import ReportIssue from "../components/homeScreen/reportIssueOffCanva/ReportIssue";
 
 
 export default function HomePage() {
@@ -23,6 +24,7 @@ export default function HomePage() {
       <div className="home">
         <Categories />
         <CategoryCard />
+          <ReportIssue />    
       </div>
     </div>
   );
