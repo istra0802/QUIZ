@@ -29,13 +29,13 @@ export default function QuizPage() {
               <div>
                 <div className="timer">
                   <svg
-                    class="timer-svg"
+                    className="timer-svg"
                     viewBox="0 0 100 100"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g class="timer_baseTimer__circle__1YodV">
+                    <g className="timer_baseTimer__circle__1YodV">
                       <circle
-                        class="timer_baseTimer__pathElapsed__D6lCz"
+                        className="timer_baseTimer__pathElapsed__D6lCz"
                         cx="50"
                         cy="50"
                         r="45"
@@ -43,7 +43,7 @@ export default function QuizPage() {
                       <path
                         id="base-timer-path-remaining"
                         stroke-dasharray="189 283"
-                        class="timer_baseTimer__pathRemaining__PkIN0 timer_green__SVzgO"
+                        className="timer_baseTimer__pathRemaining__PkIN0 timer_green__SVzgO"
                         d=" M 50, 50 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0 "
                       ></path>
                     </g>
@@ -169,35 +169,35 @@ export default function QuizPage() {
       </div>
 
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         // aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Modal title
               </h1>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
+            <div className="modal-body">...</div>
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">
+              <button type="button" className="btn btn-primary">
                 Save changes
               </button>
             </div>

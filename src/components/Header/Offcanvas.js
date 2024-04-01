@@ -159,27 +159,27 @@ const CustomOffcanvas = () => {
           </div>
           <div className="contact_wrap text-white">
             <div className="contact_icon_cover">
-              <i class="fa-brands fa-facebook-f"></i>
+              <i className="fa-brands fa-facebook-f"></i>
             </div>
             <div className="contact_icon_cover">
-              <i class="fa-brands fa-twitter" style={{ width: "12px", height: "23px" }}></i>
+              <i className="fa-brands fa-twitter" style={{ width: "12px", height: "23px" }}></i>
             </div>
             <div className="contact_icon_cover">
-              <i class="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-instagram"></i>
             </div>
             <div className="contact_icon_cover">
-              <i class="fa-brands fa-pinterest-p"></i>
+              <i className="fa-brands fa-pinterest-p"></i>
             </div>
           </div>
         </div>
       </div>
 
-      <div  style={{backgroundColor:"black" }} class="offcanvas " tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <div  style={{backgroundColor:"black" }} className="offcanvas " tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+          <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div className="offcanvas-body">
           ...ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp
         </div>
       </div>
