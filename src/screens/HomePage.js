@@ -5,11 +5,10 @@ import Categories from "../components/homeScreen/categoryOption/Categories";
 import CategoryCard from "../components/homeScreen/categoryCard/CatgoryCard";
 import ReportIssue from "../components/homeScreen/reportIssueOffCanva/ReportIssue";
 
-
 export default function HomePage() {
   return (
     <div className="home-container">
-      <div  
+      <div
         style={{
           position: "absolute",
           top: 0,
@@ -20,12 +19,13 @@ export default function HomePage() {
           opacity: 0.2,
           zIndex: 1,
         }}
-      ></div>
-      <div className="home">
-        <Categories />
-        <CategoryCard />
-          <ReportIssue />    
+      >
       </div>
+        <div className="home">
+          <Categories />
+          <CategoryCard />
+          <ReportIssue />
+        </div>
     </div>
   );
 }
