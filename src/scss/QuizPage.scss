@@ -129,6 +129,7 @@
 
 .timer-inner {
   border-radius: 50px;
+  padding-top: 10px;
   background: #282d93;
   border: 6px solid #090551;
   width: 72px;
@@ -139,8 +140,7 @@
 }
 
 .timer-second {
-  position: relative;
-  z-index: 1002;
+  position: absolute;
 }
 
 .quiz-card-question-incorrect {

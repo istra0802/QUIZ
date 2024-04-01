@@ -3,9 +3,12 @@ import "../scss/PlayNow.scss";
 import CoinStack from "../components/PlayNow/CoinStack";
 import GoogleAd from "../components/GoogleAd";
 import ListSection from "../components/Login/ListSection";
+import { useNavigate } from "react-router";
 
 export default function PlayNow() {
   const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
+
 
   const openModal = () => {
     setModalOpen(true);
@@ -14,6 +17,10 @@ export default function PlayNow() {
   const closeModal = () => {
     setModalOpen(false);
   };
+
+  const handleQuiz = () => {
+    navigate("/Quiz")
+  }
 
   return (
     <div className="play-container">
@@ -27,7 +34,8 @@ export default function PlayNow() {
         <button
           type="button"
           className="btn btn-primary ani shine"
-          onClick={openModal}
+          // onClick={openModal}
+          onClick={handleQuiz}
         >
           Play Now
         </button>
@@ -35,7 +43,7 @@ export default function PlayNow() {
       <GoogleAd />
       <ListSection />
 
-      {modalOpen && (
+      {/* {modalOpen && (
         <div
           className="modal"
           id="exampleModal"
@@ -101,7 +109,7 @@ export default function PlayNow() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

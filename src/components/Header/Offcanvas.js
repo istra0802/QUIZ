@@ -1,21 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../scss/HomePage.scss";
 import "../../scss/Offcanvas.scss";
+import "../../scss/ReportIssue.scss";
 import male from "../../images/male-user-avatar.jpg";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { useNavigate } from "react-router-dom";
 
 const CustomOffcanvas = () => {
 
+  const [showReport, setShowReport] = useState(false);
+  const [ mainModal, setMainModal] = useState(false);
+
+  const toggleReport = () => {
+    setShowReport(!showReport);
+  };
+
+  const handleModalClose = () => {
+    setMainModal(false);
+  }
+
+  const handleReportClose = () => {
+    setShowReport(false);
+  };
+
+  const reportData = [
+    { id: 1, label: "It's not responding" },
+    { id: 2, label: "Another issue" },
+    
+  ]; 
   const navigate = useNavigate(); // Get the navigate function
 
+  const handleLogin = () => {
+    navigate("/login")
+  }
   const handleContestRuleClick = () => {
     navigate("/rules"); // Navigate to the Contest Rule page
   };
 
   return (
     <div
-      className="offcanvas offcanvas-Header text-white"
+      className="offcanvas offcanvas-Header text-white "
       tabIndex="-1"
       id="offcanvasExample"
       aria-labelledby="offcanvasExampleLabel"
@@ -34,7 +58,7 @@ const CustomOffcanvas = () => {
           <div className="header_contenteditable">
             <span>Play Quiz & earn coins</span>
           </div>
-          <button className="header_btn header_b" href="/">
+          <button className="header_btn header_b" onClick={handleLogin}>
             SIGN IN
           </button>
         </div>
@@ -48,7 +72,7 @@ const CustomOffcanvas = () => {
       </div>
 
       <div
-        className="offcanvas-body bg"
+        className="offcanvas-body bg "
         style={{ borderTop: "1px solid #4248b2", margin: "0px", paddingTop: "0px" }}
       >
         <div className="menu_items ">
@@ -135,10 +159,12 @@ const CustomOffcanvas = () => {
             </div>
           </div>
         </div>
-        <div className="menu_items " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+        <div className="menu_items">
           <div
             className="nav_item my-2 "
             style={{ display: "flex", alignItems: "center" }}
+            type="button"
+            onClick={toggleReport}
           >
             <div className="nav_icon text-white">
               <i
@@ -174,15 +200,42 @@ const CustomOffcanvas = () => {
         </div>
       </div>
 
-      <div  style={{backgroundColor:"black" }} className="offcanvas " tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-        <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
-          <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      {showReport && (
+        <div className="report_inner">
+          <div className="report_wrapper">
+            <div className="report_close" onClick={handleReportClose}></div>
+            <h1 style={{ fontSize: "18px", color: "#fff" }}>Report an Issue</h1>
+            <p style={{ color: "hsla(0,0%,100%,.64", fontSize: "14px" }}>
+              What kind of problem have you encountered?
+            </p>
+            <div className="report_list">
+              {reportData.map((item) => (
+                <div className="repost_listCheck" key={item.id}>
+                  <div className="listt1">
+                    <div>
+                      <input
+                        id={item.id}
+                        className="custmCheck"
+                        type="radio"
+                        value={item.id}
+                        name="issue"
+                      ></input>
+                      <label
+                        htmlFor={item.id}
+                        className="custmcheck1"
+                        style={{ color: "#fff" }}
+                      >
+                        {item.label}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <div className="report_btn" style={{marginTop:"16px"}}><button className="rep_btn">Send Feedback</button></div>
+            </div>
+          </div>
         </div>
-        <div className="offcanvas-body">
-          ...ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp
-        </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -2,7 +2,9 @@ import React from "react";
 import Answer from "./Answer";
 import "../../scss/QuickStartPage.scss"
 
-const AnswerList = ({ buttonColor, buttonTextColor, handleButtonClick }) => {
+const AnswerList = ({ buttonColor, buttonTextColor, handleButtonClick, questionSet }) => {
+
+  console.log(questionSet, ' -----------------  o o     ')
   const answers = ["New Zealand", "New Zealand", "New Zealand", "New Zealand"];
 
   return (
