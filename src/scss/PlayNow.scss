@@ -87,52 +87,8 @@
     cursor: pointer;
 }
 
-  
-
-// .play-container {
-//     position: relative;
-  
-//     &.modal-open {
-//       filter: blur(5px);
-//     }
-//   }
-  
-//   .modal {
-//     position: fixed;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     z-index: 10050;
-//     width: 100%;
-//     height: 100%;
-//     overflow: auto;
-//     outline: 0;
-//     display: none;
-//   }
-  
-//   .modal.show {
-//     display: block;
-//   }
-  
-
-
-
-// .play {
-//     width: 428px;
-//     margin: 0 auto;
-//     position: relative;
-//     top: 0;
-//     left: 0;
-//     background: 0 0;
-//   }
-
   .modal {
-    // position: fixed;
-    // top: 0;
-    // left: 0;
     right: 0;
-    // z-index: 2002;
-    // max-width: 100%;
     margin: 0 auto;
     display: flex;
     width: 428px;
@@ -160,19 +116,6 @@
     padding: 20px;
   }
   
-  // .modal-footer {
-  //   display: flex;
-  //   justify-content: flex-end;
-  //   align-items: center;
-  //   padding-top: 10px;
-  //   border-top: 1px solid #eaeaea; // Add top border for separation
-  // }
-  
-  // .btn-close {
-  //   cursor: pointer;
-  //   width: 0px;
-  //   right: 0px;
-  // }
   
   .pa {
     color: hsla(0, 0%, 100%, .64);

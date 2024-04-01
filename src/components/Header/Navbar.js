@@ -5,7 +5,6 @@ import logo from "../../images/logo.jpg";
 import "../../scss/Navbar.scss";
 import CoinAnimation from "./CoinAnimation";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import CustomOffcanvas from "./Offcanvas";
 import { useNavigate } from "react-router-dom";
 
 const CustomNavbar = ({ handleShow }) => {
@@ -17,7 +16,7 @@ const CustomNavbar = ({ handleShow }) => {
   };
 
   return (
-    <Navbar className="header">
+    <Navbar className="header" style={{padding:"0px"}}>
       <Container>
         <Nav.Link
           onClick={handleShow}

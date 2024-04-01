@@ -6,7 +6,7 @@ import Header from '../components/Header/Header';
 export default function ContestRulePage() {
     return (
         <div className='page-container'>
-            <Header/>
+           
             <div className='rule_container'>
                 <h1 className='rule_heading'>
                     Contest Rules!

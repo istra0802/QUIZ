@@ -1,9 +1,92 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../scss/QuizPage.scss";
 import coin from "../images/coin-icon.jpg";
-import AnswerList from "../components/QuickStartPage/AnswerList";
+import { Timer } from "../components/Timer";
+import { contestQuizQuestion } from "../services";
+import { useNavigate } from "react-router";
 
 export default function QuizPage() {
+  const [showLifeline, setShowLifeline] = useState(false);
+  const [questionSet, setQuestionSet] = useState([]);
+  const [page, setPage] = useState(1);
+  const [selectedQue, setSelectedQun] = useState({});
+  console.log(page, " 0000000000000000000000000000 ");
+  const [buttonStates, setButtonStates] = useState({
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+  });
+  const [disabledButtons, setDisabledButtons] = useState(false);
+  const [clicked, setClicked] = useState(false);
+
+  function paginate(array, page_size, page_number) {
+    console.log(
+      "++++++",
+      (page_number - 1) * page_size,
+      page_number * page_size
+    );
+    return array.slice((page_number - 1) * page_size, page_number * page_size);
+  }
+
+  const navigate = useNavigate();
+
+  const handleButtonClick = (buttonIndex) => {
+    setDisabledButtons(true);
+    setButtonStates((prevState) => ({
+      ...prevState,
+      [buttonIndex]: true,
+    }));
+    setClicked(true);
+  };
+
+  useEffect(() => {
+    if (clicked) {
+      setTimeout(() => {
+        setPage((prevPage) => prevPage + 1);
+        setButtonStates({
+          1: false,
+          2: false,
+          3: false,
+          4: false,
+        });
+        setDisabledButtons(false);
+        setClicked(false);
+      }, 1000);
+    }
+  }, [clicked]);
+
+  const toggleLifeline = () => {
+    setShowLifeline(!showLifeline);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await contestQuizQuestion();
+        setQuestionSet(data.questionSet.questionSet);
+        setSelectedQun(data.questionSet.questionSet[0]);
+        console.log(
+          data.questionSet.questionSet,
+          " ----------------------------------------- "
+        );
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const newQuestionSet = paginate(questionSet, 1, page);
+    console.log(newQuestionSet, " ------------------------ ");
+    // if (newQuestionSet.length > 0) {
+    setQuestionSet(newQuestionSet);
+    // } else {
+    //   // Handle end of questions
+    // }
+  }, [page]);
+  console.log("questionSet[0]?.answerOptions", questionSet);
   return (
     <div className="quiz-container">
       <audio className="quiz-audio" autoPlay>
@@ -17,7 +100,7 @@ export default function QuizPage() {
         </div>
         <h2 style={{ fontSize: "22px" }}>
           Play and Win 220000
-          <img src={coin} alt="/" className="coin-image"></img>
+          <img src={coin} alt="/home" className="coin-image"></img>
         </h2>
       </div>
 
@@ -49,8 +132,10 @@ export default function QuizPage() {
                     </g>
                   </svg>
                   <span className="timer-label">
-                    <span className="timer-inner"></span>
-                    <span className="time-second"></span>
+                    <span className="timer-inner">
+                      <Timer initialSeconds={60} />
+                    </span>
+                    <div className="time-second "></div>
                   </span>
                 </div>
               </div>
@@ -66,14 +151,31 @@ export default function QuizPage() {
               <span className="quiz-lite">1</span>/
               <span className="quiz-bold">20</span>
             </div>
-            <h3 className="que">
-              Shavkat Mirziyoyev has been elected as the President of which
-              country for the second term?
-            </h3>
-            <AnswerList />
-            {/* <div className="quiz-lifeline">Life Line</div> */}
+            <h3 className="que">{selectedQue?.question}</h3>
+            <ul className="quiz-answer-list">
+              {selectedQue?.answerOptions?.map((option, index) => (
+                <li className="quiz-answers" key={index}>
+                  <button
+                    className={`quiz-button ${
+                      buttonStates[index + 1]
+                        ? option?.isCorrectAnswer
+                          ? "quiz-answer-correct"
+                          : "slide quiz-answer-incorrect"
+                        : ""
+                    }`}
+                    onClick={() => handleButtonClick(index + 1)}
+                    disabled={disabledButtons}
+                  >
+                    {option.answer}
+                  </button>
+                </li>
+              ))}
+            </ul>
 
-            <div className="lifeline">
+            <div
+              className="lifeline"
+              style={{ display: showLifeline ? "flex" : "none" }}
+            >
               <ul className="lifeline-wrapper" style={{ display: "flex" }}>
                 <div>
                   <ul className="lifeline-ul">
@@ -149,14 +251,23 @@ export default function QuizPage() {
                 </div>
               </ul>
             </div>
-            <div
-              type="button"
-              className="quiz-close"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
-              CLOSE
-            </div>
+            {showLifeline ? (
+              <div
+                type="button"
+                className="quiz-close"
+                onClick={toggleLifeline}
+              >
+                Close
+              </div>
+            ) : (
+              <div
+                type="button"
+                className="quiz-close"
+                onClick={toggleLifeline}
+              >
+                Use LifeLine
+              </div>
+            )}
           </div>
         </div>
 
@@ -165,43 +276,6 @@ export default function QuizPage() {
             Your Score :{" "}
             <span style={{ color: "white", fontWeight: "700" }}>0</span>
           </h4>
-        </div>
-      </div>
-
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        // aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Modal title
-              </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">...</div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
