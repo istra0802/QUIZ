@@ -6,8 +6,16 @@ import "../../scss/Navbar.scss";
 import CoinAnimation from "./CoinAnimation";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import CustomOffcanvas from "./Offcanvas";
+import { useNavigate } from "react-router-dom";
 
 const CustomNavbar = ({ handleShow }) => {
+
+  const navigate = useNavigate();
+
+  const handleCoinHistoryClick = () => {
+    navigate("/coinHistory"); // Navigate to the Contest Rule page
+  };
+
   return (
     <Navbar className="header">
       <Container>
@@ -43,6 +51,7 @@ const CustomNavbar = ({ handleShow }) => {
           <div
             className="coin"
             style={{ display: "flex", alignItems: "center" }}
+            onClick={handleCoinHistoryClick}
           >
             <div style={{ marginRight: "5px", marginLeft: "-4px" }}>
               <CoinAnimation />

@@ -117,16 +117,14 @@
 
 
 
-.play {
-    width: 428px;
-    margin: 0 auto;
-    position: relative;
-    top: 0;
-    left: 0;
-    background: 0 0;
-  
-   
-  }
+// .play {
+//     width: 428px;
+//     margin: 0 auto;
+//     position: relative;
+//     top: 0;
+//     left: 0;
+//     background: 0 0;
+//   }
 
   .modal {
     // position: fixed;
@@ -157,29 +155,24 @@
     background: #282d93 url(https://images.atmequiz.com/img/cardBG.svg) no-repeat top 0 left -6px;
   }
   
-  .modal-header {
-    // display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eaeaea; // Add bottom border for separation
-  }
   
   .modal-body {
     padding: 20px;
   }
   
-  .modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-top: 10px;
-    border-top: 1px solid #eaeaea; // Add top border for separation
-  }
+  // .modal-footer {
+  //   display: flex;
+  //   justify-content: flex-end;
+  //   align-items: center;
+  //   padding-top: 10px;
+  //   border-top: 1px solid #eaeaea; // Add top border for separation
+  // }
   
-  .btn-close {
-    cursor: pointer;
-  }
+  // .btn-close {
+  //   cursor: pointer;
+  //   width: 0px;
+  //   right: 0px;
+  // }
   
   .pa {
     color: hsla(0, 0%, 100%, .64);

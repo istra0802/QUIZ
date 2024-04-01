@@ -11,6 +11,7 @@ import QuickStartPage from "./screens/QuickStartPage";
 import QuizPage from "./screens/QuizPage";
 import CustomOffcanvas from "./components/Header/Offcanvas";
 import ContestRulePage from "./screens/ContestRulePage";
+import CoinHistory from "./screens/CoinHistory";
 // import Example from "./screens/Example";
 
 function App() {
@@ -21,8 +22,8 @@ function App() {
           <Route exact path="/home" element={<HomePage/>} />
           <Route exact path="/PlayNow" element={<PlayNow/>} />
           <Route exact path="/rules" element={<ContestRulePage/>} />
-         
           <Route exact path="/Quiz" element={<QuizPage/>} />
+          <Route exact path="/coinHistory" element={<CoinHistory/>}/>
         </Routes>
         {/* <HomePage/> */}
       {/* <QuickStartPage/> */}
