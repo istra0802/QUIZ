@@ -4,6 +4,8 @@ import "../scss/HomePage.scss";
 import Categories from "../components/homeScreen/categoryOption/Categories";
 import CategoryCard from "../components/homeScreen/categoryCard/CatgoryCard";
 import ReportIssue from "../components/homeScreen/reportIssueOffCanva/ReportIssue";
+import Header from "../components/Header/Header";
+import GoogleAd from "../components/GoogleAd";
 
 
 export default function HomePage() {
@@ -22,9 +24,11 @@ export default function HomePage() {
         }}
       ></div>
       <div className="home">
+        <Header/>
+        <GoogleAd/>
         <Categories />
         <CategoryCard />
-          <ReportIssue />    
+        <ReportIssue />    
       </div>
     </div>
   );

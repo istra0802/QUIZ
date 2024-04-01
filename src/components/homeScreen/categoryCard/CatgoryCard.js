@@ -63,7 +63,7 @@ export default function CategoryCard() {
           <div key={card.id} className="mainbox">
             <div className="cardcontent">
               <div className="imgclass">
-                <img src={cricket} style={{ height: "60px", width: "60px" }} />
+                <img  alt="" src={cricket} style={{ height: "60px", width: "60px" }} />
               </div>
               <div className="gametitle">
                 <span className="text">
@@ -73,6 +73,7 @@ export default function CategoryCard() {
                   <h3 className="head">
                     Play and Win {card.prize}
                     <img
+                    alt=""
                       src={coin}
                       style={{
                         height: "19px",
@@ -95,6 +96,7 @@ export default function CategoryCard() {
                   <span className="text3">Entry: {card.entry}</span>
                   <img
                     src={coin}
+                    alt=""
                     className="imgstyle"
                     style={{
                       height: "16px",

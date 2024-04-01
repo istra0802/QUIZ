@@ -98,6 +98,7 @@ export default function SearchPage() {
           <div className="search_back">
             <img
               src="https://images.atmequiz.com/img/back_arrow.svg"
+              alt=""
               style={{ height: "30px", width: "30px", color: "transparent" }}
             ></img>
           </div>
@@ -110,6 +111,7 @@ export default function SearchPage() {
             />
             <img
               src="https://images.atmequiz.com/img/close.svg"
+              alt=""
               className="close"
               style={{ width: "14px", height: "14px" }}
             />
