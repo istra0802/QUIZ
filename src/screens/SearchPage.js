@@ -1,101 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../scss/SearchPage.scss";
 import monkey from "../images/monkey.png";
+import { useNavigate } from "react-router";
+import { fetchAllCategoryData, fetchCategories } from "../services";
 
 export default function SearchPage() {
-  const searchCategories = [
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-    { name: "Contests", imageUrl: monkey, link: "/" },
-  ];
-  const searchGameLists = [
-    {
-        title: "Play and Win 22000 Coins",
-        category: "BUSINESS",
-        entry: "50 Coins",
-        imageUrl: monkey,
-        link: "#",
-      },
-      {
-        title: "Play and Win 22000 Coins",
-        category: "BUSINESS",
-        entry: "50 Coins",
-        imageUrl: monkey,
-        link: "#",
-      },
-      {
-        title: "Play and Win 22000 Coins",
-        category: "BUSINESS",
-        entry: "50 Coins",
-        imageUrl: monkey,
-        link: "#",
-      },
-      {
-        title: "Play and Win 22000 Coins",
-        category: "BUSINESS",
-        entry: "50 Coins",
-        imageUrl: monkey,
-        link: "#",
-      },
-      {
-        title: "Play and Win 22000 Coins",
-        category: "BUSINESS",
-        entry: "50 Coins",
-        imageUrl: monkey,
-        link: "#",
-      },
-    {
-      title: "Play and Win 22000 Coins",
-      category: "BUSINESS",
-      entry: "50 Coins",
-      imageUrl: monkey,
-      link: "#",
-    },
-    {
-      title: "Play and Win 22000 Coins",
-      category: "BUSINESS",
-      entry: "50 Coins",
-      imageUrl: monkey,
-      link: "#",
-    },
-    {
-      title: "Play and Win 22000 Coins",
-      category: "BUSINESS",
-      entry: "50 Coins",
-      imageUrl: monkey,
-      link: "#",
-    },
-    {
-      title: "Play and Win 22000 Coins",
-      category: "BUSINESS",
-      entry: "50 Coins",
-      imageUrl: monkey,
-      link: "#",
-    },
-    {
-      title: "Play and Win 22000 Coins",
-      category: "BUSINESS",
-      entry: "50 Coins",
-      imageUrl: monkey,
-      link: "#",
-    },
-  ];
+  const navigate = useNavigate();
+  const [categories, setCategories] = useState([]);
+  const [contestData, setContestData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleBack = () => {
+    navigate("/home");
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchCategories();
+        setCategories(data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchAllCategoryData();
+        setContestData(data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const filteredContests = contestData.filter((contest) =>
+    contest.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  const filteredContests1 = categories.filter((contest) =>
+  contest.name.toLowerCase().includes(searchTerm.toLowerCase())
+);
+
   return (
-
-    <div className="box-c">
-
+    <div className="box-c1">
       <div className="search_wrapper">
         <div className="search_searchHeader d-flex">
-          <div className="search_back">
+          <div className="search_back" onClick={handleBack}>
             <img
               src="https://images.atmequiz.com/img/back_arrow.svg"
               alt=""
@@ -108,6 +62,8 @@ export default function SearchPage() {
               placeholder="Search"
               className="search_input_1"
               name="searchTerm"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             <img
               src="https://images.atmequiz.com/img/close.svg"
@@ -121,10 +77,10 @@ export default function SearchPage() {
 
       <div className="search_category" style={{ overflowX: "hidden" }}>
         <ul className="ull">
-          {searchCategories.map((category, index) => (
-            <li className="l"key={index}>
+          {filteredContests1.map((category, index) => (
+            <li className="l" key={index}>
               <a href={category.link}>
-                <div className="search__box">
+                <div className="search__boxxx">
                   <img
                     src={category.imageUrl}
                     style={{ width: "48px", height: "48px" }}
@@ -145,22 +101,20 @@ export default function SearchPage() {
         </div>
         <div className="search_listBody">
           <ul className="uli">
-            {searchGameLists.map((game, index) => (
+            {filteredContests.map((contest, index) => (
               <li key={index}>
-                <a className="aa" href={game.link}>
+                <a className="aa" href="">
                   <div className="search_box">
                     <img
-                      src={game.imageUrl}
+                      src={monkey}
                       style={{ height: "40px", width: "40px" }}
-                      alt={game.title}
+                      alt=""
                     />
                   </div>
                   <div className="search_quizTxt">
-                    <h2 className="hh">
-                      {game.title}
-                    </h2>
+                    <h2 className="hh">Play and Win ${contest.winningCoins}</h2>
                     <p className="pp">
-                      {game.category}, Entry: {game.entry}
+                      {contest.name}, Entry: {contest.entryCoins} Coins
                     </p>
                   </div>
                 </a>
@@ -169,8 +123,6 @@ export default function SearchPage() {
           </ul>
         </div>
       </div>
-      </div>
-        
-
+    </div>
   );
 }
