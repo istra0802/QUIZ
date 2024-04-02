@@ -8,19 +8,10 @@ import ListSection from "../Login/ListSection";
 import GoogleAd from "../GoogleAd";
 
 export default function QuickStartPage() {
-  // const [buttonColor, setButtonColor] = useState("#fff"); // Initial button color
-  // const [buttonTextColor, setButtonTextColor] = useState("#282d93"); // Initial button text color
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const handleButtonClick = () => {
-    // Toggle button color and text color
-    // setButtonColor(buttonColor === "#fff" ? "#ff0000" : "#fff");
-    // setButtonTextColor(buttonColor === "#fff" ? "#fff" : "#282d93");
-    // Toggle slide animation class
     document.querySelector(".quiz-button").classList.toggle("slide");
-
-    // Navigate to homepage
-    // navigate("/home");
   };
 
   return (

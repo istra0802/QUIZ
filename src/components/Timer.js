@@ -18,5 +18,5 @@ export const Timer = ({ initialSeconds }) => {
     return () => clearInterval(interval);
   }, [initialSeconds]);
 
-  return <div>{seconds}</div>;
+  return <div> {seconds} </div>;
 };

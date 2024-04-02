@@ -114,6 +114,27 @@
   transform: scaleX(-1);
 }
 
+.timer-circle {
+  fill: none;
+  stroke: none;
+}
+
+.timer-path {
+  stroke-width: 7px;
+  stroke: #0e0a5f;
+}
+
+.timer-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: all 1s linear;
+  fill-rule: nonzero;
+  stroke: currentColor;
+  color: #6c73ff 
+}
+
 .timer-label {
   position: absolute;
   width: 75px;
@@ -185,6 +206,21 @@
   padding: 24px 8px 34px;
 }
 
+.quiz-animation {
+  animation: quizQuee_flip 1s;
+}
+
+@keyframes quizQuee_flip {
+  0% {
+    transform: rotateY(90deg);
+  }
+
+  to {
+      transform: rotateY(0deg)
+  }
+}
+
+
 .quiz-que-number {
   display: flex;
   justify-content: center;
@@ -217,9 +253,64 @@
   min-height: 58px;
 }
 
-.quiz-lifeline {
+.quiz-card-prediction-incorrect {
+  background: linear-gradient(90deg, #833ab4, #fd1d1d 50%, #6c73ff 0);
+    color: #fff;
+    animation: quizCard_prediction_incorrectt 2s ease;
+    background-size: 200% 100%;
 }
 
+@keyframes quizCard_prediction_incorrectt {
+  0% {
+      background-position: 200% 0
+  }
+
+  1100% {
+      background-position: 100% 0
+  }
+
+  150% {
+      background-position: 50% 0
+  }
+
+  to {
+      background-position: 0 0
+  }
+}
+
+.quiz-card-prediction-correct {
+  background: linear-gradient(90deg,#2dd3a8,#2dd3a8 50%,#6c73ff 0);
+  animation:  quizCard_prediction-correctt 2s linear;
+  background-size: 200% 100%;
+  color: #fff
+}
+
+@keyframes quizCard_prediction-correctt {
+  0% {
+      background-position: 0 0
+  }
+
+  25% {
+      background-position: 25% 0
+  }
+
+  50% {
+      background-position: 50% 0
+  }
+
+  75% {
+      background-position: 75% 0
+  }
+
+  to {
+      background-position: 100% 100%
+  }
+}
+.lifeline-disabled {
+  pointer-events: none; /* Disable pointer events */
+  opacity: 0.5; /* Reduce opacity to make it appear blocked */
+  /* Add any other styles to indicate it's disabled */
+}
 .lifeline {
   position: relative;
   width: 100%;
@@ -231,8 +322,8 @@
   margin-left: 0px;
   padding-left: 0px;
   flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 100%;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .lifeline-ul {
@@ -279,6 +370,11 @@
   cursor: pointer;
 }
 
+.quizCard-fifty50 {
+  background: #6c73ff;
+  color: #6c73ff;
+}
+
 .quiz-close {
   position: absolute;
   bottom: 42px;
@@ -290,7 +386,6 @@
   font-size: 14px;
   cursor: pointer;
   box-sizing: border-box;
-
 }
 
 .quiz-footer {

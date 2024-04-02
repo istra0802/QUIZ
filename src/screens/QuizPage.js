@@ -22,24 +22,21 @@ export default function QuizPage() {
   const [flipped, setFlipped] = useState(false);
 
   const handleButtonClick = (buttonIndex) => {
- 
-      setDisabledButtons(true);
-      setButtonStates((prevState) => ({
-        ...prevState,
-        [buttonIndex]: true,
-      }));
-      setClicked(true);
-      if (chancesLeft > 0) {
-        setChancesLeft(chancesLeft - 1);
-      }
-    
+    setDisabledButtons(true);
+    setButtonStates((prevState) => ({
+      ...prevState,
+      [buttonIndex]: true,
+    }));
+    setClicked(true);
+    if (chancesLeft > 0) {
+      setChancesLeft(chancesLeft - 1);
+    }
   };
 
   useEffect(() => {
-    if (clicked ) {
+    if (clicked) {
       setTimeout(() => {
-        if(chancesLeft === 0) {
-
+        if (chancesLeft === 0) {
           setPage((prevPage) => prevPage + 1);
         }
         setButtonStates({
@@ -70,7 +67,7 @@ export default function QuizPage() {
   const handleFlipQuestionClick = () => {
     setFlipped(true); // Flip the question set
   };
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -92,7 +89,6 @@ export default function QuizPage() {
     const selectedQuestionIndex = (page - 1) % questionSet.length;
     setSelectedQue(questionSet[selectedQuestionIndex]);
   }, [page, questionSet]);
-
 
   return (
     <div className="quiz-container">
@@ -146,11 +142,11 @@ export default function QuizPage() {
                   </span>
                 </div>
               </div>
-
-              <div className="quiz-card-question-incorrect">0</div>
             </div>
+            <div className="quiz-card-question-incorrect">0</div>
           </div>
         </div>
+
         <div className="quiz-body">
           <div className="quiz-option">
             <div className="quiz-que-number">
@@ -186,7 +182,7 @@ export default function QuizPage() {
               <ul className="lifeline-wrapper" style={{ display: "flex" }}>
                 <div>
                   <ul className="lifeline-ul">
-                    <li className="lifeline-li"    onClick={handleFiftyFiftyClick}>
+                    <li className="lifeline-li" onClick={handleFiftyFiftyClick}>
                       <div className="lifeline-list">
                         <img
                           alt="Audience Poll"
