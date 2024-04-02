@@ -16,6 +16,10 @@ export default function ReportIssue() {
   const reportData = [
     { id: 1, label: "It's not responding" },
     { id: 2, label: "Another issue" },
+    {id: 3, label: "Delayed loading"},
+    {id: 4, label:"Game not responding"},
+    {id: 5, label:"Instruction not clear"},
+    {id: 6, label: "Other"}
     
   ];
 

@@ -11,6 +11,7 @@ import QuizPage from "../src/components/QuizPage/QuizPage";
 import ContestRulePage from "./screens/ContestRulePage";
 import CoinHistory from "./screens/CoinHistory";
 import Header from "./components/Header/Header";
+import ReportIssue from "./components/Header/reportIssueOffCanva/ReportIssue";
 
 function App() {
   return (
@@ -37,8 +38,9 @@ function App() {
           <Route exact path="/rules" element={<ContestRulePage />} />
           <Route exact path="/Quiz" element={<QuizPage />} />
           <Route exact path="/coinHistory" element={<CoinHistory />} />
-          <Route exact path="/home/playbtn" element={<JoinQuiz />} />
+          <Route exact path="/home/playbtn/:id" element={<JoinQuiz />} />
           <Route exact path="/search" element={<SearchPage />} />
+          <Route exact path="/reportissue" element={<ReportIssue/>} />
         </Routes>
       </div>
     </div>

@@ -1,3 +1,11 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif; /* Apply Poppins font to all elements */
+}
+
+
 .maindiv {
   display: flex;
   flex-wrap: wrap;
@@ -103,7 +111,7 @@
 }
 .color{
   color: #dfe1fc;
-  margin-right: 8px;
+  // margin-right: 8px;
 }
 .text3{
   margin-right: 4px;
@@ -111,28 +119,28 @@
 .imgstyle{
   vertical-align: text-bottom;
     margin-right: 6px;
-    margin-left: 6px;
+    // margin-left: 6px;
 }
 .color1{
   color: #f5f6ff;
 }
 .btn-style{
-  background:#f27c2c;
-  display: flex;
-  justify-content: center;
-  color:#fff;
-  position: relative;
-  overflow: hidden;
-  height: 34px;
-  width: 96px;
-  font-size: 16px;
-  padding: 8px;
-  font-weight: 600;
-  text-shadow: 0 1px 0 #f27c2c;
-  line-height: 20px;
-  text-transform: uppercase;
-  float: right;
-  border-radius: 50px;
-  margin-top: 0;
-  text-decoration: none;
+    height: 34px;
+    width: 96px;
+    font-size: 16px;
+    padding: 8px;
+    font-weight: 600;
+    text-shadow: 0 1px 0 #f27c2c;
+    line-height: 20px;
+    text-transform: uppercase;
+    float: right;
+    border-radius: 50px;
+    margin-top: 0;
+    background: #f27c2c;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
 }

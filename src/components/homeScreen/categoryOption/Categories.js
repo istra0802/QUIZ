@@ -1,4 +1,3 @@
-// Categories.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../../scss/Categories.scss";
@@ -7,13 +6,14 @@ import CategoryCard from "../categoryCard/CatgoryCard";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
-  const [activeCategory, setActiveCategory] = useState("Contests");
+  const [activeCategory, setActiveCategory] = useState("CONTEST");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const staticCategory = [{ name: "CONTEST", href: "" }];
         const data = await fetchCategories();
-        setCategories(data);
+        setCategories([...staticCategory, ...data]);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -31,16 +31,19 @@ export default function Categories() {
         <ul className="category-list">
           {categories.map((category, index) => (
             <li className="lilink" key={index}>
-              <Link
+             <Link
                 className={`category-link ${
-                  activeCategory === category.name
+                  activeCategory === category.name 
                     ? "active"
-                    : category.name === "Contests"
-                    ? "default-active"
-                    : ""
+                    : "" 
+                   
                 }`}
                 to={category.href}
-                onClick={() => handleCategoryClick(category.name)}
+                onClick={() => {
+                  category.name === "CONTEST"
+                    ? handleCategoryClick("CONTEST")
+                    : handleCategoryClick(category.name);
+                }}
               >
                 {category.name}
               </Link>

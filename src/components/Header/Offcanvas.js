@@ -7,17 +7,13 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import { useNavigate } from "react-router-dom";
 
 const CustomOffcanvas = () => {
-
   const [showReport, setShowReport] = useState(false);
-  const [ mainModal, setMainModal] = useState(false);
+  const [mainModal, setMainModal] = useState(false);
 
   const toggleReport = () => {
     setShowReport(!showReport);
-  };
-
-  const handleModalClose = () => {
     setMainModal(false);
-  }
+  };
 
   const handleReportClose = () => {
     setShowReport(false);
@@ -26,15 +22,12 @@ const CustomOffcanvas = () => {
   const reportData = [
     { id: 1, label: "It's not responding" },
     { id: 2, label: "Another issue" },
-    
-  ]; 
-  const navigate = useNavigate(); // Get the navigate function
+  ];
 
-  const handleLogin = () => {
-    navigate("/login")
-  }
+  const navigate = useNavigate();
+
   const handleContestRuleClick = () => {
-    navigate("/rules"); // Navigate to the Contest Rule page
+    navigate("/rules");
   };
 
   return (
@@ -58,9 +51,9 @@ const CustomOffcanvas = () => {
           <div className="header_contenteditable">
             <span>Play Quiz & earn coins</span>
           </div>
-          <button className="header_btn header_b" onClick={handleLogin}>
+          <a href="/login" className="header_btn header_b" style={{textDecoration:"none"}}>
             SIGN IN
-          </button>
+          </a>
         </div>
         <button
           type="button"
@@ -87,10 +80,10 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
+            <a href="/rules" style={{ fontWeight: "500", color: "#ffffffba",textDecoration:"none" }}>
               {" "}
               Contest Rules
-            </div>
+            </a>
           </div>
 
         </div>
@@ -105,10 +98,10 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
+            <a href="/" style={{ fontWeight: "500", color: "#ffffffba",textDecoration:"none"  }}>
               {" "}
               Coin History
-            </div>
+            </a>
           </div>
         </div>
         <div className="menu_items ">
@@ -122,9 +115,9 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
+            <a href="/" style={{ fontWeight: "500", color: "#ffffffba",textDecoration:"none"  }}>
               Blogs
-            </div>
+            </a>
           </div>
         </div>
         <div className="menu_items ">
@@ -138,9 +131,9 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
+            <a href="/" style={{ fontWeight: "500", color: "#ffffffba",textDecoration:"none"  }}>
               About Us
-            </div>
+            </a>
           </div>
         </div>
         <div className="menu_items ">
@@ -150,13 +143,13 @@ const CustomOffcanvas = () => {
           >
             <div className="nav_icon text-white">
               <i
-                className="bi-chat-left"
+                className="bi bi-chat-left"
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
+            <a href="/" style={{ fontWeight: "500", color: "#ffffffba",textDecoration:"none"  }}>
               Contact Us
-            </div>
+            </a>
           </div>
         </div>
         <div className="menu_items">
@@ -172,10 +165,10 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <div style={{ fontWeight: "500", color: "#ffffffba" }}>
+            <a style={{ fontWeight: "500", color: "#ffffffba",textDecoration:"none"  }}>
               {" "}
               Report an Issue{" "}
-            </div>
+            </a>
           </div>
         </div>
 
@@ -185,16 +178,36 @@ const CustomOffcanvas = () => {
           </div>
           <div className="contact_wrap text-white">
             <div className="contact_icon_cover">
-              <i className="fa-brands fa-facebook-f"></i>
+              <a href="https://www.facebook.com/Atmegame">
+                <img
+                  src="https://images.atmequiz.com/img/facebook-white-icon.svg"
+                  style={{ width: "12px", height: "23px"}}
+                />
+              </a>
             </div>
             <div className="contact_icon_cover">
-              <i className="fa-brands fa-twitter" style={{ width: "12px", height: "23px" }}></i>
+              <a href="https://twitter.com/ATMEGAME">
+                <img
+                  src="https://images.atmequiz.com/img/tw-white-icon.svg"
+                  style={{ width: "22px", height: "17px"}}
+                />
+              </a>
             </div>
             <div className="contact_icon_cover">
-              <i className="fa-brands fa-instagram"></i>
+              <a href="https://www.instagram.com/atmegame">
+                <img
+                  src="https://images.atmequiz.com/img/instagram-white-icon.svg"
+                  style={{ width: "20px", height: "20px"}}
+                />
+              </a>
             </div>
             <div className="contact_icon_cover">
-              <i className="fa-brands fa-pinterest-p"></i>
+              <a href="https://in.pinterest.com/atmequiz">
+                <img
+                  src="	https://images.atmequiz.com/img/pin-white-icon.svg"
+                  style={{ width: "20px", height: "26px"}}
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -231,7 +244,9 @@ const CustomOffcanvas = () => {
                   </div>
                 </div>
               ))}
-              <div className="report_btn" style={{marginTop:"16px"}}><button className="rep_btn">Send Feedback</button></div>
+              <div className="report_btn" style={{marginTop:"16px"}}>
+                <button className="rep_btn">Send Feedback</button>
+              </div>
             </div>
           </div>
         </div>
