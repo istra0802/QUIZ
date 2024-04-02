@@ -31,7 +31,7 @@ export default function CategoryCard({ activeCategory }) {
   return (
     <div>
       <div className="maindiv">
-        {cardData && cardData.map((card) =>(
+        {cardData && cardData?.map((card) =>(
           
           <div key={card._id} className="mainbox">
             <div className="cardcontent">
