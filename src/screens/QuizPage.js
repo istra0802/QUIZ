@@ -9,8 +9,7 @@ export default function QuizPage() {
   const [showLifeline, setShowLifeline] = useState(false);
   const [questionSet, setQuestionSet] = useState([]);
   const [page, setPage] = useState(1);
-  const [selectedQue, setSelectedQun] = useState({});
-  console.log(page, " 0000000000000000000000000000 ");
+  const [selectedQue, setSelectedQue] = useState({});
   const [buttonStates, setButtonStates] = useState({
     1: false,
     2: false,
@@ -19,31 +18,30 @@ export default function QuizPage() {
   });
   const [disabledButtons, setDisabledButtons] = useState(false);
   const [clicked, setClicked] = useState(false);
-
-  function paginate(array, page_size, page_number) {
-    console.log(
-      "++++++",
-      (page_number - 1) * page_size,
-      page_number * page_size
-    );
-    return array.slice((page_number - 1) * page_size, page_number * page_size);
-  }
-
-  const navigate = useNavigate();
+  const [chancesLeft, setChancesLeft] = useState(0);
+  const [flipped, setFlipped] = useState(false);
 
   const handleButtonClick = (buttonIndex) => {
-    setDisabledButtons(true);
-    setButtonStates((prevState) => ({
-      ...prevState,
-      [buttonIndex]: true,
-    }));
-    setClicked(true);
+ 
+      setDisabledButtons(true);
+      setButtonStates((prevState) => ({
+        ...prevState,
+        [buttonIndex]: true,
+      }));
+      setClicked(true);
+      if (chancesLeft > 0) {
+        setChancesLeft(chancesLeft - 1);
+      }
+    
   };
 
   useEffect(() => {
-    if (clicked) {
+    if (clicked ) {
       setTimeout(() => {
-        setPage((prevPage) => prevPage + 1);
+        if(chancesLeft === 0) {
+
+          setPage((prevPage) => prevPage + 1);
+        }
         setButtonStates({
           1: false,
           2: false,
@@ -58,14 +56,27 @@ export default function QuizPage() {
 
   const toggleLifeline = () => {
     setShowLifeline(!showLifeline);
+    if (showLifeline) {
+      // Reset chances if lifeline is toggled off
+      setChancesLeft(0);
+    }
   };
 
+  const handleFiftyFiftyClick = () => {
+    setChancesLeft(2); // Set chances to 2 when 50:50 is clicked
+    // toggleLifeline();
+  };
+
+  const handleFlipQuestionClick = () => {
+    setFlipped(true); // Flip the question set
+  };
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await contestQuizQuestion();
         setQuestionSet(data.questionSet.questionSet);
-        setSelectedQun(data.questionSet.questionSet[0]);
+        setSelectedQue(data.questionSet.questionSet[0]);
         console.log(
           data.questionSet.questionSet,
           " ----------------------------------------- "
@@ -78,15 +89,11 @@ export default function QuizPage() {
   }, []);
 
   useEffect(() => {
-    const newQuestionSet = paginate(questionSet, 1, page);
-    console.log(newQuestionSet, " ------------------------ ");
-    // if (newQuestionSet.length > 0) {
-    setQuestionSet(newQuestionSet);
-    // } else {
-    //   // Handle end of questions
-    // }
-  }, [page]);
-  console.log("questionSet[0]?.answerOptions", questionSet);
+    const selectedQuestionIndex = (page - 1) % questionSet.length;
+    setSelectedQue(questionSet[selectedQuestionIndex]);
+  }, [page, questionSet]);
+
+
   return (
     <div className="quiz-container">
       <audio className="quiz-audio" autoPlay>
@@ -179,7 +186,7 @@ export default function QuizPage() {
               <ul className="lifeline-wrapper" style={{ display: "flex" }}>
                 <div>
                   <ul className="lifeline-ul">
-                    <li className="lifeline-li">
+                    <li className="lifeline-li"    onClick={handleFiftyFiftyClick}>
                       <div className="lifeline-list">
                         <img
                           alt="Audience Poll"

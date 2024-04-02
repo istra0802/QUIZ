@@ -2,11 +2,17 @@ import React, { useEffect, useState } from "react";
 import "../../../scss/CategoriesCard.scss";
 import cricket from "../../../images/cricket1.png";
 import coin from "../../../images/coin-icon1.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchCategoriesWisedata } from "../../../services";
 
 export default function CategoryCard({ activeCategory }) {
+
+  const navigate=useNavigate()
   const [cardData, setCardData] = useState([]);
+
+  const handleClick=(id)=>{
+    navigate(`/home/playbtn/${id}`)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +27,7 @@ export default function CategoryCard({ activeCategory }) {
     fetchData();
   }, [activeCategory]);
   console.log("cardd===========",cardData)
+
   return (
     <div>
       <div className="maindiv">
@@ -61,8 +68,8 @@ export default function CategoryCard({ activeCategory }) {
             </div>
 
             <div className="card-footer">
-              <p className="color">
-                <span>
+              <p className="color" style={{marginBottom:"6px"}}>
+                <span style={{marginRight:"8px"}}>
                   <span className="text3">Entry: {card.entryCoins}</span>
                   <img
                     src={coin}
@@ -75,12 +82,16 @@ export default function CategoryCard({ activeCategory }) {
                     }}
                   />
                   <strong className="color1">500</strong>
-                  Users Playing
+                  <span style={{marginLeft:"3px"}}>Users Playing</span>
                 </span>
               </p>
-              <Link className="btn-style" to="playbtn">
-                Play
-              </Link>
+              <Link
+                  className="btn-style"
+                  to={`/home/playbtn/${card._id}`}
+                  onClick={() => handleClick(card._id)}
+                >
+                  Play
+                </Link>
             </div>
           </div>
         ))}
