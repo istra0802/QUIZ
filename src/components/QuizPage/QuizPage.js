@@ -26,10 +26,12 @@ export default function QuizPage() {
   const [chancesLeft, setChancesLeft] = useState(0);
   const [disabledFifty, setDisabledFifty] = useState(false);
   const [disabledFiftyPer, setDisabledFiftyPer] = useState(false);
-  const [disabledAudience, setDisabledAudience] = useState(false);
+  // const [disabledAudience, setDisabledAudience] = useState(false);
+  // const [disabledAudiencePer, setDisabledAudiencePer] = useState(false);
   const [disabledFreeze, setDisabledFreeze] = useState(false);
   const [disabledFreezePer, setDisabledFreezePer] = useState(false);
   const [disabledFlip, setDisabledFlip] = useState(false);
+  const [usedLifeLine, setUsedLifeLine] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,6 +76,7 @@ export default function QuizPage() {
     }
     setDisabledFreeze(false);
     setDisabledFifty(false);
+    // setDisabledAudience(false);
   };
 
   const toggleLifeline = () => {
@@ -88,21 +91,26 @@ export default function QuizPage() {
   const handleFiftyFiftyClick = () => {
     setDisabledFiftyPer(true);
     setDisabledFifty(true);
+    setUsedLifeLine(true);
   };
 
   const handleFlipQuestionClick = () => {
     setPage((prevPage) => prevPage + 1);
     setDisabledFlip(true);
+    setUsedLifeLine(true);
   };
 
   const handleTimeFreezeClick = () => {
     setDisabledFreeze(true);
     setDisabledFreezePer(true);
+    setUsedLifeLine(true);
   };
 
-  const handleAudienceClick = () => {
-    setDisabledAudience(true)
-  }
+  // const handleAudienceClick = () => {
+  //   setDisabledAudience(true);
+  //   setDisabledAudiencePer(true);
+  //   setUsedLifeLine(true);
+  // }
 
   return (
     <div className="quiz-container">
@@ -126,14 +134,14 @@ export default function QuizPage() {
                   option={option}
                   index={index}
                   handleButtonClick={handleButtonClick}
-                  handleFlipQuestionClick={handleFlipQuestionClick}
-                  handleFiftyFiftyClick={handleFiftyFiftyClick}
                   disabledFifty={disabledFifty}
                   disabledFiftyPer = {disabledFiftyPer}
                   disabledButtons={disabledButtons}
                   buttonStates={buttonStates}
                   disabledFlip={disabledFlip}
                   incorrectOptions = {incorrectOptions}
+                  // disabledAudience = {disabledAudience}
+                  usedLifeLine  = {usedLifeLine}
                 />
               ))}
             </ul>
@@ -144,14 +152,16 @@ export default function QuizPage() {
               handleFiftyFiftyClick={handleFiftyFiftyClick}
               handleFlipQuestionClick={handleFlipQuestionClick}
               handleTimeFreezeClick={handleTimeFreezeClick}
-              handleAudienceClick = {handleAudienceClick}
+              // handleAudienceClick = {handleAudienceClick}
               disabledFifty={disabledFifty}
               disabledFiftyPer = {disabledFiftyPer}
-              disabledAudience={disabledAudience}
+              // disabledAudience={disabledAudience}
               disabledFreeze={disabledFreeze}
               disabledFlip={disabledFlip}
               disabledFreezePer = {disabledFreezePer}
+              // disabledAudiencePer = {disabledAudiencePer}
             />
+
             {showLifeline ? (
               <LifelineToggle
                 showLifeline={showLifeline}

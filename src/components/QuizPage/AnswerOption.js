@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function AnswerOption({
   option,
@@ -9,26 +9,24 @@ export default function AnswerOption({
   disabledFlip,
   disabledFifty,
   incorrectOptions,
-
+  // disabledAudience,
+  usedLifeLine,
 }) {
 
-  // console.log(disabledFifty, ' ----------------- ')
-
-  const isIncorrect = !option.isCorrectAnswer;
-
-  console.log(incorrectOptions, " ---------------------------------- ")
   const firstTwoIncorrectOptions = incorrectOptions.slice(0, 2);
+  // const allIncorrectOptions = incorrectOptions.includes(option);
   const isInFirstTwoIncorrect = firstTwoIncorrectOptions.includes(option);
-  
-  
+
   return (
     <li className={`quiz-answers`}>
       <button
         className={`quiz-button  
-        ${disabledFlip ? 'quiz-animation' : ''}
-        ${disabledFifty && isInFirstTwoIncorrect ? 'quizCard-fifty50' : ''}
+        ${ disabledFlip ? "quiz-animation" : ""}
+
+        ${ disabledFifty && isInFirstTwoIncorrect ? "quizCard-fifty50" : "" }
+     
         ${
-          buttonStates[index + 1]
+          buttonStates[index + 1] && usedLifeLine
             ? option.isCorrectAnswer
               ? "quiz-answer-correct"
               : "slide quiz-answer-incorrect"

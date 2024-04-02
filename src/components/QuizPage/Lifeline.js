@@ -14,6 +14,7 @@ export default function Lifeline({
   disabledAudience,
   disabledFreezePer,
   disabledFiftyPer,
+  disabledAudiencePer,
 }) {
   return (
     <div
@@ -41,23 +42,7 @@ export default function Lifeline({
               <span style={{ fontSize: "12px" }}></span>
               <span style={{ fontSize: "11px" }}> 50:50</span>
             </li>
-            <li className={`lifeline-li ${disabledAudience ? "lifeline-disabled" : ""}`} onClick={handleAudienceClick}>
-              <div className="lifeline-list">
-                <img
-                  alt="Audience Poll"
-                  title="Audience Poll"
-                  fetchpriority="high"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                  data-nimg="1"
-                  src="https://images.atmequiz.com/img/audience-poll.svg"
-                  style={{ color: "transparent" }}
-                />
-              </div>
-              <span style={{ fontSize: "12px" }}></span>
-              <span style={{ fontSize: "11px" }}>Audience Poll</span>
-            </li>
+          
             <li className={`lifeline-li ${disabledFreezePer ? "lifeline-disabled" : ""}`} onClick={handleTimeFreezeClick}>
               <div className="lifeline-list">
                 <img
