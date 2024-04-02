@@ -3,8 +3,7 @@ import backgroundImage from "../images/bg_quiz.jpg";
 import "../scss/HomePage.scss";
 import Categories from "../components/homeScreen/categoryOption/Categories";
 import CategoryCard from "../components/homeScreen/categoryCard/CatgoryCard";
-import ReportIssue from "../components/homeScreen/reportIssueOffCanva/ReportIssue";
-import Header from "../components/Header/Header";
+// import ReportIssue from "../components/homeScreen/reportIssueOffCanva/ReportIssue";
 import GoogleAd from "../components/GoogleAd";
 
 
@@ -23,12 +22,11 @@ export default function HomePage() {
           zIndex: 1,
         }}
       ></div>
-      <div className="home">
-        <Header/>
+      <div className="home page">
         <GoogleAd/>
         <Categories />
         <CategoryCard />
-        <ReportIssue />    
+   
       </div>
     </div>
   );
