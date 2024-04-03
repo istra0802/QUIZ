@@ -137,7 +137,6 @@ export default function QuizPage() {
           <img src={coin} alt="/home" className="coin-image"></img>
         </h2>
       </div>
-      {/* <QuizCategoryHeading /> */}
 
       <div className="quiz-card">
         <QuizHeader

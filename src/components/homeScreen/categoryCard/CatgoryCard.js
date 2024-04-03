@@ -19,14 +19,14 @@ export default function CategoryCard({ activeCategory }) {
       try {
         const data = await fetchCategoriesWisedata (activeCategory);
         setCardData(data);
-        console.log("gggggggg", data);
+   
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
     fetchData();
   }, [activeCategory]);
-  console.log("cardd===========",cardData)
+
 
   return (
     <div>

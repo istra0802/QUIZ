@@ -19,7 +19,7 @@ const CustomOffcanvas = () => {
   const handleContestRuleClick = () => {
     navigate("/rules");
   };
-  console.log("showReport", showReport);
+
   return showReport ? (
     <ReportIssue toggleReport={toggleReport} />
   ) : (

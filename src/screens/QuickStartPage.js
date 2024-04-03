@@ -6,6 +6,7 @@ import QuizHeader from "../components/QuickStartPage/QuickHeader";
 import GoogleAd from "../components/GoogleAd";
 import ListSection from "../components/Login/ListSection";
 import initialQuestions from "../data/initialQuestion.json";
+import { firstTwoRandomQuestion } from "../services";
 
 export default function QuickStartPage() {
   const [page, setPage] = useState(1);
@@ -17,6 +18,7 @@ export default function QuickStartPage() {
   }); 
   const [disabledButtons, setDisabledButtons] = useState(false); 
   const [clicked, setClicked] = useState(false);
+  const [initialQuestionSet , setInitialQuestionSet] = useState([]);
 
   function paginate(array, page_size, page_number) {
 
@@ -56,7 +58,20 @@ export default function QuickStartPage() {
     }
   }, [clicked]);
 
-  const questions = paginate(initialQuestions.Question, 1, page);
+  const questions = paginate(initialQuestionSet, 1, page);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await firstTwoRandomQuestion();
+        setInitialQuestionSet(data);
+        console.log(data, " ============================ ")
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="page-container">
@@ -66,10 +81,10 @@ export default function QuickStartPage() {
       <div>
         <div className="quiz-card-body">
           <Question queNumber={page} />
-          <h3 className="quiz-que">{questions[0].question}</h3>
+          <h3 className="quiz-que">{initialQuestionSet[0]?.question}</h3>
 
           <ul className="quiz-answer-list">
-            {questions[0].answerOptions.map((option, index) => (
+            {initialQuestionSet[0]?.answerOptions.map((option, index) => (
               <li className="quiz-answers" key={index}>
                 <button
                   className={`quiz-button ${
