@@ -5,6 +5,7 @@ import "../../scss/PlayAndWin.scss";
 import GoogleAd from "../GoogleAd";
 import { fetchParticularContestdata } from "../../services";
 import { useParams } from "react-router-dom";
+import Header from "../Header/Header";
 
 export default function PlayAndWin() {
   const [contestData, setContestData] = useState(null);
@@ -23,25 +24,40 @@ export default function PlayAndWin() {
   }, [id]);
 
   return (
+      <div className="home">
+      <Header showBackButton={true} />
+      
     <div className="box-c">
+
       <div className="box">
         <div className="imagediv">
           <div className="imageee imageeeanimation">
             <div className="imgstyle">
-              <img alt="" src={cricket} style={{ height: "60px", width: "60px" }} />
+              <img
+                alt=""
+                src={cricket}
+                style={{ height: "60px", width: "60px" }}
+              />
             </div>
             <h3 className="spantext" style={{ color: "#fff" }}>
-              {contestData && contestData.name ? contestData.name : "Loading..."}
+              {contestData && contestData.name
+                ? contestData.name
+                : "Loading..."}
             </h3>
           </div>
         </div>
         <h2 style={{ fontSize: "20px", color: "#fff" }}>
-          {contestData && contestData.winningCoins ? `Play and Win ${contestData.winningCoins}` : "Loading..."}
+          {contestData && contestData.winningCoins
+            ? `Play and Win ${contestData.winningCoins}`
+            : "Loading..."}
           <img alt="" src={coin} style={{ height: "19px", width: "19px" }} />
         </h2>
         <p className="ptext" style={{ color: "#b6b3ff" }}>
           You’ve got 60 seconds to answer all questions. Answer as many
-          questions as you can. Entry fee will be  {contestData && contestData.entryCoins ? `Play and Win ${contestData.entryCoins}` : "Loading..."}
+          questions as you can. Entry fee will be{" "}
+          {contestData && contestData.entryCoins
+            ? `Play and Win ${contestData.entryCoins}`
+            : "Loading..."}
           <span className="spanimg">
             <img alt="" src={coin} style={{ width: "16px", height: "16px" }} />
           </span>
@@ -78,17 +94,19 @@ export default function PlayAndWin() {
       <div className="footer_madeWithLove">
         Made with
         <img
-        alt=""
+          alt=""
           src="https://images.atmequiz.com/heart-icon.svg"
           style={{ height: "11px", width: "12px" }}
         />
         in India
         <img
-        alt=""
+          alt=""
           src="https://images.atmequiz.com/india-flag-icon.svg"
           style={{ height: "9px", width: "14px" }}
         />
       </div>
+      </div>
+      
     </div>
   );
 }

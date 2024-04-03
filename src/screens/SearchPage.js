@@ -109,7 +109,10 @@ export default function SearchPage() {
       <div className="serach_gameList">
         <div className="search_listingHeader">
           <h1 className="h">Quiz List</h1>
-          <p className="pa">78 quizzes explore your favourite</p>
+          <p className="pa">
+            {" "}
+            {filteredContests.length} quizzes explore your favourite
+          </p>
         </div>
         <div className="search_listBody">
           <ul className="uli">

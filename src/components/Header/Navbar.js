@@ -5,36 +5,47 @@ import logo from "../../images/logo.jpg";
 import "../../scss/Navbar.scss";
 import CoinAnimation from "./CoinAnimation";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const CustomNavbar = ({ handleShow }) => {
-
+const CustomNavbar = ({ handleShow, showBackButton }) => {
   const navigate = useNavigate();
 
+  const handleBack = () => {
+    navigate("/home");
+  };
   const handleCoinHistoryClick = () => {
     navigate("/coinHistory"); // Navigate to the Contest Rule page
   };
 
   return (
-    <Navbar className="header" style={{padding:"0px"}}>
+    <Navbar className="header" style={{ padding: "0px" }}>
       <Container>
-        <Nav.Link
-          onClick={handleShow}
-          style={{ color: "white" }}
-          className="text-white"
-        >
-          <i
-            className="bi bi-filter-left"
-            aria-hidden="true"
-            data-bs-toggle="offcanvas"
-            href="#offcanvasExample"
-            role="button"
-            aria-controls="offcanvasExample"
-            style={{ fontSize: "35px" }}
+        {showBackButton && (
+          <Nav.Link
+            style={{ color: "white" }}
+            className="text-white"
+            onClick={handleBack}
           >
-           
-          </i>
-        </Nav.Link>
+            <i className="bi bi-arrow-left" style={{ fontSize: "30px" }} />
+          </Nav.Link>
+        )}
+        {!showBackButton && (
+          <Nav.Link
+            onClick={handleShow}
+            style={{ color: "white" }}
+            className="text-white"
+          >
+            <i
+              className="bi bi-filter-left"
+              aria-hidden="true"
+              data-bs-toggle="offcanvas"
+              href="#offcanvasExample"
+              role="button"
+              aria-controls="offcanvasExample"
+              style={{ fontSize: "35px" }}
+            ></i>
+          </Nav.Link>
+        )}
 
         <Nav.Link className="me-auto">
           <a href="/" className="logo">

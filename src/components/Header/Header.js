@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import CustomNavbar from "./Navbar";
 import CustomOffcanvas from "./Offcanvas";
 import "../../scss/Header.scss";
 
-const Header = ({ handleShow }) => {
-
+const Header = ({ showBackButton }) => {
   return (
     <>
-      <CustomNavbar handleShow={handleShow} />
-      <CustomOffcanvas/>
+      <CustomNavbar showBackButton={showBackButton} />
+      <CustomOffcanvas />
     </>
   );
 };
