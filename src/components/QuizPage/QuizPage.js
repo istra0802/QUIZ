@@ -9,6 +9,7 @@ import "../../scss/QuizPage.scss";
 import QuizCategoryHeading from "./QuizCategoryHeading";
 import QuizPageAudio from "./QuizPageAudio";
 import LifelineToggle from "./LifelineToggle";
+import LifelineModal from "../../screens/LifelineModal";
 import coin from "../../images/coin-icon.jpg";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -90,7 +91,9 @@ export default function QuizPage() {
     }
   };
 
-  const incorrectOptions = selectedQue?.answerOptions?.filter((opt) => !opt.isCorrectAnswer);
+  const incorrectOptions = selectedQue?.answerOptions?.filter(
+    (opt) => !opt.isCorrectAnswer
+  );
 
   const handleFiftyFiftyClick = () => {
     setDisabledFiftyPer(true);
@@ -153,12 +156,12 @@ export default function QuizPage() {
                   index={index}
                   handleButtonClick={handleButtonClick}
                   disabledFifty={disabledFifty}
-                  disabledFiftyPer = {disabledFiftyPer}
+                  disabledFiftyPer={disabledFiftyPer}
                   disabledButtons={disabledButtons}
                   buttonStates={buttonStates}
                   disabledFlip={disabledFlip}
-                  incorrectOptions = {incorrectOptions}
-                  usedLifeLine  = {usedLifeLine}
+                  incorrectOptions={incorrectOptions}
+                  usedLifeLine={usedLifeLine}
                 />
               ))}
             </ul>
@@ -170,10 +173,10 @@ export default function QuizPage() {
               handleFlipQuestionClick={handleFlipQuestionClick}
               handleTimeFreezeClick={handleTimeFreezeClick}
               disabledFifty={disabledFifty}
-              disabledFiftyPer = {disabledFiftyPer}
+              disabledFiftyPer={disabledFiftyPer}
               disabledFreeze={disabledFreeze}
               disabledFlip={disabledFlip}
-              disabledFreezePer = {disabledFreezePer}
+              disabledFreezePer={disabledFreezePer}
             />
 
             {showLifeline ? (
@@ -189,7 +192,6 @@ export default function QuizPage() {
             )}
           </div>
         </div>
-
         <QuizFooter />
       </div>
     </div>

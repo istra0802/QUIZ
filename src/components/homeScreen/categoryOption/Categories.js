@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Swiper from "swiper";
 import "../../../scss/Categories.scss";
 import { fetchCategories } from "../../../services";
 import CategoryCard from "../categoryCard/CatgoryCard";
@@ -21,6 +22,17 @@ export default function Categories() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const swiper = new Swiper(".swiper-container", {
+      slidesPerView: "auto",
+      // spaceBetween: 16,
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        draggable: true,
+      },
+    });
+  }, []);
+
   const handleCategoryClick = (categoryName) => {
     setActiveCategory(categoryName);
   };
@@ -28,30 +40,25 @@ export default function Categories() {
   return (
     <div className="categories-container">
       <div className="categories">
-        <ul className="category-list">
-          {categories.map((category, index) => (
-            <li className="lilink" key={index}>
-             <Link
-                className={`category-link ${
-                  activeCategory === category.name 
-                    ? "active"
-                    : "" 
-                   
-                }`}
-                to={category.href}
-                onClick={() => {
-                  category.name === "CONTEST"
-                    ? handleCategoryClick("CONTEST")
-                    : handleCategoryClick(category.name);
-                }}
-              >
-                {category.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="swiper-container">
+          <div className="swiper-wrapper">
+            {categories.map((category, index) => (
+              <div className="swiper-slide" key={index}>
+                <Link
+                  className={`category-link ${
+                    activeCategory === category.name ? "active" : ""
+                  }`}
+                  to={category.href}
+                  onClick={() => handleCategoryClick(category.name)}
+                >
+                  {category.name}
+                </Link>
+              </div>
+            ))}
+          </div>
+          <div className="swiper-scrollbar"></div>
+        </div>
       </div>
-
       <div className="search">
         <Link to="/search">
           <img

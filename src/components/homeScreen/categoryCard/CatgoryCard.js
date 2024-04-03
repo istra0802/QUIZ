@@ -87,7 +87,7 @@ export default function CategoryCard({ activeCategory }) {
               </p>
               <Link
                   className="btn-style"
-                  to={`/home/playbtn/${card._id}`}
+                  to={`/home/playbtn/${card.id}`}
                   onClick={() => handleClick(card.id)}
                 >
                   Play

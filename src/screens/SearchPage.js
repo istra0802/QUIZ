@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swiper from "swiper";
 import "../scss/SearchPage.scss";
 import monkey from "../images/monkey.png";
 import { useNavigate } from "react-router";
@@ -38,12 +39,22 @@ export default function SearchPage() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const swiper = new Swiper(".swiper-container", {
+      slidesPerView: "auto",
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        draggable: true,
+      },
+    });
+  }, []);
+
   const filteredContests = contestData.filter((contest) =>
     contest.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   const filteredContests1 = categories.filter((contest) =>
-  contest.name.toLowerCase().includes(searchTerm.toLowerCase())
-);
+    contest.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="box-c1">
@@ -75,10 +86,10 @@ export default function SearchPage() {
         </div>
       </div>
 
-      <div className="search_category" style={{ overflowX: "hidden" }}>
-        <ul className="ull">
+      <div className="search_category swiper-container">
+        <div className="swiper-wrapper">
           {filteredContests1.map((category, index) => (
-            <li className="l" key={index}>
+            <div className="swiper-slide l" key={index}>
               <a href={category.link}>
                 <div className="search__boxxx">
                   <img
@@ -89,15 +100,19 @@ export default function SearchPage() {
                 </div>
                 <span className="c">{category.name}</span>
               </a>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
+        <div className="swiper-scrollbar"></div>
       </div>
 
       <div className="serach_gameList">
         <div className="search_listingHeader">
           <h1 className="h">Quiz List</h1>
-          <p className="pa">78 quizzes explore your favourite</p>
+          <p className="pa">
+            {" "}
+            {filteredContests.length} quizzes explore your favourite
+          </p>
         </div>
         <div className="search_listBody">
           <ul className="uli">
