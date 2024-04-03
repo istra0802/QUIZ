@@ -6,18 +6,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { fetchCategoriesWisedata } from "../../../services";
 
 export default function CategoryCard({ activeCategory }) {
-
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [cardData, setCardData] = useState([]);
 
-  const handleClick=(id)=>{
-    navigate(`/home/playbtn/${id}`)
-  }
+  const handleClick = (id) => {
+    navigate(`/home/playbtn/${id}`);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchCategoriesWisedata (activeCategory);
+        const data = await fetchCategoriesWisedata(activeCategory);
         setCardData(data);
    
       } catch (error) {
@@ -31,14 +30,13 @@ export default function CategoryCard({ activeCategory }) {
   return (
     <div>
       <div className="maindiv">
-        { cardData?.map((card) =>(
-          
+        {cardData?.map((card) => (
           <div key={card._id} className="mainbox">
             <div className="cardcontent">
               <div className="imgclass">
                 <img
                   alt=""
-                  src={cricket}
+                  src={card.quizImage}
                   style={{ height: "60px", width: "60px" }}
                 />
               </div>
@@ -68,8 +66,8 @@ export default function CategoryCard({ activeCategory }) {
             </div>
 
             <div className="card-footer">
-              <p className="color" style={{marginBottom:"6px"}}>
-                <span style={{marginRight:"8px"}}>
+              <p className="color" style={{ marginBottom: "6px" }}>
+                <span style={{ marginRight: "8px" }}>
                   <span className="text3">Entry: {card.entryCoins}</span>
                   <img
                     src={coin}
@@ -82,16 +80,16 @@ export default function CategoryCard({ activeCategory }) {
                     }}
                   />
                   <strong className="color1">500</strong>
-                  <span style={{marginLeft:"3px"}}>Users Playing</span>
+                  <span style={{ marginLeft: "3px" }}>Users Playing</span>
                 </span>
               </p>
               <Link
-                  className="btn-style"
-                  to={`/home/playbtn/${card.id}`}
-                  onClick={() => handleClick(card.id)}
-                >
-                  Play
-                </Link>
+                className="btn-style"
+                to={`/home/playbtn/${card.id}`}
+                onClick={() => handleClick(card.id)}
+              >
+                Play
+              </Link>
             </div>
           </div>
         ))}
