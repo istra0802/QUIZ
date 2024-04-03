@@ -1,21 +1,20 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 body {
   font-family: "Poppins", sans-serif; /* Apply Poppins font to all elements */
 }
 
-.box-c1{
-    background: #1f237e;
-    width: 100%;
-    padding: 16px;
-    position: relative;
-    padding: 12px;
-    min-height: 100vh;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    height: auto;
+.box-c1 {
+  background: #1f237e;
+  width: 100%;
+  padding: 16px;
+  position: relative;
+  padding: 12px;
+  min-height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  height: auto;
 }
 
 .search_wrapper {
@@ -87,7 +86,7 @@ body {
 .l {
   width: 76px;
   text-align: center;
-  list-style-type: none; 
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
@@ -95,7 +94,7 @@ body {
   border-radius: 16px;
   background: #fff;
   border: 1px solid #fff;
-  box-shadow: 0 4px 4px 0 rgba(0,0,0,.25);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -3,14 +3,9 @@ import { Link } from "react-router-dom";
 import "../../../scss/Categories.scss";
 import { fetchCategories } from "../../../services";
 import CategoryCard from "../categoryCard/CatgoryCard";
-import SearchPage from "../../../screens/SearchPage";
-
 export default function Categories() {
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState("CONTEST");
-  const [showSearchPage, setShowSearchPage] = useState(false); // State variable to control search page visibility
-
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,27 +18,18 @@ export default function Categories() {
     };
     fetchData();
   }, []);
-
   const handleCategoryClick = (categoryName) => {
     setActiveCategory(categoryName);
   };
-
-  const toggleSearchPage = () => {
-    setShowSearchPage(!showSearchPage); // Toggle the visibility of the search page
-  };
-
   return (
     <div className="categories-container">
       <div className="categories">
         <ul className="category-list">
           {categories.map((category, index) => (
             <li className="lilink" key={index}>
-             <Link
+              <Link
                 className={`category-link ${
-                  activeCategory === category.name 
-                    ? "active"
-                    : "" 
-                   
+                  activeCategory === category.name ? "active" : ""
                 }`}
                 to={category.href}
                 onClick={() => {
@@ -58,17 +44,15 @@ export default function Categories() {
           ))}
         </ul>
       </div>
-
       <div className="search">
-       
+        <Link to="/search">
           <img
             src="https://images.atmequiz.com/img/search.svg"
             style={{ width: "20px", height: "20px" }}
             alt="search"
-            onClick={toggleSearchPage}
-          />       
+          />
+        </Link>
       </div>
-      {showSearchPage && <SearchPage />}
       <CategoryCard activeCategory={activeCategory} />
     </div>
   );

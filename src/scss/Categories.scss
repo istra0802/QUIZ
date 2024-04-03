@@ -36,13 +36,10 @@
   border-right: 0 solid #282d93;
   margin-left: 0;
 
-  @media (min-width: 100px) {
-    overflow-x: auto;
-  }
 }
 .category-list::-webkit-scrollbar {
-  width: 0; /* Remove scrollbar width */
-  height: 0; /* Remove scrollbar height */
+  width: 10px; /* Remove scrollbar width */
+  height: 10px; /* Remove scrollbar height */
 }
 
 /* Optional: Firefox */

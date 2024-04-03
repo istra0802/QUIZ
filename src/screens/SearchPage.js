@@ -46,7 +46,7 @@ export default function SearchPage() {
 );
 
   return (
-    <div className="box-c1">
+    <div className=" box-c1">
       <div className="search_wrapper">
         <div className="search_searchHeader d-flex">
           <div className="search_back" onClick={handleBack}>
