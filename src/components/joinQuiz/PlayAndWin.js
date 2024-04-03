@@ -16,6 +16,7 @@ export default function PlayAndWin() {
       try {
         const data = await fetchParticularContestdata(id); // Fetch data based on id
         setContestData(data);
+        console.log("imggggggggggg", data);
       } catch (error) {
         console.error("Error fetching contest data:", error);
       }
@@ -24,89 +25,91 @@ export default function PlayAndWin() {
   }, [id]);
 
   return (
-      <div className="home">
+    <div className="home">
       <Header showBackButton={true} />
-      
-    <div className="box-c">
 
-      <div className="box">
-        <div className="imagediv">
-          <div className="imageee imageeeanimation">
-            <div className="imgstyle">
+      <div className="box-c">
+        <div className="box">
+          <div className="imagediv">
+            <div className="imageee imageeeanimation">
+              <div className="imgstyle">
+                <img
+                  alt=""
+                  src={cricket}
+                  style={{ height: "60px", width: "60px" }}
+                />
+              </div>
+              <h3 className="spantext" style={{ color: "#fff" }}>
+                {contestData && contestData.name
+                  ? contestData.name
+                  : "Loading..."}
+              </h3>
+            </div>
+          </div>
+          <h2 style={{ fontSize: "20px", color: "#fff" }}>
+            {contestData && contestData.winningCoins
+              ? `Play and Win ${contestData.winningCoins}`
+              : "Loading..."}
+            <img alt="" src={coin} style={{ height: "19px", width: "19px" }} />
+          </h2>
+          <p className="ptext" style={{ color: "#b6b3ff" }}>
+            You’ve got 60 seconds to answer all questions. Answer as many
+            questions as you can. Entry fee will be{" "}
+            {contestData && contestData.entryCoins
+              ? `Play and Win ${contestData.entryCoins}`
+              : "Loading..."}
+            <span className="spanimg">
               <img
                 alt=""
-                src={cricket}
-                style={{ height: "60px", width: "60px" }}
+                src={coin}
+                style={{ width: "16px", height: "16px" }}
               />
-            </div>
-            <h3 className="spantext" style={{ color: "#fff" }}>
-              {contestData && contestData.name
-                ? contestData.name
-                : "Loading..."}
-            </h3>
-          </div>
+            </span>
+          </p>
+          <p className="mb-16 cstmtext" style={{ color: "#b6b3ff" }}>
+            join and save the coins you win! Its free & safe!
+          </p>
         </div>
-        <h2 style={{ fontSize: "20px", color: "#fff" }}>
-          {contestData && contestData.winningCoins
-            ? `Play and Win ${contestData.winningCoins}`
-            : "Loading..."}
-          <img alt="" src={coin} style={{ height: "19px", width: "19px" }} />
-        </h2>
-        <p className="ptext" style={{ color: "#b6b3ff" }}>
-          You’ve got 60 seconds to answer all questions. Answer as many
-          questions as you can. Entry fee will be{" "}
-          {contestData && contestData.entryCoins
-            ? `Play and Win ${contestData.entryCoins}`
-            : "Loading..."}
-          <span className="spanimg">
-            <img alt="" src={coin} style={{ width: "16px", height: "16px" }} />
-          </span>
-        </p>
-        <p className="mb-16 cstmtext" style={{ color: "#b6b3ff" }}>
-          join and save the coins you win! Its free & safe!
-        </p>
-      </div>
 
-      <a
-        className="playNow_btn playNow_animated playNow_shine"
-        style={{ textDecoration: "none" }}
-        href="/login"
-      >
-        Join Quiz
-      </a>
-      <button className="playNow_btn playNow_animated playNow_blue">
-        Play as Guest
-      </button>
-
-      <GoogleAd />
-      <div className="playNow_twobtn">
-        <button className="playNow_btn1 playNow_animated playNow_blue">
-          View Prize
-        </button>
         <a
-          href="/contest-rules"
-          className="playNow_btn2 playNow_animated playNow_blue"
+          className="playNow_btn playNow_animated playNow_shine"
+          style={{ textDecoration: "none" }}
+          href="/login"
         >
-          Contest Rules
+          Join Quiz
         </a>
-      </div>
+        <button className="playNow_btn playNow_animated playNow_blue">
+          Play as Guest
+        </button>
 
-      <div className="footer_madeWithLove">
-        Made with
-        <img
-          alt=""
-          src="https://images.atmequiz.com/heart-icon.svg"
-          style={{ height: "11px", width: "12px" }}
-        />
-        in India
-        <img
-          alt=""
-          src="https://images.atmequiz.com/india-flag-icon.svg"
-          style={{ height: "9px", width: "14px" }}
-        />
+        <GoogleAd />
+        <div className="playNow_twobtn">
+          <button className="playNow_btn1 playNow_animated playNow_blue">
+            View Prize
+          </button>
+          <a
+            href="/contest-rules"
+            className="playNow_btn2 playNow_animated playNow_blue"
+          >
+            Contest Rules
+          </a>
+        </div>
+
+        <div className="footer_madeWithLove">
+          Made with
+          <img
+            alt=""
+            src="https://images.atmequiz.com/heart-icon.svg"
+            style={{ height: "11px", width: "12px" }}
+          />
+          in India
+          <img
+            alt=""
+            src="https://images.atmequiz.com/india-flag-icon.svg"
+            style={{ height: "9px", width: "14px" }}
+          />
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 }

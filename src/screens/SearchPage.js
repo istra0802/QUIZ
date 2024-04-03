@@ -93,7 +93,7 @@ export default function SearchPage() {
               <a href={category.link}>
                 <div className="search__boxxx">
                   <img
-                    src={category.imageUrl}
+                    src={category.quizImage}
                     style={{ width: "48px", height: "48px" }}
                     alt={category.name}
                   />
@@ -121,7 +121,7 @@ export default function SearchPage() {
                 <a className="aa" href="">
                   <div className="search_box">
                     <img
-                      src={monkey}
+                      src={contest.quizImage}
                       style={{ height: "40px", width: "40px" }}
                       alt=""
                     />
