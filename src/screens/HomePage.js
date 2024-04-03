@@ -31,7 +31,7 @@ export default function HomePage() {
           <Categories />
           <CategoryCard />
         </div>
-</div>
+    </div>
     </div>
   );
 }
