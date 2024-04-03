@@ -6,8 +6,13 @@ function LoginSection() {
   const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLoginClick = () => {
-    // Navigate to PlayNow component when login button is clicked
-    navigate("/PlayNow");
+
+      // window.open(
+      //     `https://atme-quiz.onrender.com/auth/google/callback`,
+      //     "_self"
+      // );
+
+     navigate("/quiz");
   };
 
   return (
@@ -16,7 +21,7 @@ function LoginSection() {
         Login now & Play Quiz
       </h3>
       <p className="login-play-text"> Play Quizzes and win Coins</p>
-      <button className="login-google-button" onClick={handleLoginClick}> {/* Add onClick handler */}
+      <button className="login-google-button" onClick={handleLoginClick}>
         <span className="login-google-text">
           <img
             alt="coin"

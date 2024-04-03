@@ -14,36 +14,30 @@ export default function QuickStartPage() {
     2: false,
     3: false,
     4: false,
-  }); // State to track the active state of each button
-  const [disabledButtons, setDisabledButtons] = useState(false); // State to disable buttons after click
-  const [clicked, setClicked] = useState(false); // State to track if any button is clicked
+  }); 
+  const [disabledButtons, setDisabledButtons] = useState(false); 
+  const [clicked, setClicked] = useState(false);
 
   function paginate(array, page_size, page_number) {
-    // human-readable page numbers usually start with 1, so we reduce 1 in the first argument
+
     return array.slice((page_number - 1) * page_size, page_number * page_size);
   }
 
   const navigate = useNavigate();
 
   const handleButtonClick = (buttonIndex) => {
-    // Disable buttons after click
     setDisabledButtons(true);
 
-    // Set the clicked button state
     setButtonStates((prevState) => ({
       ...prevState,
       [buttonIndex]: true,
     }));
-
-    // Set clicked state to true
     setClicked(true);
   };
 
   useEffect(() => {
-    // Check if any button is clicked
+
     if (clicked) {
-      // Move to the next set of questions
-      // Reset button states and enable buttons for the next set of questions
       setTimeout(() => {
           setPage((prevPage) => prevPage + 1);
         setButtonStates({
@@ -56,13 +50,12 @@ export default function QuickStartPage() {
         setClicked(false);
 
         if(page === 2) {
-            navigate("/home")
+            navigate("/playNow")
         }
-      }, 1000); // Reset after 1 second
+      }, 1000); 
     }
   }, [clicked]);
 
-  // Get the current set of questions based on the page state
   const questions = paginate(initialQuestions.Question, 1, page);
 
   return (

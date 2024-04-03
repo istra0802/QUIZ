@@ -31,6 +31,8 @@ const CustomOffcanvas = () => {
   };
 
   return (
+    <>
+    
     <div
       className="offcanvas offcanvas-Header text-white "
       tabIndex="-1"
@@ -165,7 +167,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <a style={{ fontWeight: "500", color: "#ffffffba",textDecoration:"none"  }}>
+            <a  style={{ fontWeight: "500", color: "#ffffffba", textDecoration:"none"  }}>
               {" "}
               Report an Issue{" "}
             </a>
@@ -182,6 +184,7 @@ const CustomOffcanvas = () => {
                 <img
                   src="https://images.atmequiz.com/img/facebook-white-icon.svg"
                   style={{ width: "12px", height: "23px"}}
+                  alt=""
                 />
               </a>
             </div>
@@ -190,6 +193,7 @@ const CustomOffcanvas = () => {
                 <img
                   src="https://images.atmequiz.com/img/tw-white-icon.svg"
                   style={{ width: "22px", height: "17px"}}
+                  alt=""
                 />
               </a>
             </div>
@@ -198,6 +202,7 @@ const CustomOffcanvas = () => {
                 <img
                   src="https://images.atmequiz.com/img/instagram-white-icon.svg"
                   style={{ width: "20px", height: "20px"}}
+                  alt=""
                 />
               </a>
             </div>
@@ -206,6 +211,7 @@ const CustomOffcanvas = () => {
                 <img
                   src="	https://images.atmequiz.com/img/pin-white-icon.svg"
                   style={{ width: "20px", height: "26px"}}
+                  alt=""
                 />
               </a>
             </div>
@@ -213,7 +219,8 @@ const CustomOffcanvas = () => {
         </div>
       </div>
 
-      {showReport && (
+      
+    {showReport && (
         <div className="report_inner">
           <div className="report_wrapper">
             <div className="report_close" onClick={handleReportClose}></div>
@@ -252,6 +259,7 @@ const CustomOffcanvas = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

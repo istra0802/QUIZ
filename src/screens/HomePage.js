@@ -9,11 +9,12 @@ import Header from "../components/Header/Header";
 import SearchPage from "./SearchPage";
 
 
+
 export default function HomePage() {
 
   return (
     <div className="home-container">
-      <div  
+      <div
         style={{
           position: "absolute",
           top: 0,
@@ -25,12 +26,14 @@ export default function HomePage() {
           zIndex: 1,
         }}
       ></div>
-      <div className="home page">
-        <Header/>
-        <GoogleAd/>
-        <Categories />
-        <CategoryCard />
-      </div>
+      <div className="home">
+        <Header />
+        <div className="home page">
+          <GoogleAd />
+          <Categories />
+          <CategoryCard />
+        </div>
+
     </div>
   );
 }

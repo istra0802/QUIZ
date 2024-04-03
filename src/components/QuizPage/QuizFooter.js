@@ -1,5 +1,6 @@
 // QuizFooter.js
 import React from "react";
+import "../../scss/QuizPage.scss"
 
 export default function QuizFooter() {
   return (
