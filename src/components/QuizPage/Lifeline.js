@@ -10,6 +10,8 @@ export default function Lifeline({
   disabledFreezePer,
   disabledFiftyPer,
 }) {
+
+  
   return (
     <div
       className="lifeline "

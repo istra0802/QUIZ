@@ -6,8 +6,6 @@ import CategoryCard from "../components/homeScreen/categoryCard/CatgoryCard";
 // import ReportIssue from "../components/homeScreen/reportIssueOffCanva/ReportIssue";
 import GoogleAd from "../components/GoogleAd";
 import Header from "../components/Header/Header";
-import SearchPage from "./SearchPage";
-
 
 
 export default function HomePage() {
@@ -33,7 +31,7 @@ export default function HomePage() {
           <Categories />
           <CategoryCard />
         </div>
-
+</div>
     </div>
   );
 }

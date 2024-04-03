@@ -3,14 +3,15 @@ import HomePage from "./screens/HomePage";
 import JoinQuiz from "./screens/JoinQuiz";
 import SearchPage from "./screens/SearchPage";
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "../src/components/Login/LoginPage"
-import backgroundImage from "../src/images/bg_quiz.jpg"
+import LoginPage from "../src/components/Login/LoginPage";
+import backgroundImage from "../src/images/bg_quiz.jpg";
 import PlayNow from "./screens/PlayNow";
 import QuickStartPage from "./screens/QuickStartPage";
 import QuizPage from "../src/components/QuizPage/QuizPage";
 import ContestRulePage from "./screens/ContestRulePage";
 import CoinHistory from "./screens/CoinHistory";
 import ReportIssue from "./components/Header/reportIssueOffCanva/ReportIssue";
+import Lifeline from "./components/QuizPage/Lifeline";
 
 function App() {
   return (
@@ -28,7 +29,6 @@ function App() {
         }}
       ></div>
       <div className="home">
-        <Header/>
         <Routes>
           <Route exact path="/" element={<QuickStartPage />} />
           <Route exact path="/home" element={<HomePage />} />
@@ -39,7 +39,7 @@ function App() {
           <Route exact path="/coinHistory" element={<CoinHistory />} />
           <Route exact path="/home/playbtn/:id" element={<JoinQuiz />} />
           <Route exact path="/search" element={<SearchPage />} />
-          <Route exact path="/reportissue" element={<ReportIssue/>} />
+          <Route exact path="/reportissue" element={<ReportIssue />} />
         </Routes>
       </div>
     </div>

@@ -48,7 +48,7 @@ export const fetchCategoriesWisedata = async (category) => {
 export const fetchParticularContestdata = async (id) => {
   try {
     const response = await axios.get(
-      `https://atme-quiz.onrender.com/api/contests/data/${id}`
+      `https://atme-quiz.onrender.com/api/contests/${id}`
     );
     return response.data;
   } catch (error) {

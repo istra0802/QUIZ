@@ -2,14 +2,12 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  // min-height: 400px;
   align-content: flex-start;
+  overflow: hidden;
 }
 
 .categories {
   width: calc(100% - 40px);
-  overflow-x: hidden;
-  overflow-y: hidden;
   white-space: nowrap;
   transition: all 0.2s;
   user-select: none;
@@ -22,12 +20,11 @@
   margin-left: -12px;
   display: flex;
 }
-
-.category-list {
+.swiper-container {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-wrap: nowrap;
-  width: 100%;
   margin-top: 0;
   margin-bottom: 0;
   border-radius: 8px;
@@ -35,35 +32,20 @@
   overflow-x: auto;
   border-right: 0 solid #282d93;
   margin-left: 0;
-
 }
-.category-list::-webkit-scrollbar {
+
+.swiper-container::-webkit-scrollbar {
   width: 10px; /* Remove scrollbar width */
   height: 10px; /* Remove scrollbar height */
 }
 
-/* Optional: Firefox */
-.category-list {
-  scrollbar-width: none; /* For Firefox */
-}
-
-.lilink {
-  width: auto;
+.swiper-wrapper {
   display: flex;
-  flex-wrap: nowrap;
-  min-width: auto;
-  white-space: nowrap;
-  margin-right: 6px;
-}
-
-.lilink:first-child {
+  align-items: flex-start;
   margin-left: 12px;
 }
-
 .category-link {
   border-bottom: 0 solid #f5f6ff;
-  color: #f5f6ff;
-  // background: #f27c2c;
   display: flex;
   flex-wrap: wrap;
   flex-wrap: nowrap;
@@ -80,6 +62,7 @@
 }
 .category-link.active {
   background: #f27c2c;
+  color: #fff;
 }
 
 .search {
@@ -93,4 +76,8 @@
   margin-left: 10px;
   margin-top: 6px;
   cursor: pointer;
+}
+
+.swiper-slide {
+  padding: 0 3px;
 }

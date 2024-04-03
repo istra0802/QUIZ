@@ -6,13 +6,12 @@ function LoginSection() {
   const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLoginClick = () => {
+    // window.open(
+    //     `https://atme-quiz.onrender.com/auth/google/callback`,
+    //     "_self"
+    // );
 
-      // window.open(
-      //     `https://atme-quiz.onrender.com/auth/google/callback`,
-      //     "_self"
-      // );
-
-     navigate("/quiz");
+    navigate("/quiz");
   };
 
   return (
@@ -34,6 +33,8 @@ function LoginSection() {
       <p className="login-play-text">
         Don’t have an account? <span className="login-signup"> Sign Up</span>
       </p>
+
+     
     </div>
   );
 }
