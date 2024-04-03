@@ -6,8 +6,13 @@ function LoginSection() {
   const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLoginClick = () => {
-    // Navigate to PlayNow component when login button is clicked
-    navigate("/PlayNow");
+
+      window.open(
+          `https://atme-quiz.onrender.com/auth/google/callback`,
+          "_self"
+      );
+
+    // navigate("/PlayNow");
   };
 
   return (

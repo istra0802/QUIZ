@@ -5,6 +5,7 @@ import Categories from "../components/homeScreen/categoryOption/Categories";
 import CategoryCard from "../components/homeScreen/categoryCard/CatgoryCard";
 // import ReportIssue from "../components/homeScreen/reportIssueOffCanva/ReportIssue";
 import GoogleAd from "../components/GoogleAd";
+import Header from "../components/Header/Header";
 
 
 export default function HomePage() {
@@ -22,6 +23,7 @@ export default function HomePage() {
           zIndex: 1,
         }}
       ></div>
+      <Header/>
       <div className="home page">
         <GoogleAd/>
         <Categories />

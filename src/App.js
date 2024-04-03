@@ -30,7 +30,7 @@ function App() {
         }}
       ></div>
       <div className="home">
-        <Header/>
+  
         <Routes>
           <Route exact path="/" element={<QuickStartPage />} />
           <Route exact path="/home" element={<HomePage />} />

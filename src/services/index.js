@@ -3,7 +3,7 @@ import axios from "axios";
 export const contestQuizQuestion = async () => {
   try {
     const response = await axios.get(
-      "https://atme-quiz.onrender.com/api/json/data/6604b30057da7d5aabd8b9bf"
+      "https://atme-quiz.onrender.com/api/contests/data/6604b30057da7d5aabd8b9bf"
     );
     console.log("DATAAAAAA", response);
     return response.data;
@@ -15,7 +15,7 @@ export const contestQuizQuestion = async () => {
 export const fetchCategories = async () => {
   try {
     const response = await axios.get(
-      `https://atme-quiz.onrender.com/api/json/category/CONTEST`
+      `https://atme-quiz.onrender.com/api/contests/category/CONTEST`
     );
     console.log("DATAAAAAA", response);
     return response.data;
@@ -26,7 +26,7 @@ export const fetchCategories = async () => {
 
 export const fetchAllCategoryData = async () => {
   try {
-    const response = await axios.get(`https://atme-quiz.onrender.com/api/json`);
+    const response = await axios.get(`https://atme-quiz.onrender.com/api/contests`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -36,7 +36,7 @@ export const fetchAllCategoryData = async () => {
 export const fetchCategoriesWisedata = async (category) => {
   try {
     const response = await axios.get(
-      `https://atme-quiz.onrender.com/api/json/category/${category}`
+      `https://atme-quiz.onrender.com/api/contests/category/${category}`
     );
     console.log("DATAAAAAA", response);
     return response.data;
@@ -48,7 +48,7 @@ export const fetchCategoriesWisedata = async (category) => {
 export const fetchParticularContestdata = async (id) => {
   try {
     const response = await axios.get(
-      `https://atme-quiz.onrender.com/api/json/data/${id}`
+      `https://atme-quiz.onrender.com/api/contests/data/${id}`
     );
     return response.data;
   } catch (error) {
