@@ -7,11 +7,10 @@ import CategoryCard from "../components/homeScreen/categoryCard/CatgoryCard";
 import GoogleAd from "../components/GoogleAd";
 import Header from "../components/Header/Header";
 
-
 export default function HomePage() {
   return (
     <div className="home-container">
-      <div  
+      <div
         style={{
           position: "absolute",
           top: 0,
@@ -23,12 +22,13 @@ export default function HomePage() {
           zIndex: 1,
         }}
       ></div>
-      <Header/>
-      <div className="home page">
-        <GoogleAd/>
-        <Categories />
-        <CategoryCard />
-   
+      <div className="home">
+        <Header />
+        <div className="home page">
+          <GoogleAd />
+          <Categories />
+          <CategoryCard />
+        </div>
       </div>
     </div>
   );

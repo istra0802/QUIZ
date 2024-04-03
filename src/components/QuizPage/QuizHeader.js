@@ -3,6 +3,11 @@ import React, { useState, useEffect } from "react";
 export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
   const initialSeconds = 60;
   const [seconds, setSeconds] = useState(initialSeconds);
+  const [timeOver, setTimeOver] = useState(false);
+
+  const closeModal = () => {
+    setTimeOver(false);
+  };
 
   useEffect(() => {
     let interval;
@@ -10,7 +15,9 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
       interval = setInterval(() => {
         setSeconds((prevSeconds) => {
           if (prevSeconds === 0) {
-            return initialSeconds;
+            setSeconds(0);
+            setTimeOver(true);
+            // return initialSeconds;
           } else {
             return prevSeconds - 1;
           }
@@ -21,7 +28,7 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
     return () => clearInterval(interval);
   }, [initialSeconds, disabledFreeze]);
 
-  const dashLength = (( seconds) / initialSeconds) * 283;
+  const dashLength = (seconds / initialSeconds) * 283;
 
   return (
     <div className="quiz-header">
@@ -60,6 +67,75 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
         </div>
         <div className="quiz-card-question-incorrect">0</div>
       </div>
+
+      {timeOver && (
+        <div
+          className="modal"
+          id="exampleModal"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+          data-bs-backdrop="false"
+          data-bs-scroll="true"
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-body">
+               
+                <img
+                  alt="Get More Coins"
+                  fetchpriority="high"
+                  width="70"
+                  height="74"
+                  decoding="async"
+                  data-nimg="1"
+                  src="https://images.atmequiz.com/img/wrong_coinsBox.svg"
+                  style={{ color: "transparent" }}
+                />
+                 <button
+                  onClick={closeModal}
+                  type="button"
+                  className=" btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  style={{top:"0px", position:"absolute" , right:"0px", margin:"12px"}}
+                ></button>
+                <h2
+                  className="heading"
+                  style={{
+                    fontSize: "34px",
+                    color: "#ff5050",
+                    paddingTop: "0px",
+                  }}
+                >
+                  Oops!
+                </h2>
+                <p className="pa">
+                  You don't have enough coins to play this contest.
+                </p>
+                <div className="bonusModal_listCheck">
+                  <button className="bonusModal_reportBtn">
+                    <img
+                      alt="Get More Coins"
+                      fetchpriority="high"
+                      width="30"
+                      height="30"
+                      decoding="async"
+                      data-nimg="1"
+                      src="https://images.atmequiz.com/img/videoIcon.svg"
+                      style={{ color: "transparent" }}
+                    />
+                    Continue
+                  </button>
+                </div>
+                <p style={{ marginTop: "8px", lineHeight: "18px" }}>
+                  Click on video ad to get 100 reward coins.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

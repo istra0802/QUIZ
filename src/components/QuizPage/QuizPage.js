@@ -26,8 +26,6 @@ export default function QuizPage() {
   const [chancesLeft, setChancesLeft] = useState(0);
   const [disabledFifty, setDisabledFifty] = useState(false);
   const [disabledFiftyPer, setDisabledFiftyPer] = useState(false);
-  // const [disabledAudience, setDisabledAudience] = useState(false);
-  // const [disabledAudiencePer, setDisabledAudiencePer] = useState(false);
   const [disabledFreeze, setDisabledFreeze] = useState(false);
   const [disabledFreezePer, setDisabledFreezePer] = useState(false);
   const [disabledFlip, setDisabledFlip] = useState(false);
@@ -76,7 +74,6 @@ export default function QuizPage() {
     }
     setDisabledFreeze(false);
     setDisabledFifty(false);
-    // setDisabledAudience(false);
   };
 
   const toggleLifeline = () => {
@@ -106,11 +103,6 @@ export default function QuizPage() {
     setUsedLifeLine(true);
   };
 
-  // const handleAudienceClick = () => {
-  //   setDisabledAudience(true);
-  //   setDisabledAudiencePer(true);
-  //   setUsedLifeLine(true);
-  // }
 
   return (
     <div className="quiz-container">
@@ -140,7 +132,7 @@ export default function QuizPage() {
                   buttonStates={buttonStates}
                   disabledFlip={disabledFlip}
                   incorrectOptions = {incorrectOptions}
-                  // disabledAudience = {disabledAudience}
+            
                   usedLifeLine  = {usedLifeLine}
                 />
               ))}
@@ -152,14 +144,11 @@ export default function QuizPage() {
               handleFiftyFiftyClick={handleFiftyFiftyClick}
               handleFlipQuestionClick={handleFlipQuestionClick}
               handleTimeFreezeClick={handleTimeFreezeClick}
-              // handleAudienceClick = {handleAudienceClick}
               disabledFifty={disabledFifty}
               disabledFiftyPer = {disabledFiftyPer}
-              // disabledAudience={disabledAudience}
               disabledFreeze={disabledFreeze}
               disabledFlip={disabledFlip}
               disabledFreezePer = {disabledFreezePer}
-              // disabledAudiencePer = {disabledAudiencePer}
             />
 
             {showLifeline ? (

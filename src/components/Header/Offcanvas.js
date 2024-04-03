@@ -31,6 +31,8 @@ const CustomOffcanvas = () => {
   };
 
   return (
+    <>
+    
     <div
       className="offcanvas offcanvas-Header text-white "
       tabIndex="-1"
@@ -165,7 +167,7 @@ const CustomOffcanvas = () => {
                 style={{ height: "21px", width: "23px" }}
               ></i>
             </div>
-            <a style={{ fontWeight: "500", color: "#ffffffba", textDecoration:"none"  }}>
+            <a  style={{ fontWeight: "500", color: "#ffffffba", textDecoration:"none"  }}>
               {" "}
               Report an Issue{" "}
             </a>
@@ -217,7 +219,8 @@ const CustomOffcanvas = () => {
         </div>
       </div>
 
-      {showReport && (
+      
+    {showReport && (
         <div className="report_inner">
           <div className="report_wrapper">
             <div className="report_close" onClick={handleReportClose}></div>
@@ -256,6 +259,7 @@ const CustomOffcanvas = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

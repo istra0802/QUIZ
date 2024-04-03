@@ -3,29 +3,27 @@ import "../../scss/QuizPage.scss";
 
 export default function Lifeline({
   showLifeline,
-  toggleLifeline,
   handleFiftyFiftyClick,
   handleFlipQuestionClick,
   handleTimeFreezeClick,
-  handleAudienceClick,
-  disabledFreeze,
-  disabledFifty, 
   disabledFlip,
-  disabledAudience,
   disabledFreezePer,
   disabledFiftyPer,
-  disabledAudiencePer,
 }) {
   return (
     <div
-      className= "lifeline "
+      className="lifeline "
       style={{ display: showLifeline ? "flex" : "none" }}
-      // onClick={!disabled ? toggleLifeline : undefined}
     >
       <ul className="lifeline-wrapper" style={{ display: "flex" }}>
         <div>
           <ul className="lifeline-ul">
-            <li className= {`lifeline-li ${ disabledFiftyPer ? "lifeline-disabled" : ""}`} onClick={handleFiftyFiftyClick}>
+            <li
+              className={`lifeline-li ${
+                disabledFiftyPer ? "lifeline-disabled" : ""
+              }`}
+              onClick={handleFiftyFiftyClick}
+            >
               <div className="lifeline-list">
                 <img
                   alt="Audience Poll"
@@ -42,8 +40,13 @@ export default function Lifeline({
               <span style={{ fontSize: "12px" }}></span>
               <span style={{ fontSize: "11px" }}> 50:50</span>
             </li>
-          
-            <li className={`lifeline-li ${disabledFreezePer ? "lifeline-disabled" : ""}`} onClick={handleTimeFreezeClick}>
+
+            <li
+              className={`lifeline-li ${
+                disabledFreezePer ? "lifeline-disabled" : ""
+              }`}
+              onClick={handleTimeFreezeClick}
+            >
               <div className="lifeline-list">
                 <img
                   alt="Audience Poll"
@@ -60,7 +63,12 @@ export default function Lifeline({
               <span style={{ fontSize: "12px" }}></span>
               <span style={{ fontSize: "11px" }}>Freeze Timer</span>
             </li>
-            <li className= {`lifeline-li ${disabledFlip ? "lifeline-disabled" : ""}`} onClick={handleFlipQuestionClick}>
+            <li
+              className={`lifeline-li ${
+                disabledFlip ? "lifeline-disabled" : ""
+              }`}
+              onClick={handleFlipQuestionClick}
+            >
               <div className="lifeline-list">
                 <img
                   alt="Audience Poll"
