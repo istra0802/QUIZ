@@ -10,21 +10,21 @@ import ReportIssue from "./reportIssueOffCanva/ReportIssue";
 const CustomOffcanvas = () => {
   const [showReport, setShowReport] = useState(false);
 
+  const navigate = useNavigate();
+
   const toggleReport = () => {
     setShowReport(!showReport);
   };
 
-  const navigate = useNavigate();
-
   const handleContestRuleClick = () => {
     navigate("/rules");
   };
-  console.log("showReport", showReport);
+
   return showReport ? (
     <ReportIssue toggleReport={toggleReport} />
   ) : (
     <div
-      className="offcanvas offcanvas-Header text-white"
+    className={`offcanvas offcanvas-Header text-white`}
       tabIndex="-1"
       id="offcanvasExample"
       aria-labelledby="offcanvasExampleLabel"

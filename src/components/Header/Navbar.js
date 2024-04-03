@@ -7,12 +7,12 @@ import CoinAnimation from "./CoinAnimation";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link, useNavigate } from "react-router-dom";
 
-const CustomNavbar = ({ handleShow, showBackButton }) => {
+const CustomNavbar = ({ handleShow, showBackButton,handleBack }) => {
   const navigate = useNavigate();
 
-  const handleBack = () => {
-    navigate("/home");
-  };
+  // const handleBack = () => {
+  //   navigate("/home");
+  // };
   const handleCoinHistoryClick = () => {
     navigate("/coinHistory"); // Navigate to the Contest Rule page
   };

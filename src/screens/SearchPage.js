@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Swiper from "swiper";
 import "../scss/SearchPage.scss";
-import monkey from "../images/monkey.png";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { fetchAllCategoryData, fetchCategories } from "../services";
 
 export default function SearchPage() {
@@ -56,6 +55,10 @@ export default function SearchPage() {
     contest.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleCardClick = (contestId) => {
+    navigate(`/home/playbtn/${contestId}`);
+  };
+
   return (
     <div className="box-c1">
       <div className="search_wrapper">
@@ -93,7 +96,7 @@ export default function SearchPage() {
               <a href={category.link}>
                 <div className="search__boxxx">
                   <img
-                    src={category.imageUrl}
+                    src={category.quizImage}
                     style={{ width: "48px", height: "48px" }}
                     alt={category.name}
                   />
@@ -118,10 +121,14 @@ export default function SearchPage() {
           <ul className="uli">
             {filteredContests.map((contest, index) => (
               <li key={index}>
-                <a className="aa" href="">
+                <a
+                  className="aa"
+                  onClick={() => handleCardClick(contest.id)}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="search_box">
                     <img
-                      src={monkey}
+                      src={contest.quizImage}
                       style={{ height: "40px", width: "40px" }}
                       alt=""
                     />

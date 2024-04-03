@@ -5,10 +5,9 @@
   padding-top: 10px;
 }
 
-.offcanvas{
+.offcanvas {
   background: rgba(0, 0, 0, 0.7);
 }
-
 
 .offcanvas-Header {
   background: #272c93;
@@ -17,8 +16,7 @@
   flex-direction: column;
   text-align: center;
 }
-
-.user {
+.off .user {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
