@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import "../../../scss/Categories.scss";
 import { fetchCategories } from "../../../services";
 import CategoryCard from "../categoryCard/CatgoryCard";
+import SearchPage from "../../../screens/SearchPage";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState("CONTEST");
+  const [showSearchPage, setShowSearchPage] = useState(false); // State variable to control search page visibility
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +26,10 @@ export default function Categories() {
 
   const handleCategoryClick = (categoryName) => {
     setActiveCategory(categoryName);
+  };
+
+  const toggleSearchPage = () => {
+    setShowSearchPage(!showSearchPage); // Toggle the visibility of the search page
   };
 
   return (
@@ -53,14 +60,15 @@ export default function Categories() {
       </div>
 
       <div className="search">
-        <Link to="/search">
+       
           <img
             src="https://images.atmequiz.com/img/search.svg"
             style={{ width: "20px", height: "20px" }}
             alt="search"
-          />
-        </Link>
+            onClick={toggleSearchPage}
+          />       
       </div>
+      {showSearchPage && <SearchPage />}
       <CategoryCard activeCategory={activeCategory} />
     </div>
   );
