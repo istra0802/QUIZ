@@ -1,19 +1,19 @@
-.report_inner{
+.report_inner {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 9999;
   max-width: 100%;
   margin: 0 auto;
   display: flex;
   width: 428px;
   overflow: hidden;
   background: transparent;
-  background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, 0.7);
   height: 100%;
 }
-.report_wrapper{
+.report_wrapper {
   background: #282d93;
   width: 100%;
   height: auto;
@@ -23,13 +23,13 @@
   min-height: 200px;
   bottom: 0;
 }
-.report_list{
+.report_list {
   margin: 16px 0;
 }
-.repost_listCheck{
+.repost_listCheck {
   margin-top: 16px;
 }
-.report_close{
+.report_close {
   width: 40px;
   height: 40px;
   position: absolute;
@@ -39,30 +39,30 @@
   border-radius: 50px;
   cursor: pointer;
 }
-.report_close::before{
+.report_close::before {
   position: absolute;
-    left: 19px;
-    top: 11px;
-    content: " ";
-    height: 18px;
-    width: 2px;
-    background-color: #fff;
-    transform: rotate(45deg);
+  left: 19px;
+  top: 11px;
+  content: " ";
+  height: 18px;
+  width: 2px;
+  background-color: #fff;
+  transform: rotate(45deg);
 }
-.report_close::after{
+.report_close::after {
   transform: rotate(-45deg);
   position: absolute;
-    left: 19px;
-    top: 11px;
-    content: " ";
-    height: 18px;
-    width: 2px;
-    background-color: #fff;
+  left: 19px;
+  top: 11px;
+  content: " ";
+  height: 18px;
+  width: 2px;
+  background-color: #fff;
 }
-.list1{
+.list1 {
   margin-top: 16px;
 }
-.custmCheck{
+.custmCheck {
   display: inline-block;
   vertical-align: middle;
   margin: 5px;
@@ -70,14 +70,14 @@
   opacity: 0;
   position: absolute;
 }
-.custmcheck1{
+.custmcheck1 {
   position: relative;
   display: inline-block;
-    vertical-align: middle;
-    margin: 5px;
-    cursor: pointer;
+  vertical-align: middle;
+  margin: 5px;
+  cursor: pointer;
 }
-.custmcheck1::before{
+.custmcheck1::before {
   border-radius: 50%;
   background: #282d93;
   content: "";
@@ -88,9 +88,9 @@
   padding: 2px;
   margin-right: 10px;
   text-align: center;
-  border: 2px solid hsla(0, 0%, 100%, .4);
+  border: 2px solid hsla(0, 0%, 100%, 0.4);
 }
-.rep_btn{
+.rep_btn {
   height: 54px;
   width: 100%;
   font-size: 16px;

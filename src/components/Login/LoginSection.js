@@ -1,10 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { useNavigate, useParams } from "react-router-dom"; // Import useNavigate hook
 import "../../scss/LoginPage.scss";
 
 function LoginSection() {
   const navigate = useNavigate(); // Initialize useNavigate
-
+  const { id } = useParams();
   const handleLoginClick = () => {
 
       // window.open(
@@ -12,7 +12,8 @@ function LoginSection() {
       //     "_self"
       // );
 
-     navigate("/quiz");
+      navigate(`/quiz/${id}`)
+      localStorage.clear();
   };
 
   return (

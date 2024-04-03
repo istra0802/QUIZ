@@ -1,16 +1,19 @@
 .bg {
   background: #272c93 url(https://images.atmequiz.com/img/tiger.png) no-repeat
     right 4px bottom 4px;
+  padding-left: 24px;
+  padding-top: 10px;
 }
 
+.offcanvas{
+  background: rgba(0, 0, 0, 0.7);
+}
 
 
 .offcanvas-Header {
   background: #272c93;
   margin-top: -8px;
   padding-top: 20px;
-  // padding-bottom: 20px;
-  // padding: 20px 24px;
   flex-direction: column;
   text-align: center;
 }

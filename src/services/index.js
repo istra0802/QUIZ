@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const contestQuizQuestion = async () => {
+export const contestQuizQuestion = async (id) => {
   try {
     const response = await axios.get(
-      "https://atme-quiz.onrender.com/api/contests/data/6604b30057da7d5aabd8b9bf"
+      "https://atme-quiz.onrender.com/api/contests/6604b30057da7d5aabd8b9bf"
     );
     console.log("DATAAAAAA", response);
     return response.data;
@@ -48,7 +48,7 @@ export const fetchCategoriesWisedata = async (category) => {
 export const fetchParticularContestdata = async (id) => {
   try {
     const response = await axios.get(
-      `https://atme-quiz.onrender.com/api/contests/data/${id}`
+      `https://atme-quiz.onrender.com/api/contests/${id}`
     );
     return response.data;
   } catch (error) {

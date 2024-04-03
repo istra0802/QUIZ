@@ -10,9 +10,11 @@ body {
   justify-content: center;
   text-align: center;
 }
+
 .info_Content {
   margin-left: 16px;
 }
+
 .txttt {
   font-size: 14px;
   color: hsla(0, 0%, 100%, 0.64);
@@ -20,10 +22,12 @@ body {
   line-height: 16px;
   margin-bottom: 4px;
 }
+
 .subtxt {
   font-size: 18px;
   line-height: 22px;
 }
+
 .timeover {
   display: flex;
   flex-wrap: wrap;
@@ -32,6 +36,7 @@ body {
   position: relative;
   // text-align: center;
 }
+
 .timeover_card {
   display: flex;
   flex-wrap: wrap;
@@ -46,10 +51,12 @@ body {
   text-align: center;
   position: relative;
 }
+
 .lottie_winningCup {
   width: 150px;
   height: 150px;
 }
+
 .fntsize {
   color: hsla(0, 0%, 100%, 0.74);
   text-align: center;
@@ -110,6 +117,8 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 .first {
   text-align: center;
@@ -123,8 +132,13 @@ body {
   justify-content: center;
   width: 25%;
 }
+
 .first:first-child {
   border-radius: 0 0 0 16px;
+}
+.first:last-child {
+    border-right: none;
+    border-radius: 0 0 16px 0;
 }
 .digit {
   font-size: 24px;

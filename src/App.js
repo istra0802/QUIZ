@@ -11,6 +11,7 @@ import QuizPage from "../src/components/QuizPage/QuizPage";
 import ContestRulePage from "./screens/ContestRulePage";
 import CoinHistory from "./screens/CoinHistory";
 import ReportIssue from "./components/Header/reportIssueOffCanva/ReportIssue";
+import YourScore from "./screens/YourScore";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           width: "100%",
           height: "100%",
           backgroundImage: `url(${backgroundImage})`,
-          opacity: 0.04,
+          opacity: 0.05,
           zIndex: 1,
         }}
       ></div>
@@ -32,13 +33,15 @@ function App() {
         <Routes>
           <Route exact path="/" element={<QuickStartPage />} />
           <Route exact path="/home" element={<HomePage />} />
-          <Route exact path="/login" element={<LoginPage />} />
+          <Route exact path="/login/:id" element={<LoginPage />} />
           <Route exact path="/playNow" element={<PlayNow />} />
           <Route exact path="/rules" element={<ContestRulePage />} />
-          <Route exact path="/quiz" element={<QuizPage />} />
+          <Route exact path="/quiz/:id" element={<QuizPage />} />
           <Route exact path="/coinHistory" element={<CoinHistory />} />
           <Route exact path="/home/playbtn/:id" element={<JoinQuiz />} />
           <Route exact path="/search" element={<SearchPage />} />
+          <Route exact path="/win" element={<YourScore/>} />
+         
           <Route exact path="/reportissue" element={<ReportIssue/>} />
         </Routes>
       </div>

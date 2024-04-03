@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { contestQuizQuestion } from "../../services";
+import { contestQuizQuestion, fetchParticularContestdata } from "../../services";
 import QuizHeader from "./QuizHeader";
 import Question from "./Question";
 import AnswerOption from "./AnswerOption";
@@ -9,6 +9,8 @@ import "../../scss/QuizPage.scss";
 import QuizCategoryHeading from "./QuizCategoryHeading";
 import QuizPageAudio from "./QuizPageAudio";
 import LifelineToggle from "./LifelineToggle";
+import coin from "../../images/coin-icon.jpg";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function QuizPage() {
   const [showLifeline, setShowLifeline] = useState(false);
@@ -30,11 +32,16 @@ export default function QuizPage() {
   const [disabledFreezePer, setDisabledFreezePer] = useState(false);
   const [disabledFlip, setDisabledFlip] = useState(false);
   const [usedLifeLine, setUsedLifeLine] = useState(false);
+  const [noSound, setNoSound] = useState(false);
 
+  const navigate = useNavigate();
+
+  const { id } = useParams();
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await contestQuizQuestion();
+        const data = await fetchParticularContestdata(id);
         setQuestionSet(data.questionSet.questionSet);
         setSelectedQue(data.questionSet.questionSet[0]);
       } catch (error) {
@@ -104,11 +111,30 @@ export default function QuizPage() {
   };
 
 
+  const nosoundFunction = () => {
+    setNoSound(!noSound);
+  }
+
+  if(page === 21) {
+    navigate("/win")
+    localStorage.clear();
+  }
+
   return (
     <div className="quiz-container">
-      <QuizPageAudio />
+      { !noSound ? <QuizPageAudio /> : ""}
 
-      <QuizCategoryHeading />
+      <div className="info-sound" onClick={nosoundFunction}>
+        <div className={` ${noSound ? "no-sound" : " sound"}`}></div>
+        <div className="ssc">
+          <h3 className="ssc-heading"> 10+2 </h3>
+        </div>
+        <h2 style={{ fontSize: "22px" }}>
+          Play and Win 220000
+          <img src={coin} alt="/home" className="coin-image"></img>
+        </h2>
+      </div>
+      {/* <QuizCategoryHeading /> */}
 
       <div className="quiz-card">
         <QuizHeader
@@ -132,7 +158,6 @@ export default function QuizPage() {
                   buttonStates={buttonStates}
                   disabledFlip={disabledFlip}
                   incorrectOptions = {incorrectOptions}
-            
                   usedLifeLine  = {usedLifeLine}
                 />
               ))}

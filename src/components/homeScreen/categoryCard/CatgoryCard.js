@@ -88,7 +88,7 @@ export default function CategoryCard({ activeCategory }) {
               <Link
                   className="btn-style"
                   to={`/home/playbtn/${card._id}`}
-                  onClick={() => handleClick(card._id)}
+                  onClick={() => handleClick(card.id)}
                 >
                   Play
                 </Link>

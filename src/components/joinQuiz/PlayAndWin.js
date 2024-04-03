@@ -4,7 +4,7 @@ import coin from "../../images/coin-icon1.png";
 import "../../scss/PlayAndWin.scss";
 import GoogleAd from "../GoogleAd";
 import { fetchParticularContestdata } from "../../services";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function PlayAndWin() {
   const [contestData, setContestData] = useState(null);
@@ -21,6 +21,12 @@ export default function PlayAndWin() {
     };
     fetchData();
   }, [id]);
+
+const navigate = useNavigate();
+
+  const loginNavigation = () => {
+    navigate(`/login/${id}`)
+  }
 
   return (
     <div className="box-c">
@@ -54,7 +60,8 @@ export default function PlayAndWin() {
       <a
         className="playNow_btn playNow_animated playNow_shine"
         style={{ textDecoration: "none" }}
-        href="/login"
+        // href="/login"
+        onClick={loginNavigation }
       >
         Join Quiz
       </a>

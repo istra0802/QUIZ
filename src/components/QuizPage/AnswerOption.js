@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function AnswerOption({
   option,
@@ -9,30 +9,40 @@ export default function AnswerOption({
   disabledFlip,
   disabledFifty,
   incorrectOptions,
-  // disabledAudience,
-  usedLifeLine,
 }) {
-
   const firstTwoIncorrectOptions = incorrectOptions.slice(0, 2);
-  // const allIncorrectOptions = incorrectOptions.includes(option);
   const isInFirstTwoIncorrect = firstTwoIncorrectOptions.includes(option);
+
+  var isCorrectAnswer = localStorage.getItem("correctAnswerCount") || 0;
+  var isNotCorrectAnswer = localStorage.getItem("incorrectAnswerCount") || 0;
+
+  const handleClick = (index) => {
+    handleButtonClick(index + 1);
+    if (option.isCorrectAnswer) {
+      isCorrectAnswer = +isCorrectAnswer + 1;
+      localStorage.setItem("correctAnswerCount", isCorrectAnswer);
+    } else {
+      isNotCorrectAnswer = +isNotCorrectAnswer + 1;
+      localStorage.setItem("incorrectAnswerCount", isNotCorrectAnswer);
+    }
+  };
 
   return (
     <li className={`quiz-answers`}>
       <button
         className={`quiz-button  
-        ${ disabledFlip ? "quiz-animation" : ""}
+        ${disabledFlip ? "quiz-animation" : ""}
 
-        ${ disabledFifty && isInFirstTwoIncorrect ? "quizCard-fifty50" : "" }
+        ${disabledFifty && isInFirstTwoIncorrect ? "quizCard-fifty50" : ""}
      
         ${
-          buttonStates[index + 1] && usedLifeLine
+          buttonStates[index + 1]
             ? option.isCorrectAnswer
               ? "quiz-answer-correct"
               : "slide quiz-answer-incorrect"
             : ""
         }`}
-        onClick={() => handleButtonClick(index + 1)}
+        onClick={() => handleClick(index)}
         disabled={disabledButtons}
       >
         {option.answer}

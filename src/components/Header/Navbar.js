@@ -16,7 +16,7 @@ const CustomNavbar = ({ handleShow }) => {
   };
 
   return (
-    <Navbar className="header" style={{padding:"0px"}}>
+    <Navbar className="header" style={{padding:"0px", marginBottom:"12px"}}>
       <Container>
         <Nav.Link
           onClick={handleShow}
@@ -71,6 +71,7 @@ const CustomNavbar = ({ handleShow }) => {
           </div>
         </Nav>
       </Container>
+      
     </Navbar>
   );
 };

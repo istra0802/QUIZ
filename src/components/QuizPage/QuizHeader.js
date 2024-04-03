@@ -1,13 +1,30 @@
 import React, { useState, useEffect } from "react";
+import {useNavigate} from "react-router-dom";
 
 export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
   const initialSeconds = 60;
   const [seconds, setSeconds] = useState(initialSeconds);
   const [timeOver, setTimeOver] = useState(false);
+  const navigate = useNavigate();
 
   const closeModal = () => {
     setTimeOver(false);
   };
+
+  let storedCorrectAnswers = localStorage.getItem("correctAnswerCount");
+  let storedIncorrectAnswers = localStorage.getItem("incorrectAnswerCount");
+
+  if (storedCorrectAnswers === null) {
+    storedCorrectAnswers = 0;
+  }
+
+  if (storedIncorrectAnswers === null) {
+    storedIncorrectAnswers = 0;
+  }
+
+  const handleContinue = () => {
+    navigate("/win");
+  }
 
   useEffect(() => {
     let interval;
@@ -17,6 +34,7 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
           if (prevSeconds === 0) {
             setSeconds(0);
             setTimeOver(true);
+            localStorage.clear();
             // return initialSeconds;
           } else {
             return prevSeconds - 1;
@@ -33,8 +51,7 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
   return (
     <div className="quiz-header">
       <div className="quiz-card-que-timer">
-        <div className="quiz-card-question-correct ">0</div>
-
+        <div className="quiz-card-question-correct">{storedCorrectAnswers}</div>
         <div>
           <div>
             <div className="timer">
@@ -65,7 +82,9 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
             </div>
           </div>
         </div>
-        <div className="quiz-card-question-incorrect">0</div>
+        <div className="quiz-card-question-incorrect">
+          {storedIncorrectAnswers}
+        </div>
       </div>
 
       {timeOver && (
@@ -81,7 +100,6 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-body">
-               
                 <img
                   alt="Get More Coins"
                   fetchpriority="high"
@@ -92,13 +110,18 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
                   src="https://images.atmequiz.com/img/wrong_coinsBox.svg"
                   style={{ color: "transparent" }}
                 />
-                 <button
+                <button
                   onClick={closeModal}
                   type="button"
                   className=" btn-close btn-close-white"
                   data-bs-dismiss="modal"
                   aria-label="Close"
-                  style={{top:"0px", position:"absolute" , right:"0px", margin:"12px"}}
+                  style={{
+                    top: "0px",
+                    position: "absolute",
+                    right: "0px",
+                    margin: "12px",
+                  }}
                 ></button>
                 <h2
                   className="heading"
@@ -114,7 +137,7 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
                   You don't have enough coins to play this contest.
                 </p>
                 <div className="bonusModal_listCheck">
-                  <button className="bonusModal_reportBtn">
+                  <button className="bonusModal_reportBtn" onClick={handleContinue}>
                     <img
                       alt="Get More Coins"
                       fetchpriority="high"
