@@ -6,10 +6,9 @@ import CategoryCard from "../components/homeScreen/categoryCard/CatgoryCard";
 // import ReportIssue from "../components/homeScreen/reportIssueOffCanva/ReportIssue";
 import GoogleAd from "../components/GoogleAd";
 import Header from "../components/Header/Header";
-
+import Footer from "../components/footer/Footer";
 
 export default function HomePage() {
-
   return (
     <div className="home-container">
       {/* <div
@@ -30,8 +29,9 @@ export default function HomePage() {
           <GoogleAd />
           <Categories />
           <CategoryCard />
+          <Footer />
         </div>
-</div>
+      </div>
     </div>
   );
 }

@@ -57,6 +57,10 @@
   border: 1px solid #282D93;
   text-decoration: none;
 }
+.category-link:hover {
+  color: #a6b7e5; /* Change the color to match the default text color */
+  background-color: transparent; /* Set the background color to transparent */
+}
 .category-link.active {
   background: #F27C2C;
   color: #fff;

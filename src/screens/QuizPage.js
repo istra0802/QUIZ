@@ -2,10 +2,26 @@ import React, { useEffect, useState } from "react";
 import "../scss/QuizPage.scss";
 import coin from "../images/coin-icon.jpg";
 import { Timer } from "../components/Timer";
-import { contestQuizQuestion } from "../services";
+import { contestQuizQuestion, fetchParticularContestdata } from "../services";
 import { useNavigate } from "react-router";
 
 export default function QuizPage() {
+  const [contestData, setContestData] = useState(null);
+  const { id } = useParams(); // Get the id from URL params
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchParticularContestdata(id);
+        console.log("lolllllllll", data); // Fetch data based on id
+        setContestData(data);
+      } catch (error) {
+        console.error("Error fetching contest data:", error);
+      }
+    };
+    fetchData();
+  }, [id]);
+
   const [showLifeline, setShowLifeline] = useState(false);
   const [questionSet, setQuestionSet] = useState([]);
   const [page, setPage] = useState(1);
@@ -96,14 +112,13 @@ export default function QuizPage() {
       <div className="info-sound">
         <div className="sound"></div>
         <div className="ssc">
-          <h3 className="ssc-heading"> 10+2 </h3>
+          <h3 className="ssc-heading"> ${contestData.name} </h3>
         </div>
         <h2 style={{ fontSize: "22px" }}>
-          Play and Win 220000
+          Play and Win ${contestData.winningCoins}
           <img src={coin} alt="/home" className="coin-image"></img>
         </h2>
       </div>
-
       <div className="quiz-card">
         <div className="quiz-header">
           <div className="quiz-card-que-timer">
@@ -143,7 +158,6 @@ export default function QuizPage() {
             <div className="quiz-card-question-incorrect">0</div>
           </div>
         </div>
-
         <div className="quiz-body">
           <div className="quiz-option">
             <div className="quiz-que-number">
@@ -254,7 +268,7 @@ export default function QuizPage() {
             {showLifeline ? (
               <div
                 type="button"
-                className="quiz-close"
+                className="quiz-closa"
                 onClick={toggleLifeline}
               >
                 Close
@@ -270,7 +284,6 @@ export default function QuizPage() {
             )}
           </div>
         </div>
-
         <div className="quiz-footer">
           <h4 className="quiz-h">
             Your Score :{" "}

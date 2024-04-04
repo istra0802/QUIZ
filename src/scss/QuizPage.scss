@@ -28,13 +28,14 @@
   right: 12px;
   top: 10px;
   cursor: pointer;
-  background: #090551 url(https://images.atmequiz.com/img/volume-slash-white.svg) no-repeat top 8px left 8px;
+  background: #090551
+    url(https://images.atmequiz.com/img/volume-slash-white.svg) no-repeat top
+    8px left 8px;
   width: 40px;
   height: 40px;
   padding: 6px;
   border-radius: 30px;
 }
-
 
 .sound {
   position: absolute;
@@ -145,7 +146,16 @@
   transition: all 1s linear;
   fill-rule: nonzero;
   stroke: currentColor;
-  color: #6c73ff 
+  color: #6c73ff;
+}
+
+.timer-remaining.orange {
+  stroke: orange;
+}
+
+/* Set red color when remaining time is below 10 seconds */
+.timer-remaining.red {
+  stroke: red;
 }
 
 .timer-label {
@@ -229,10 +239,9 @@
   }
 
   to {
-      transform: rotateY(0deg)
+    transform: rotateY(0deg);
   }
 }
-
 
 .quiz-que-number {
   display: flex;
@@ -268,55 +277,55 @@
 
 .quiz-card-prediction-incorrect {
   background: linear-gradient(90deg, #833ab4, #fd1d1d 50%, #6c73ff 0);
-    color: #fff;
-    animation: quizCard_prediction_incorrectt 2s ease;
-    background-size: 200% 100%;
+  color: #fff;
+  animation: quizCard_prediction_incorrectt 2s ease;
+  background-size: 200% 100%;
 }
 
 @keyframes quizCard_prediction_incorrectt {
   0% {
-      background-position: 200% 0
+    background-position: 200% 0;
   }
 
   1100% {
-      background-position: 100% 0
+    background-position: 100% 0;
   }
 
   150% {
-      background-position: 50% 0
+    background-position: 50% 0;
   }
 
   to {
-      background-position: 0 0
+    background-position: 0 0;
   }
 }
 
 .quiz-card-prediction-correct {
-  background: linear-gradient(90deg,#2dd3a8,#2dd3a8 50%,#6c73ff 0);
-  animation:  quizCard_prediction-correctt 2s linear;
+  background: linear-gradient(90deg, #2dd3a8, #2dd3a8 50%, #6c73ff 0);
+  animation: quizCard_prediction-correctt 2s linear;
   background-size: 200% 100%;
-  color: #fff
+  color: #fff;
 }
 
 @keyframes quizCard_prediction-correctt {
   0% {
-      background-position: 0 0
+    background-position: 0 0;
   }
 
   25% {
-      background-position: 25% 0
+    background-position: 25% 0;
   }
 
   50% {
-      background-position: 50% 0
+    background-position: 50% 0;
   }
 
   75% {
-      background-position: 75% 0
+    background-position: 75% 0;
   }
 
   to {
-      background-position: 100% 100%
+    background-position: 100% 100%;
   }
 }
 .lifeline-disabled {
@@ -337,7 +346,6 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-
 }
 
 .lifeline-ul {

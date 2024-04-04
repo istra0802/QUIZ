@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
   const initialSeconds = 60;
@@ -24,7 +24,7 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
 
   const handleContinue = () => {
     navigate("/win");
-  }
+  };
 
   useEffect(() => {
     let interval;
@@ -70,7 +70,13 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
                   <path
                     id="base-timer-path-remaining"
                     strokeDasharray={`${dashLength} 283`}
-                    className="timer-remaining"
+                    className={`timer-remaining ${
+                      seconds <= 15 && seconds > 10
+                        ? "orange"
+                        : seconds <= 10
+                        ? "red"
+                        : ""
+                    }`}
                     d=" M 50, 50 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0 "
                   ></path>
                 </g>
@@ -123,7 +129,7 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
                     margin: "12px",
                   }}
                 ></button>
-                <h2
+                <h2sdfsdf
                   className="heading"
                   style={{
                     fontSize: "34px",
@@ -132,12 +138,15 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
                   }}
                 >
                   Oops!
-                </h2>
+                </h2sdfsdf>
                 <p className="pa">
                   You don't have enough coins to play this contest.
                 </p>
                 <div className="bonusModal_listCheck">
-                  <button className="bonusModal_reportBtn" onClick={handleContinue}>
+                  <button
+                    className="bonusModal_reportBtn"
+                    onClick={handleContinue}
+                  >
                     <img
                       alt="Get More Coins"
                       fetchpriority="high"

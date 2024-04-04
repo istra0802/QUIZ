@@ -86,7 +86,7 @@ export default function SearchPage() {
         <div className="swiper-wrapper">
           {filteredContests1.map((category, index) => (
             <div className="swiper-slide l" key={index}>
-              <a href={category.link}>
+              <a href="/home">
                 <div className="search__boxxx">
                   <img
                     src={category.quizImage}
