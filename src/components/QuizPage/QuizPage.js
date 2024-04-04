@@ -118,6 +118,8 @@ export default function QuizPage() {
     setNoSound(!noSound);
   }
 
+
+
   if(page === 21) {
     navigate("/win")
     localStorage.clear();
