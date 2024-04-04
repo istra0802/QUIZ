@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { contestQuizQuestion, fetchParticularContestdata } from "../../services";
+import {
+  contestQuizQuestion,
+  fetchParticularContestdata,
+} from "../../services";
 import QuizHeader from "./QuizHeader";
 import Question from "./Question";
 import AnswerOption from "./AnswerOption";
@@ -12,8 +15,25 @@ import LifelineToggle from "./LifelineToggle";
 import LifelineModal from "../../screens/LifelineModal";
 import coin from "../../images/coin-icon.jpg";
 import { useNavigate, useParams } from "react-router-dom";
+import CategoryCard from "../homeScreen/categoryCard/CatgoryCard";
+import YourScore from "../../screens/YourScore";
 
 export default function QuizPage() {
+  const { id } = useParams();
+  const [contestData, setContestData] = useState(null);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const data = await fetchParticularContestdata(id); // Fetch data based on id
+  //       setContestData(data);
+  //     } catch (error) {
+  //       console.error("Error fetching contest data:", error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, [id]);
+
   const [showLifeline, setShowLifeline] = useState(false);
   const [questionSet, setQuestionSet] = useState([]);
   const [page, setPage] = useState(1);
@@ -37,12 +57,13 @@ export default function QuizPage() {
 
   const navigate = useNavigate();
 
-  const { id } = useParams();
- 
+  // const { id } = useParams();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchParticularContestdata(id);
+        // setContestData(data);
         setQuestionSet(data.questionSet.questionSet);
         setSelectedQue(data.questionSet.questionSet[0]);
       } catch (error) {
@@ -113,19 +134,19 @@ export default function QuizPage() {
     setUsedLifeLine(true);
   };
 
-
   const nosoundFunction = () => {
     setNoSound(!noSound);
-  }
+  };
 
-  if(page === 21) {
-    navigate("/win")
+  if (page === 21) {
+    navigate("/win");
     localStorage.clear();
+    
   }
 
   return (
     <div className="quiz-container">
-      { !noSound ? <QuizPageAudio /> : ""}
+      {!noSound ? <QuizPageAudio /> : ""}
 
       <div className="info-sound" onClick={nosoundFunction}>
         <div className={` ${noSound ? "no-sound" : " sound"}`}></div>
@@ -133,7 +154,7 @@ export default function QuizPage() {
           <h3 className="ssc-heading"> 10+2 </h3>
         </div>
         <h2 style={{ fontSize: "22px" }}>
-          Play and Win 220000
+          play and win 20000
           <img src={coin} alt="/home" className="coin-image"></img>
         </h2>
       </div>

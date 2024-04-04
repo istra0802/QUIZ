@@ -17,6 +17,9 @@ const CustomNavbar = ({ handleShow, showBackButton,handleBack }) => {
     navigate("/coinHistory"); // Navigate to the Contest Rule page
   };
 
+  const backHome=()=>{
+    navigate("/home")
+  }
   return (
     <Navbar className="header" style={{padding:"0px", marginBottom:"12px"}}>
       <Container>
@@ -48,11 +51,12 @@ const CustomNavbar = ({ handleShow, showBackButton,handleBack }) => {
         )}
 
         <Nav.Link className="me-auto">
-          <a href="/" className="logo">
+          <a href="/" className="logo" onClick={backHome}>
             <img
               src={logo}
               alt=""
               style={{ height: "34px", width: "132px", marginTop: "2px" }}
+              
             />
           </a>
         </Nav.Link>

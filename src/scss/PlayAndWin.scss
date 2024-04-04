@@ -10,17 +10,6 @@
   height: auto;
 }
 
-// .headerr{
-//     background: #1f237e;
-//     padding: 12px;
-//     width: 100%; /* Adjusted width to fill the full screen */
-//     min-height: 100vh;
-//     margin: 0 auto;
-//     position: relative;
-//     background-color: #0e0a5f;
-//     z-index: 2;
-//     height: auto;
-// }
 .box {
   display: flex;
   justify-content: center;
@@ -121,7 +110,9 @@
   line-height: 56px;
   cursor: pointer;
 }
-
+.playNow_btn:hover{
+  color:#fff;
+}
 .playNow_animated {
   animation-duration: 1s;
   animation-fill-mode: both;

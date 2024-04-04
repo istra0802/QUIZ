@@ -25,7 +25,6 @@ export default function Categories() {
   useEffect(() => {
     const swiper = new Swiper(".swiper-container", {
       slidesPerView: "auto",
-      // spaceBetween: 16,
       scrollbar: {
         el: ".swiper-scrollbar",
         draggable: true,

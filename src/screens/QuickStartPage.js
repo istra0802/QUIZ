@@ -14,12 +14,11 @@ export default function QuickStartPage() {
     2: false,
     3: false,
     4: false,
-  }); 
-  const [disabledButtons, setDisabledButtons] = useState(false); 
+  });
+  const [disabledButtons, setDisabledButtons] = useState(false);
   const [clicked, setClicked] = useState(false);
 
   function paginate(array, page_size, page_number) {
-
     return array.slice((page_number - 1) * page_size, page_number * page_size);
   }
 
@@ -36,10 +35,9 @@ export default function QuickStartPage() {
   };
 
   useEffect(() => {
-
     if (clicked) {
       setTimeout(() => {
-          setPage((prevPage) => prevPage + 1);
+        setPage((prevPage) => prevPage + 1);
         setButtonStates({
           1: false,
           2: false,
@@ -49,10 +47,10 @@ export default function QuickStartPage() {
         setDisabledButtons(false);
         setClicked(false);
 
-        if(page === 2) {
-            navigate("/playNow")
+        if (page === 2) {
+          navigate("/playNow");
         }
-      }, 1000); 
+      }, 1000);
     }
   }, [clicked]);
 
@@ -73,8 +71,11 @@ export default function QuickStartPage() {
               <li className="quiz-answers" key={index}>
                 <button
                   className={`quiz-button ${
-                    buttonStates[index + 1] ? 
-                    (option.isCorrectAnswer ? "quiz-answer-correct" : "slide quiz-answer-incorrect") : ""
+                    buttonStates[index + 1]
+                      ? option.isCorrectAnswer
+                        ? "quiz-answer-correct"
+                        : "slide quiz-answer-incorrect"
+                      : ""
                   }`}
                   onClick={() => handleButtonClick(index + 1)}
                   disabled={disabledButtons}

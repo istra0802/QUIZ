@@ -4,6 +4,7 @@ import cricket from "../../../images/cricket1.png";
 import coin from "../../../images/coin-icon1.png";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchCategoriesWisedata } from "../../../services";
+import Footer from "../../footer/Footer";
 
 export default function CategoryCard({ activeCategory }) {
   const navigate = useNavigate();
@@ -18,14 +19,12 @@ export default function CategoryCard({ activeCategory }) {
       try {
         const data = await fetchCategoriesWisedata(activeCategory);
         setCardData(data);
-        console.log("gggggggg", data);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
     fetchData();
   }, [activeCategory]);
-  console.log("cardd===========", cardData);
 
   return (
     <div>
