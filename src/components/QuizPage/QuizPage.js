@@ -9,31 +9,13 @@ import AnswerOption from "./AnswerOption";
 import Lifeline from "./Lifeline";
 import QuizFooter from "./QuizFooter";
 import "../../scss/QuizPage.scss";
-import QuizCategoryHeading from "./QuizCategoryHeading";
 import QuizPageAudio from "./QuizPageAudio";
 import LifelineToggle from "./LifelineToggle";
-import LifelineModal from "../../screens/LifelineModal";
 import coin from "../../images/coin-icon.jpg";
 import { useNavigate, useParams } from "react-router-dom";
-import CategoryCard from "../homeScreen/categoryCard/CatgoryCard";
-import YourScore from "../../screens/YourScore";
 
 export default function QuizPage() {
   const { id } = useParams();
-  const [contestData, setContestData] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const data = await fetchParticularContestdata(id); // Fetch data based on id
-  //       setContestData(data);
-  //     } catch (error) {
-  //       console.error("Error fetching contest data:", error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [id]);
-
   const [showLifeline, setShowLifeline] = useState(false);
   const [questionSet, setQuestionSet] = useState([]);
   const [page, setPage] = useState(1);
@@ -57,13 +39,11 @@ export default function QuizPage() {
 
   const navigate = useNavigate();
 
-  // const { id } = useParams();
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchParticularContestdata(id);
-        // setContestData(data);
+      
         setQuestionSet(data.questionSet.questionSet);
         setSelectedQue(data.questionSet.questionSet[0]);
       } catch (error) {
@@ -80,11 +60,14 @@ export default function QuizPage() {
 
   const handleButtonClick = (buttonIndex) => {
     setDisabledButtons(true);
+
     setButtonStates((prevState) => ({
       ...prevState,
       [buttonIndex]: true,
     }));
+    
     setClicked(true);
+
     setTimeout(() => {
       if (chancesLeft === 0) {
         setPage((prevPage) => prevPage + 1);
@@ -158,7 +141,6 @@ export default function QuizPage() {
           <img src={coin} alt="/home" className="coin-image"></img>
         </h2>
       </div>
-      {/* <QuizCategoryHeading /> */}
 
       <div className="quiz-card">
         <QuizHeader

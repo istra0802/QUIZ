@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../scss/QuizPage.scss";
-import coin from '../../images/coin-icon.jpg';
+import coin from "../../images/coin-icon.jpg";
 import "../../scss/LifelineOffcanvas.scss";
 
 export default function Lifeline({
@@ -8,12 +8,13 @@ export default function Lifeline({
   handleFiftyFiftyClick,
   handleFlipQuestionClick,
   handleTimeFreezeClick,
+  disabledFifty,
   disabledFlip,
   disabledFreezePer,
   disabledFiftyPer,
 }) {
-
   const [showReport, setShowReport] = useState(false);
+
   const toggleReport = () => {
     setShowReport(!showReport);
   };
@@ -21,6 +22,29 @@ export default function Lifeline({
     setShowReport(false);
   };
 
+  const [fiftyCanvas, setFiftyCanvas] = useState(false);
+  const [freezeCanvas, setFreezeCanvas] = useState(false);
+  const [flipCanvas, setFlipCanvas] = useState(false);
+
+  const toogleFiftyCanvas = () => {
+    setFiftyCanvas(true);
+    setFreezeCanvas(false);
+    setFlipCanvas(false);
+  }
+
+  const toogleFreezeCanvas = () => {
+    setFiftyCanvas(false);
+    setFlipCanvas(false);
+    setFreezeCanvas(true);
+  }
+
+  const toogleFlipCanvas = () => {
+    setFiftyCanvas(false);
+    setFreezeCanvas(false);
+    setFlipCanvas(true);
+  }
+
+console.log(fiftyCanvas, freezeCanvas, flipCanvas,  " ====================== ")
   return (
     <div
       className="lifeline "
@@ -34,8 +58,11 @@ export default function Lifeline({
                 disabledFiftyPer ? "lifeline-disabled" : ""
               }`}
               onClick={() => {
-                handleFiftyFiftyClick();
                 toggleReport();
+                // toogleFreezeCanvas();
+                toogleFiftyCanvas();
+                // toogleFlipCanvas();
+                // handleFiftyFiftyClick();
               }}
             >
               <div className="lifeline-list">
@@ -59,7 +86,14 @@ export default function Lifeline({
               className={`lifeline-li ${
                 disabledFreezePer ? "lifeline-disabled" : ""
               }`}
-              onClick={handleTimeFreezeClick}
+              onClick={() => {
+                toggleReport();
+                toogleFreezeCanvas();
+                // toogleFiftyCanvas();
+                // toogleFlipCanvas();
+                // handleTimeFreezeClick();
+              }}
+              // onClick={handleTimeFreezeClick}
             >
               <div className="lifeline-list">
                 <img
@@ -81,7 +115,14 @@ export default function Lifeline({
               className={`lifeline-li ${
                 disabledFlip ? "lifeline-disabled" : ""
               }`}
-              onClick={handleFlipQuestionClick}
+              onClick={() => {
+                toggleReport();
+                // toogleFreezeCanvas();
+                // toogleFiftyCanvas();
+                toogleFlipCanvas();
+                // handleFlipQuestionClick();
+              }}
+              // onClick={handleFlipQuestionClick}
             >
               <div className="lifeline-list">
                 <img
@@ -108,28 +149,40 @@ export default function Lifeline({
           <div className="popup-wrapper">
             <div className="lifeline-icon">
               <img
-                src="   https://images.atmequiz.com/img/fifty-50.svg"
+                src="https://images.atmequiz.com/img/fifty-50.svg"
                 alt=""
                 style={{ height: "36px", width: "36px" }}
               />
             </div>
-            <a className="popup-close" onClick={handleReportClose}></a>
-            <h2 className="h2text">Use 50:50 Lifeline</h2>
+            <p className="popup-close" onClick={handleReportClose}></p>
+            <h2 className="h2text">Use {fiftyCanvas? "50:50" : freezeCanvas ? " Freeze Timer" : flipCanvas ? " Flip Question" : ""} Lifeline</h2>
             <p className="ptexts">
-              The 50-50 will be paused for 30 seconds to allow more time to
+              The  {fiftyCanvas? "50:50" : freezeCanvas ? " Freeze Timer" : flipCanvas ? " Flip Question" : ""} will be paused for 30 seconds to allow more time to
               answer the question.
             </p>
             <div className="popup-btns">
-              <a className="popup-btn">Use for free</a>
+              <p className="popup-btn" onClick={() => {setShowReport(false); 
+               if (fiftyCanvas) {
+                handleFiftyFiftyClick();
+            } else if (freezeCanvas) {
+                handleTimeFreezeClick();
+            } else if (flipCanvas) {
+                handleFlipQuestionClick();
+            }
+              }}>
+                Use for free
+              </p>
+                
+             
               <span className="or">OR</span>
-              <a className="popup-btn2 popup-blue">
+              <p className="popup-btn2 popup-blue">
                 Use For 20
                 <img
-                alt=""
+                  alt=""
                   src={coin}
                   style={{ height: "16px", width: "16px", marginLeft: "6px" }}
                 />
-              </a>
+              </p>
             </div>
           </div>
         </div>

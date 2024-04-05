@@ -70,7 +70,7 @@ export default function QuizPage() {
   const toggleLifeline = () => {
     setShowLifeline(!showLifeline);
     if (showLifeline) {
-      // Reset chances if lifeline is toggled off
+     
       setChancesLeft(0);
     }
   };
@@ -90,10 +90,7 @@ export default function QuizPage() {
         const data = await contestQuizQuestion();
         setQuestionSet(data.questionSet.questionSet);
         setSelectedQue(data.questionSet.questionSet[0]);
-        console.log(
-          data.questionSet.questionSet,
-          " ----------------------------------------- "
-        );
+    
       } catch (error) {
         console.error("Error fetching categories:", error);
       }

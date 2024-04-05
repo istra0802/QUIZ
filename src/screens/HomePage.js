@@ -11,7 +11,7 @@ import Footer from "../components/footer/Footer";
 export default function HomePage() {
   return (
     <div className="home-container">
-      <div
+      {/* <div
         style={{
           position: "absolute",
           top: 0,
@@ -22,7 +22,7 @@ export default function HomePage() {
           opacity: 0.04,
           zIndex: 1,
         }}
-      ></div>
+      ></div> */}
       <div className="home">
         <Header />
         <div className="home page">

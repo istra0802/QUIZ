@@ -22,6 +22,7 @@ export default function Categories() {
     fetchData();
   }, []);
 
+  // console.log(activeCategory, ' ========= ')
   useEffect(() => {
     const swiper = new Swiper(".swiper-container", {
       slidesPerView: "auto",

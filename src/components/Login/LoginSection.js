@@ -1,17 +1,17 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom"; // Import useNavigate hook
+import { useNavigate, useParams } from "react-router-dom"; 
 import "../../scss/LoginPage.scss";
 
 function LoginSection() {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
   const { id } = useParams();
   const handleLoginClick = () => {
-    // window.open(
-    //     `https://atme-quiz.onrender.com/auth/google/callback`,
-    //     "_self"
-    // );
+    window.open(
+        `https://atme-quiz.onrender.com/auth/google/callback`,
+        "_self"
+    );
 
-      navigate(`/quiz/${id}`)
+      // navigate(`/quiz/${id}`)
       localStorage.clear();
   };
 

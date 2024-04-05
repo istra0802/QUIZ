@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../../scss/HomePage.scss";
 import "../../scss/Offcanvas.scss";
 import "../../scss/ReportIssue.scss";
@@ -6,7 +6,7 @@ import male from "../../images/male-user-avatar.jpg";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { useNavigate } from "react-router-dom";
 import ReportIssue from "./reportIssueOffCanva/ReportIssue";
-
+import axios from 'axios';
 const CustomOffcanvas = () => {
   const [showReport, setShowReport] = useState(false);
 
@@ -19,6 +19,26 @@ const CustomOffcanvas = () => {
   const handleContestRuleClick = () => {
     navigate("/rules");
   };
+
+
+  const [user, setUser] = useState(null);
+ 
+	const getUser = async () => {
+		try {
+			const url = `https://atme-quiz.onrender.com/auth/login/success`;
+      console.log(url,'url--------')
+			const { data } = await axios.get(url, { withCredentials: true });
+      console.log(data,'data')
+			setUser(data.user._json);
+      
+		} catch (err) {
+			console.log(err);
+		}
+	};
+  console.log(user,'user$$$$$$$$$$$')
+	useEffect(() => {
+		getUser();
+	}, []);
 
   return showReport ? (
     <ReportIssue toggleReport={toggleReport} />
@@ -38,7 +58,7 @@ const CustomOffcanvas = () => {
         </h5>
         <div className=" text-white user">
           <h3>
-            <span className=" header_userDetails">Guest</span>
+            <span className=" header_userDetails">{user?user:'Guest'}</span>
           </h3>
           <div className="header_contenteditable">
             <span>Play Quiz & earn coins</span>

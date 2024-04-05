@@ -4,7 +4,7 @@ import "../../scss/QuickStartPage.scss"
 
 const AnswerList = ({ buttonColor, buttonTextColor, handleButtonClick, questionSet }) => {
 
-  console.log(questionSet, ' -----------------  o o     ')
+
   const answers = ["New Zealand", "New Zealand", "New Zealand", "New Zealand"];
 
   return (

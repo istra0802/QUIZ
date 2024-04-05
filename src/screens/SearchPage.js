@@ -3,17 +3,14 @@ import Swiper from "swiper";
 import "../scss/SearchPage.scss";
 import { useNavigate, useParams } from "react-router";
 import { fetchAllCategoryData, fetchCategories } from "../services";
-
 export default function SearchPage() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [contestData, setContestData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
   const handleBack = () => {
     navigate("/home");
   };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,7 +22,6 @@ export default function SearchPage() {
     };
     fetchData();
   }, []);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,7 +33,6 @@ export default function SearchPage() {
     };
     fetchData();
   }, []);
-
   useEffect(() => {
     const swiper = new Swiper(".swiper-container", {
       slidesPerView: "auto",
@@ -47,7 +42,6 @@ export default function SearchPage() {
       },
     });
   }, []);
-
   const filteredContests = contestData.filter((contest) =>
     contest.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -88,7 +82,6 @@ export default function SearchPage() {
           </div>
         </div>
       </div>
-
       <div className="search_category swiper-container">
         <div className="swiper-wrapper">
           {filteredContests1.map((category, index) => (
@@ -108,7 +101,6 @@ export default function SearchPage() {
         </div>
         <div className="swiper-scrollbar"></div>
       </div>
-
       <div className="serach_gameList">
         <div className="search_listingHeader">
           <h1 className="h">Quiz List</h1>
