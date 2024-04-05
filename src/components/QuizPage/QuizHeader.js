@@ -35,7 +35,6 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
             setSeconds(0);
             setTimeOver(true);
             localStorage.clear();
-            // return initialSeconds;
           } else {
             return prevSeconds - 1;
           }
@@ -129,7 +128,7 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
                     margin: "12px",
                   }}
                 ></button>
-                <h2sdfsdf
+                <h2
                   className="heading"
                   style={{
                     fontSize: "34px",
@@ -138,7 +137,7 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
                   }}
                 >
                   Oops!
-                </h2sdfsdf>
+                </h2>
                 <p className="pa">
                   You don't have enough coins to play this contest.
                 </p>
