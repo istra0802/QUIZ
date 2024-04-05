@@ -5,7 +5,7 @@ import Question from "../components/QuickStartPage/Question";
 import QuizHeader from "../components/QuickStartPage/QuickHeader";
 import GoogleAd from "../components/GoogleAd";
 import ListSection from "../components/Login/ListSection";
-import initialQuestions from "../data/initialQuestion.json";
+// import initialQuestions from "../data/initialQuestion.json";
 import { firstTwoRandomQuestion } from "../services";
 
 export default function QuickStartPage() {
@@ -34,8 +34,8 @@ export default function QuickStartPage() {
       try {
         const data = await firstTwoRandomQuestion();
         setQuestionSet(data);
-        setSelectedQue(data[0]);
-        console.log(data, " ============================ ");
+        setSelectedQue(data[page-1]);
+        console.log(data, " ============================ ",page);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -46,6 +46,7 @@ export default function QuickStartPage() {
   useEffect(() => {
     const selectedQuestionIndex = (page - 1) % questionSet.length;
     setSelectedQue(questionSet[selectedQuestionIndex]);
+    
   }, [page, questionSet]);
 
   const handleButtonClick = (buttonIndex) => {
@@ -60,7 +61,7 @@ export default function QuickStartPage() {
 
     setTimeout(() => {
       setPage((prevPage) => prevPage + 1);
-
+   
       setButtonStates({
         1: false,
         2: false,
@@ -71,7 +72,7 @@ export default function QuickStartPage() {
     }, 1000);
   };
 
-  if (page === 2) {
+  if (page === 2+1) {
     navigate("/playNow");
   }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
-import trophy from "../../json/trophy.json";
+import trophy from "../../json/Trophy.json";
 
 const WinTrophy = () => {
   const defaultOptions = {
