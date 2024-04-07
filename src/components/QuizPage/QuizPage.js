@@ -6,7 +6,7 @@ import AnswerOption from "./AnswerOption";
 import Lifeline from "./Lifeline";
 import QuizFooter from "./QuizFooter";
 import "../../scss/QuizPage.scss";
-import QuizCategoryHeading from "./QuizCategoryHeading";
+import QuizCategoryHeading from "../../../src/components/QuizPage/QuizCategoryHeading"
 import QuizPageAudio from "./QuizPageAudio";
 import LifelineToggle from "./LifelineToggle";
 
