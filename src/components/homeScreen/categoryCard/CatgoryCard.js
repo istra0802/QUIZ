@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+  import React, { useEffect, useState } from "react";
 import "../../../scss/CategoriesCard.scss";
 import cricket from "../../../images/cricket1.png";
 import coin from "../../../images/coin-icon1.png";
@@ -8,17 +8,29 @@ import Footer from "../../footer/Footer";
 
 export default function CategoryCard({ activeCategory }) {
   const navigate = useNavigate();
+  const [image,setImage]=useState('');
   const [cardData, setCardData] = useState([]);
-
+ const [categoryy,setCategoryy]=useState('')
   const handleClick = (id) => {
-    navigate(`/home/playbtn/${id}`);
+    navigate(`/home/playbtn/${id}`);    
   };
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log("activee",activeCategory)
       try {
+        if(activeCategory){
         const data = await fetchCategoriesWisedata(activeCategory);
-        setCardData(data);
+        console.log("dataaaaaa",data)
+        setCardData(data?.quizzes);
+        setImage(data?.quizImage)
+        setCategoryy(data?.category)
+        const cat = data?.category
+        const img = data?.quizImage
+        localStorage.setItem('category',cat);
+       localStorage.setItem('image',img);
+        }
+  
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -26,26 +38,28 @@ export default function CategoryCard({ activeCategory }) {
     fetchData();
   }, [activeCategory]);
 
+
+
   return (
     <div>
       <div className="maindiv">
-        {cardData?.map((card) => (
+        {activeCategory&&cardData?.map((card) => (
           <div key={card._id} className="mainbox">
             <div className="cardcontent">
               <div className="imgclass">
                 <img
                   alt=""
-                  src={card.quizImage}
+                  src={image}
                   style={{ height: "60px", width: "60px" }}
                 />
               </div>
               <div className="gametitle">
                 <span className="text">
                   <span style={{ textAlign: "left", marginRight: "150px" }}>
-                    {card.name}
+                    {categoryy}
                   </span>
                   <h3 className="head">
-                    Play and Win {card.winningCoins}
+                   {card.name}
                     <img
                       alt=""
                       src={coin}
@@ -67,7 +81,7 @@ export default function CategoryCard({ activeCategory }) {
             <div className="card-footer">
               <p className="color" style={{ marginBottom: "6px" }}>
                 <span style={{ marginRight: "8px" }}>
-                  <span className="text3">Entry: {card.entryCoins}</span>
+                  <span className="text3">Entry:50</span>
                   <img
                     src={coin}
                     alt=""

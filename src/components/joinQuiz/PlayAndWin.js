@@ -5,13 +5,21 @@ import "../../scss/PlayAndWin.scss";
 import GoogleAd from "../GoogleAd";
 import { fetchParticularContestdata } from "../../services";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../footer/Footer";
 
 export default function PlayAndWin() {
   const [contestData, setContestData] = useState(null);
   const { id } = useParams(); // Get the id from URL params
+  const location = useLocation();
+  console.log("location", location);
+
+const catgryname=localStorage.getItem('category');
+  const catgryimg=localStorage.getItem('image');
+
+  console.log("crimg",catgryimg);
+  console.log("crname",catgryname)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,9 +39,11 @@ export default function PlayAndWin() {
     navigate(`/login/${id}`);
   };
 
+
+
   return (
     <div className="home">
-      <Header showBackButton={true}  backRoute="/home"/>
+      <Header showBackButton={true} backRoute="/home" />
 
       <div className="box-c">
         <div className="box">
@@ -42,29 +52,29 @@ export default function PlayAndWin() {
               <div className="imgstyle">
                 <img
                   alt=""
-                  src={contestData?.quizImage}
+                  src={catgryimg}
                   style={{ height: "60px", width: "60px" }}
                 />
               </div>
               <h3 className="spantext" style={{ color: "#fff" }}>
-                {contestData && contestData.name
-                  ? contestData.name
-                  : "Loading..."}
+                  {catgryname}
               </h3>
             </div>
           </div>
           <h2 style={{ fontSize: "20px", color: "#fff" }}>
-            {contestData && contestData.winningCoins
-              ? `Play and Win ${contestData.winningCoins}`
+            {contestData && contestData.name
+              ? `${contestData.name}`
               : "Loading..."}
-            <img alt="" src={coin} style={{ height: "19px", width: "19px" }} />
+            <img
+              alt=""
+              src={coin}
+              style={{ height: "19px", width: "19px" }}
+            />
           </h2>
           <p className="ptext" style={{ color: "#b6b3ff" }}>
             You’ve got 60 seconds to answer all questions. Answer as many
-            questions as you can. Entry fee will be{" "}
-            {contestData && contestData.entryCoins
-              ? `Play and Win ${contestData.entryCoins}`
-              : "Loading..."}
+            questions as you can. Entry fee will be 50 
+           
             <span className="spanimg">
               <img
                 alt=""
@@ -81,7 +91,6 @@ export default function PlayAndWin() {
         <a
           className="playNow_btn playNow_animated playNow_shine"
           style={{ textDecoration: "none" }}
-          // href="/login"
           onClick={loginNavigation}
         >
           Join Quiz
@@ -103,7 +112,7 @@ export default function PlayAndWin() {
           </a>
         </div>
 
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );

@@ -43,9 +43,9 @@ export default function QuizPage() {
     const fetchData = async () => {
       try {
         const data = await fetchParticularContestdata(id);
-      
-        setQuestionSet(data.questionSet.questionSet);
-        setSelectedQue(data.questionSet.questionSet[0]);
+       console.log("par",data)
+        setQuestionSet(data.questionSet);
+        setSelectedQue(data.questionSet[0]);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
