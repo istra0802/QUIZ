@@ -26,14 +26,15 @@ function App() {
           height: "100%",
           backgroundImage: `url(${backgroundImage})`,
           opacity: 0.05,
-          zIndex: 1,
+          zIndex: 1, 
+          zIndex: 0,    
         }}
       ></div>
       <div className="home">
         <Routes>
           <Route exact path="/" element={<QuickStartPage />} />
           <Route exact path="/home" element={<HomePage />} />
-          <Route exact path="/login" element={<LoginPage />} />
+          <Route exact path="/login/:id" element={<LoginPage />} />
           <Route exact path="/playNow" element={<PlayNow />} />
           <Route exact path="/rules" element={<ContestRulePage />} />
           <Route exact path="/quiz/:id" element={<QuizPage />} />
@@ -41,9 +42,7 @@ function App() {
           <Route exact path="/home/playbtn/:id" element={<JoinQuiz />} />
           <Route exact path="/search" element={<SearchPage />} />
           <Route exact path="/reportissue" element={<ReportIssue />} />
-          <Route exact path="/win" element={<YourScore/>} />
-         
-       
+          <Route exact path="/win" element={<YourScore/>} />   
         </Routes>
       </div>
     </div>

@@ -11,18 +11,6 @@ import Footer from "../components/footer/Footer";
 export default function HomePage() {
   return (
     <div className="home-container">
-      {/* <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundImage: `url(${backgroundImage})`,
-          opacity: 0.04,
-          zIndex: 1,
-        }}
-      ></div> */}
       <div className="home">
         <Header />
         <div className="home page">
