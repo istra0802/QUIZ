@@ -12,7 +12,11 @@ function LoginSection() {
     // );
 
       navigate(`/quiz/${id}`)
+<<<<<<< HEAD
       // localStorage.clear();
+=======
+      localStorage.clear();
+>>>>>>> 05f1904d0582ccf7651dbdda19b45a03f082fbc8
   };
 
   return (
