@@ -71,7 +71,7 @@ export default function QuickStartPage() {
     }, 1000);
   };
 
-  if (page === 2) {
+  if (page === 2+1) {
     navigate("/playNow");
   }
 

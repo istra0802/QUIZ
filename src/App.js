@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HomePage from "./screens/HomePage";
 import JoinQuiz from "./screens/JoinQuiz";
 import SearchPage from "./screens/SearchPage";
@@ -15,8 +15,15 @@ import ReportIssue from "./components/Header/reportIssueOffCanva/ReportIssue";
 import YourScore from "./screens/YourScore";
 
 function App() {
+
   return (
-    <div>
+    <div style={
+      {
+      // backgroundImage: `url(${backgroundImage})`,
+      // backgroundSize: "auto",
+      // width: "100%",
+      // backgroundRepeat: "repeat-y",
+      }}>
       <div
         style={{
           position: "absolute",
@@ -24,12 +31,34 @@ function App() {
           left: 0,
           width: "100%",
           height: "100%",
+          // backgroundRepeat: "repeat-x",
+          backgroundSize: "auto",
           backgroundImage: `url(${backgroundImage})`,
           opacity: 0.05,
           zIndex: 1,
+    
         }}
-      ></div>
+      >
+        
+      </div>
       <div className="home">
+      <div
+        style={{
+          position: "absolute",
+          // top: 0,
+          // left: 0,
+          width: "100%",
+          height: "100%",
+          // backgroundRepeat: "repeat-x",
+          backgroundSize: "auto",
+          backgroundImage: `url(${backgroundImage})`,
+          opacity: 0.05,
+          zIndex: 1,
+    
+        }}
+      >
+        
+      </div>
         <Routes>
           <Route exact path="/" element={<QuickStartPage />} />
           <Route exact path="/home" element={<HomePage />} />
@@ -42,10 +71,10 @@ function App() {
           <Route exact path="/search" element={<SearchPage />} />
           <Route exact path="/reportissue" element={<ReportIssue />} />
           <Route exact path="/win" element={<YourScore/>} />
-         
-       
         </Routes>
+       
       </div>
+     
     </div>
   );
 }
