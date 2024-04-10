@@ -21,24 +21,24 @@ const CustomOffcanvas = () => {
   };
 
 
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
  
-	const getUser = async () => {
-		try {
-			const url = `https://atme-quiz.onrender.com/auth/login/success`;
-      console.log(url,'url--------')
-			const { data } = await axios.get(url, { withCredentials: true });
-      console.log(data,'data')
-			setUser(data.user._json);
+	// const getUser = async () => {
+	// 	try {
+	// 		const url = `https://atme-quiz.onrender.com/auth/login/success`;
+  //     console.log(url,'url--------')
+	// 		const { data } = await axios.get(url, { withCredentials: true });
+  //     console.log(data,'data')
+	// 		setUser(data.user._json);
       
-		} catch (err) {
-			console.log(err);
-		}
-	};
-  console.log(user,'user$$$$$$$$$$$')
-	useEffect(() => {
-		getUser();
-	}, []);
+	// 	} catch (err) {
+	// 		console.log(err);
+	// 	}
+	// };
+  // console.log(user,'user$$$$$$$$$$$')
+	// useEffect(() => {
+	// 	getUser();
+	// }, []);
 
   return showReport ? (
     <ReportIssue toggleReport={toggleReport} />
@@ -58,7 +58,7 @@ const CustomOffcanvas = () => {
         </h5>
         <div className=" text-white user">
           <h3>
-            <span className=" header_userDetails">{user?user:'Guest'}</span>
+            <span className=" header_userDetails">{'Guest'}</span>
           </h3>
           <div className="header_contenteditable">
             <span>Play Quiz & earn coins</span>

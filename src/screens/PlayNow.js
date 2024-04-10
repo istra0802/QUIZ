@@ -31,14 +31,13 @@ export default function PlayNow() {
           Check out more quizzes to test your skills and keep grabbing more
           coins!
         </p>
-        <button
-          type="button"
-          className="btn btn-primary ani shine"
-          // onClick={openModal}
+        <a
+          className="playNow_btn playNow_animated playNow_shine"
+          style={{ textDecoration: "none" }}
           onClick={handleQuiz}
         >
           Play Now
-        </button>
+        </a>
       </div>
       <GoogleAd />
       <ListSection />
@@ -47,3 +46,7 @@ export default function PlayNow() {
     </div>
   );
 }
+
+
+
+

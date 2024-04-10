@@ -34,7 +34,7 @@ export default function QuizHeader({ disabledFreeze, handleTimeFreezeClick }) {
           if (prevSeconds === 0) {
             setSeconds(0);
             setTimeOver(true);
-            localStorage.clear();
+           
           } else {
             return prevSeconds - 1;
           }

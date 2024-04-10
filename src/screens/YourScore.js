@@ -12,25 +12,35 @@ import { fetchCategories } from "../services/index";
 
 export default function YourScore() {
 
-  const [activeCategory, setActiveCategory] = useState("CONTEST");
+ 
   const [categories, setCategories] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("Cricket");
 
+
+  let storedCorrectAnswers = localStorage.getItem("correctAnswerCount");
+
+  console.log("storedCorrectAnswers", storedCorrectAnswers)
+  if (storedCorrectAnswers === null) {
+    storedCorrectAnswers = 0;
+  }
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const staticCategory = [{ name: "CRICKET", href: "" }];
+        // const staticCategory = [{ name: "CONTEST", href: "" }];
         const data = await fetchCategories();
-        setCategories([...staticCategory, ...data]);
-        console.log(data, " ---------------------- ")
+        // setCategories([...staticCategory, ...data]);
+        setCategories(data)
+        setActiveCategory(categories[0].category)
+        console.log(categories, "s")
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
     fetchData();
   }, []);
-
-  console.log(activeCategory, " ============================= ")
+  
+  // console.log(activeCategory, " ============================= ")
   return (
     <>
       <Header />
@@ -57,7 +67,7 @@ export default function YourScore() {
             <div>
               <h1 className="fntsize">Time is over!Well Played</h1>
               <div className="tover">
-                Your Score is :<span className="score">-95</span>
+                Your Score is :<span className="score">{storedCorrectAnswers}</span>
               </div>
               <p className="tover_txt" style={{ marginBottom: "0px" }}>
                 Winner announcement will be @ 7:00 pm

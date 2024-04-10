@@ -62,7 +62,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<QuickStartPage />} />
           <Route exact path="/home" element={<HomePage />} />
-          <Route exact path="/login" element={<LoginPage />} />
+          <Route exact path="/login/:id" element={<LoginPage />} />
           <Route exact path="/playNow" element={<PlayNow />} />
           <Route exact path="/rules" element={<ContestRulePage />} />
           <Route exact path="/quiz/:id" element={<QuizPage />} />

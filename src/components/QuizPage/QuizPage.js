@@ -13,7 +13,6 @@ import QuizPageAudio from "./QuizPageAudio";
 import LifelineToggle from "./LifelineToggle";
 import coin from "../../images/coin-icon.jpg";
 import { useNavigate, useParams } from "react-router-dom";
-
 export default function QuizPage() {
   const { id } = useParams();
   const [showLifeline, setShowLifeline] = useState(false);
@@ -36,38 +35,31 @@ export default function QuizPage() {
   const [disabledFlip, setDisabledFlip] = useState(false);
   const [usedLifeLine, setUsedLifeLine] = useState(false);
   const [noSound, setNoSound] = useState(false);
-
   const navigate = useNavigate();
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchParticularContestdata(id);
-      
-        setQuestionSet(data.questionSet.questionSet);
-        setSelectedQue(data.questionSet.questionSet[0]);
+       console.log("par",data)
+        setQuestionSet(data.questionSet);
+        setSelectedQue(data.questionSet[0]);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
     fetchData();
   }, []);
-
   useEffect(() => {
     const selectedQuestionIndex = (page - 1) % questionSet.length;
     setSelectedQue(questionSet[selectedQuestionIndex]);
   }, [page, questionSet]);
-
   const handleButtonClick = (buttonIndex) => {
     setDisabledButtons(true);
-
     setButtonStates((prevState) => ({
       ...prevState,
       [buttonIndex]: true,
     }));
-    
     setClicked(true);
-
     setTimeout(() => {
       if (chancesLeft === 0) {
         setPage((prevPage) => prevPage + 1);
@@ -87,50 +79,40 @@ export default function QuizPage() {
     setDisabledFreeze(false);
     setDisabledFifty(false);
   };
-
   const toggleLifeline = () => {
     setShowLifeline(!showLifeline);
     if (showLifeline) {
       setChancesLeft(0);
     }
   };
-
   const incorrectOptions = selectedQue?.answerOptions?.filter(
     (opt) => !opt.isCorrectAnswer
   );
-
   const handleFiftyFiftyClick = () => {
     setDisabledFiftyPer(true);
     setDisabledFifty(true);
     setUsedLifeLine(true);
   };
-
   const handleFlipQuestionClick = () => {
     setPage((prevPage) => prevPage + 1);
     setDisabledFlip(true);
     setUsedLifeLine(true);
   };
-
   const handleTimeFreezeClick = () => {
     setDisabledFreeze(true);
     setDisabledFreezePer(true);
     setUsedLifeLine(true);
   };
-
   const nosoundFunction = () => {
     setNoSound(!noSound);
   };
-
   if (page === 21) {
     navigate("/win");
     localStorage.clear();
-    
   }
-
   return (
     <div className="quiz-container">
       {!noSound ? <QuizPageAudio /> : ""}
-
       <div className="info-sound" onClick={nosoundFunction}>
         <div className={` ${noSound ? "no-sound" : " sound"}`}></div>
         <div className="ssc">
@@ -141,13 +123,11 @@ export default function QuizPage() {
           <img src={coin} alt="/home" className="coin-image"></img>
         </h2>
       </div>
-
       <div className="quiz-card">
         <QuizHeader
           disabledFreeze={disabledFreeze}
           handleTimeFreezeClick={handleTimeFreezeClick}
         />
-
         <div className="quiz-body">
           <div className="quiz-option">
             <Question question={selectedQue?.question} page={page} />
@@ -168,7 +148,6 @@ export default function QuizPage() {
                 />
               ))}
             </ul>
-
             <Lifeline
               showLifeline={showLifeline}
               toggleLifeline={toggleLifeline}
@@ -181,7 +160,6 @@ export default function QuizPage() {
               disabledFlip={disabledFlip}
               disabledFreezePer={disabledFreezePer}
             />
-
             {showLifeline ? (
               <LifelineToggle
                 showLifeline={showLifeline}

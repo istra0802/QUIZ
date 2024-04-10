@@ -4,25 +4,24 @@ import Swiper from "swiper";
 import "../../../scss/Categories.scss";
 import { fetchCategories } from "../../../services";
 import CategoryCard from "../categoryCard/CatgoryCard";
-
 export default function Categories() {
   const [categories, setCategories] = useState([]);
-  const [activeCategory, setActiveCategory] = useState("CONTEST");
+  const [activeCategory, setActiveCategory] = useState("Cricket");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const staticCategory = [{ name: "CONTEST", href: "" }];
         const data = await fetchCategories();
-        setCategories([...staticCategory, ...data]);
+        setCategories(data)
+        console.log(categories, "s")
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
     fetchData();
+    // setActiveCategory(categories[0]?.category)
   }, []);
 
-  // console.log(activeCategory, ' ========= ')
   useEffect(() => {
     const swiper = new Swiper(".swiper-container", {
       slidesPerView: "auto",
@@ -32,11 +31,9 @@ export default function Categories() {
       },
     });
   }, []);
-
   const handleCategoryClick = (categoryName) => {
     setActiveCategory(categoryName);
   };
-
   return (
     <div className="categories-container">
       <div className="categories">
@@ -46,12 +43,12 @@ export default function Categories() {
               <div className="swiper-slide" key={index}>
                 <Link
                   className={`category-link ${
-                    activeCategory === category.name ? "active" : ""
+                    activeCategory === category.category? "active" : ""
                   }`}
                   to={category.href}
-                  onClick={() => handleCategoryClick(category.name)}
+                  onClick={() => handleCategoryClick(category.category)}
                 >
-                  {category.name}
+                  {category.category}
                 </Link>
               </div>
             ))}
