@@ -108,7 +108,7 @@ export default function QuizPage() {
   };
   if (page === 21) {
     navigate("/win");
-    localStorage.clear();
+    // localStorage.clear();
   }
   return (
     <div className="quiz-container">

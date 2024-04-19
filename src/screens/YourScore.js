@@ -133,7 +133,7 @@ export default function YourScore() {
           </a>
           <a
             className="btnstyling playNowanimate playnowblue playnowshine"
-            href="/"
+            href="/home"
           >
             Play Again
           </a>

@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Swiper from "swiper";
 import "../scss/SearchPage.scss";
-import { useNavigate, useParams } from "react-router";
-import { fetchAllCategoryData, fetchCategories } from "../services";
+import { useNavigate } from "react-router";
+import { fetchAllCategoryData, fetchCategories, fetchCategoriesWisedata } from "../services";
+
 export default function SearchPage() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [contestData, setContestData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const catgryimg=localStorage.getItem('image');
+
   const handleBack = () => {
     navigate("/home");
   };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,10 +27,12 @@ export default function SearchPage() {
     };
     fetchData();
   }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchAllCategoryData();
+        console.log("uuuuuu",data)
         setContestData(data);
       } catch (error) {
         console.error("Error fetching categories:", error);
@@ -33,6 +40,7 @@ export default function SearchPage() {
     };
     fetchData();
   }, []);
+
   useEffect(() => {
     const swiper = new Swiper(".swiper-container", {
       slidesPerView: "auto",
@@ -42,19 +50,24 @@ export default function SearchPage() {
       },
     });
   }, []);
+
   const filteredContests = contestData.filter((contest) =>
-    contest.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-  const filteredContests1 = categories.filter((contest) =>
-    contest.name.toLowerCase().includes(searchTerm.toLowerCase())
+    contest.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleCardClick = (contestId) => {
+  const filteredContests1 = categories?.filter((contest) =>
+    contest.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleCardClick = (contestId,contestImage,contestName) => {
+    localStorage.setItem('category',contestName);
+    localStorage.setItem('image',contestImage);
     navigate(`/home/playbtn/${contestId}`);
   };
 
   return (
     <div className="box-c1">
+
       <div className="search_wrapper">
         <div className="search_searchHeader d-flex">
           <div className="search_back" onClick={handleBack}>
@@ -82,6 +95,7 @@ export default function SearchPage() {
           </div>
         </div>
       </div>
+
       <div className="search_category swiper-container">
         <div className="swiper-wrapper">
           {filteredContests1.map((category, index) => (
@@ -91,16 +105,17 @@ export default function SearchPage() {
                   <img
                     src={category.quizImage}
                     style={{ width: "48px", height: "48px" }}
-                    alt={category.name}
+                    alt={""}
                   />
                 </div>
-                <span className="c">{category.name}</span>
+                <span className="c">{category?.category}</span>
               </a>
             </div>
           ))}
         </div>
         <div className="swiper-scrollbar"></div>
       </div>
+
       <div className="serach_gameList">
         <div className="search_listingHeader">
           <h1 className="h">Quiz List</h1>
@@ -115,7 +130,7 @@ export default function SearchPage() {
               <li key={index}>
                 <a
                   className="aa"
-                  onClick={() => handleCardClick(contest.id)}
+                  onClick={() => handleCardClick(contest.id,contest.quizImage,contest.category)}
                   style={{ cursor: "pointer" }}
                 >
                   <div className="search_box">
@@ -126,9 +141,9 @@ export default function SearchPage() {
                     />
                   </div>
                   <div className="search_quizTxt">
-                    <h2 className="hh">Play and Win ${contest.winningCoins}</h2>
+                    <h2 className="hh">{contest.name}</h2>
                     <p className="pp">
-                      {contest.name}, Entry: {contest.entryCoins} Coins
+                      {contest.category}, Entry: 50 Coins
                     </p>
                   </div>
                 </a>

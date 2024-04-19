@@ -10,9 +10,14 @@ function LoginSection() {
     //     `https://atme-quiz.onrender.com/auth/google/callback`,
     //     "_self"
     // );
+    
+     if( navigate(`/quiz/${id}`)){
 
-      navigate(`/quiz/${id}`)
-      localStorage.clear();
+       localStorage.clear();
+     }
+     else if(navigate(-1)){
+      
+     }
   };
 
   return (
